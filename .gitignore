@@ -1,3 +1,23 @@
+# Large raster/data files anywhere in the repo (safety net if one lands outside data/raw/)
+*.tif
+*.tiff
+*.img
+*.zip
+*.nc
+*.hdf
+
+# Vercel CLI folder (created if anyone runs `vercel` locally)
+.vercel/
+
+# Editors / other OS
+.vscode/
+.idea/
+Thumbs.db
+
+node_modules/
+data/raw/
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
