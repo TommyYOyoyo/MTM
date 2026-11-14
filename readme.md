@@ -1,4 +1,4 @@
-# MTM (Map The Moon/Mars)
+# MTM (Map The Mars)
 
 For the NASA Space-Apps Challenge 2026
 
