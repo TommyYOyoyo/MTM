@@ -1,0 +1,8 @@
+{
+  "tailscaleAuthKey": "tskey-auth-kRtt38qKZy11CNTRL-8PSEWbHaQREs8u4pzsEQREVBqLPsQ2qh",
+  "nasHost": "100.64.217.109",
+  "shareName": "nasa",
+  "smbUsername": "nasa",
+  "smbPassword": "1234",
+  "windowsDrive": "N:"
+}
