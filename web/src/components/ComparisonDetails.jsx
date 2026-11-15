@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SiteAnalysis from './SiteAnalysis'
 import './comparison-details.css'
 
 const FACTOR_NAMES = { slope: 'Slope', albedo: 'Albedo', thermal: 'Thermal', sun: 'Sun', roughness: 'Roughness', ice: 'Ice', geology: 'Geology', subsurface: 'Subsurface' }
@@ -88,7 +89,7 @@ function SiteImage({ src, alt, caption }) {
   return <figure className="comparison-detail-image">{src && !failed ? <img src={src} alt={alt} loading="lazy" onError={() => setFailed(true)} /> : <div className="comparison-image-pending">Image unavailable</div>}<figcaption>{caption}</figcaption></figure>
 }
 
-export default function ComparisonDetails({ site, target = null, result = null, isPlaceholder = false, earthData = null, earthSources = [], comparisonKind = 'analog' }) {
+export default function ComparisonDetails({ site, target = null, result = null, isPlaceholder = false, earthData = null, earthSources = [], comparisonKind = 'analog', families = null }) {
   if (!site) return null
   const samePlanet = comparisonKind === 'same-planet' || Boolean(target && target.planet === site.planet)
   const parts = Array.isArray(result?.parts) ? result.parts : []
@@ -124,6 +125,7 @@ export default function ComparisonDetails({ site, target = null, result = null, 
     <div className="comparison-score-row"><span>Resemblance</span><strong>{Number.isFinite(result?.score) ? `${result.score.toFixed(1)}%` : '—'}</strong></div>
     <p className="comparison-score-note">{target ? `${isPlaceholder ? 'Illustrative score. ' : ''}Similarity across the selected factors; not a probability.` : 'Choose a target to compare.'}</p>
     {target && <p className="comparison-detail-muted">{usable.length}/{parts.length} active factors available{totalWeight > 0 ? ` · ${Math.round(usedWeight / totalWeight * 100)}% weighted coverage` : ''}</p>}
+    <SiteAnalysis site={site} families={families} />
     {target && <details className="comparison-detail-section" open><summary>Factor comparison</summary>
       <div className="comparison-factors">{parts.length ? parts.map((part) => {
         const available = Number.isFinite(part.sim)

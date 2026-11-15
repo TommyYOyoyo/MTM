@@ -593,7 +593,7 @@ export default function GlobePreview() {
         {!isMobile && !solarVisible && !loading && !error && <ComparisonControls mode={mode} targetId={target?.id || ''} onTargetChange={beginComparison} targets={targets} weights={weights} onWeightsChange={(next) => { setWeights(next); setPresetId('custom') }} presetId={presetId} onPresetChange={applyPreset} elevationLimit={elevationLimit} onElevationLimitChange={changeElevation} disabled={transitioning} placeholder={sampleData} onOpenDual={canUseDualComparison ? openDualComparison : undefined} />}
         {!solarVisible && !loading && !error && (
           <>
-            <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}`} aria-label="Available locations" hidden={Boolean(searchTerm)}>
+            <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}${listView === 'checks' ? ' is-research' : ''}`} aria-label="Available locations" hidden={Boolean(searchTerm)}>
               <button className="preview-drawer-handle" type="button" aria-label={listCollapsed ? 'Expand locations' : 'Collapse locations'} aria-expanded={!listCollapsed} aria-controls="preview-list-content" onPointerDown={beginDrawerDrag} onPointerUp={endDrawerDrag} onPointerCancel={() => { drawerGesture.current = null }} onClick={toggleDrawer}>
                 <span className="preview-drawer-grip" aria-hidden="true" />
                 <span className="preview-panel-title">{listView === 'browse' ? 'Available locations' : listView === 'checks' ? 'Research checks' : 'Analog matches'}<svg className="preview-location-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2.25" /></svg></span>
@@ -628,7 +628,7 @@ export default function GlobePreview() {
               <div id="preview-details-content">
                 <div aria-live="polite">
                   <button className="comparison-primary-action" type="button" disabled={transitioning || selected.discovery} onClick={() => beginComparison(selected.id)}>{selected.planet === 'mars' ? 'Find Earth analogs' : 'Find Mars analogs'}</button>
-                  <ComparisonDetails key={selected.id} site={selected} target={selectedResult ? target : null} result={selectedResult} isPlaceholder={selected.placeholder || Boolean(selectedResult?.placeholder)} earthData={earthData} earthSources={earthSources} />
+                  <ComparisonDetails key={selected.id} site={selected} target={selectedResult ? target : null} result={selectedResult} isPlaceholder={selected.placeholder || Boolean(selectedResult?.placeholder)} earthData={earthData} earthSources={earthSources} families={families} />
                 </div>
               </div>
             </aside>}

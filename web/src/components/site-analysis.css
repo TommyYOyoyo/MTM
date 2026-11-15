@@ -1,0 +1,15 @@
+.site-analysis { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--line, #ffffff25); }
+.site-analysis-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .25rem .75rem; }
+.comparison-details .site-analysis h2 { margin: 0; font-size: .8125rem; font-weight: 600; }
+.site-analysis-heading > span, .site-analysis-note, .site-analysis-caption { color: var(--muted, #c2c2bf); font-size: .6875rem; }
+.comparison-details .site-analysis-family { margin: .25rem 0 .5rem; color: #e5e5e1; font-size: .75rem; }
+.site-analysis-plot { display: block; width: 100%; height: auto; max-height: 185px; overflow: visible; }
+.site-analysis-axes { fill: none; stroke: #ffffff40; stroke-width: 1; }
+.site-analysis-zero { stroke: #ffffff12; stroke-dasharray: 3 4; }
+.site-analysis-point { fill: #aaa; opacity: .65; }
+.site-analysis-point.is-selected { fill: #fff; stroke: #fff; stroke-width: 5; stroke-opacity: .2; opacity: 1; paint-order: stroke; }
+.site-analysis-axis-label { fill: #b9b9b6; font-size: 9px; }
+.site-analysis-caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .25rem .75rem; }
+.site-analysis-caption > span:first-child { display: inline-flex; align-items: center; gap: .375rem; }
+.site-analysis-caption i { width: .375rem; height: .375rem; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px #ffffff26; }
+.comparison-details .site-analysis-note { margin: .5rem 0 0; }

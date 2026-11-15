@@ -48,6 +48,29 @@
 .preview-drawer-grip { width: 2.5rem; height: .25rem; flex: none; border-radius: 999px; background: rgba(255,255,255,.55); }
 #preview-list-content { max-height: min(55dvh, 26rem); overflow-y: auto; overscroll-behavior: contain; transition: max-height 260ms ease; }
 .preview-list.is-collapsed #preview-list-content { max-height: 0; overflow: hidden; }
+@media (min-width: 35.001rem) {
+  .preview-chrome { --research-drawer-top: 9.5rem; }
+  .preview-chrome:has(> .comparison-controls:not([open])) .preview-list.is-research:not(.is-collapsed):not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - var(--research-drawer-top));
+    max-height: calc(100dvh - var(--research-drawer-top));
+  }
+  .preview-list.is-research .preview-drawer-handle { flex-shrink: 0; }
+  .preview-chrome:has(> .comparison-controls:not([open])) .preview-list.is-research:not(.is-collapsed):not([hidden]) #preview-list-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    max-height: none;
+    overflow: hidden;
+  }
+  .preview-list.is-research .comparison-list-tabs { flex-shrink: 0; }
+  .preview-list.is-research .research-tools { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+}
+@media (min-width: 35.001rem) and (max-width: 48rem) {
+  .preview-chrome { --research-drawer-top: 8.5rem; }
+}
 .preview-panel-heading { min-height: 2.75rem; display: flex; align-items: center; justify-content: space-between; gap: .5rem; color: #e0e0dd; font-size: .8125rem; font-weight: 600; line-height: 1.4; }
 .preview-panel-title { min-width: 0; }
 .preview-panel-toggle { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 0; border-radius: .625rem; background: transparent; color: #e4e4e1; font: inherit; font-size: 1.125rem; cursor: pointer; }

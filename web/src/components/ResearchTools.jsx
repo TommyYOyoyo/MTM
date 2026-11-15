@@ -1,4 +1,5 @@
 import { safeExternalUrl } from '../lib/comparison.js'
+import './research-tools.css'
 
 const statusLabel = { unconfigured: 'Pairing needed', placeholder: 'Sample only', missing: 'Data needed', pass: 'Top five', fail: 'Outside top five' }
 
@@ -28,16 +29,27 @@ export default function ResearchTools({ report, families, sites }) {
   }
   const x = points.length ? extent('pc1') : () => 0.5
   const y = points.length ? extent('pc2') : () => 0.5
-  const sources = [...new Map(sites.flatMap((site) => site.sources || []).map((source) => [source.href || source.url, source])).values()].filter((source) => safeExternalUrl(source.href || source.url))
+  const sources = [...new Map((sites || []).flatMap((site) => site.sources || []).map((source) => [source.href || source.url, source])).values()].filter((source) => safeExternalUrl(source.href || source.url))
 
   return <div className="research-tools">
-    <h2>Benchmarks</h2>
-    <p className="comparison-muted">Known analogs used to check expected rankings. Equal weights; top five is the planned check.</p>
-    <p>{report?.passed || 0} top-five checks met · {report?.pending || 0} pending</p>
-    {rows.length ? <ul className="benchmark-list">{rows.map((row, index) => <li key={`${row.site.id}-${row.target?.id || index}`}><strong>{row.site.name}</strong><span>{row.target?.name || row.targetId || 'Mars pairing pending'}</span><div><span>{statusLabel[row.status] || 'Pending'}</span><span>{row.rank !== null ? `Rank ${row.rank}` : '—'}</span></div>{row.reason && <small>{row.reason}</small>}</li>)}</ul> : <p className="comparison-empty">No benchmark sites supplied yet.</p>}
-    <button className="comparison-secondary-action" type="button" onClick={() => exportValidation(rows)} disabled={!rows.length}>Export validation</button>
-    <details className="research-section"><summary>Analog families</summary><p className="comparison-muted">Optional grouping of sites. This does not change resemblance scores.</p>{points.length ? <><svg className="family-chart" viewBox="0 0 320 180" role="img" aria-label="Site families projected onto two principal components"><path d="M24 12v144h280" fill="none" stroke="currentColor" opacity=".25" />{points.map((point, index) => <circle key={`${point.id}-${index}`} cx={28 + x(point.pc1) * 264} cy={148 - y(point.pc2) * 128} r="4" fill="currentColor"><title>{point.name || point.id}: {point.family ?? point.cluster ?? 'Unassigned'}</title></circle>)}<text x="276" y="175">PC1</text><text x="2" y="14">PC2</text></svg><ul>{points.map((point, index) => <li key={`${point.id}-${index}`}>{point.name || point.id}: {point.family ?? point.cluster ?? 'Unassigned'}</li>)}</ul></> : <p className="comparison-empty">Analysis not connected yet.</p>}</details>
-    <details className="research-section"><summary>Method & limitations</summary><p>Weighted Gower resemblance compares normalized numbers, ice categories, geology tags, and optional subsurface features.</p><p>Missing factors are excluded and the remaining weights are renormalized. Coverage shows how much of the requested weight has data.</p><p>A high score is a match across selected factors, not a probability or proof of suitability. Thermal scores rank Mars thermal inertia and Earth’s apparent proxy (1 − albedo) / annual day–night surface-temperature difference within each planet’s supplied catalog. These quantities are not physically equivalent.</p><a href="https://doi.org/10.2307/2528823" target="_blank" rel="noreferrer">Gower (1971) ↗</a></details>
-    <details className="research-section"><summary>Data sources</summary>{sources.length ? <ul>{sources.map((source) => <li key={source.href || source.url}><a href={safeExternalUrl(source.href || source.url)} target="_blank" rel="noreferrer">{source.name || 'Dataset'}{source.agency ? ` · ${source.agency}` : ''} ↗</a></li>)}</ul> : <p>Site dataset links pending.</p>}<p className="comparison-muted">Partner observations and research papers appear in each site's details when supplied.</p></details>
+    <div className="research-heading">
+      <div><h2>Benchmarks</h2><p>Known analogs, equal weights.</p></div>
+      <button className="comparison-secondary-action research-export" type="button" onClick={() => exportValidation(rows)} disabled={!rows.length}>Export CSV <span aria-hidden="true">↗</span></button>
+    </div>
+    <dl className="research-summary" aria-label="Top-five benchmark checks">
+      <div><dt>Top-five checks met</dt><dd>{report?.passed || 0}</dd></div>
+      <div><dt>Pending</dt><dd>{report?.pending || 0}</dd></div>
+    </dl>
+    {rows.length ? <ul className="benchmark-list">{rows.map((row, index) => <li className="benchmark-card" key={`${row.site.id}-${row.target?.id || index}`}>
+      <div className="benchmark-copy"><strong>{row.site.name}</strong><span>{row.target?.name || row.targetId || 'Mars pairing pending'}</span></div>
+      <div className="benchmark-rank"><span>Rank</span><strong>{Number.isFinite(row.rank) ? row.rank : '—'}</strong></div>
+      <span className="benchmark-status" data-status={row.status}>{statusLabel[row.status] || 'Pending'}</span>
+      {row.reason && <small className="benchmark-reason">{row.reason}</small>}
+    </li>)}</ul> : <p className="comparison-empty">No benchmark sites supplied yet.</p>}
+    <div className="research-disclosures">
+      <details className="research-section"><summary>Analog families <span className="research-section-meta">{points.length ? `${points.length} sites` : 'Optional'}</span></summary><div className="research-section-body"><p>Optional site groupings. Resemblance scores are unchanged.</p>{points.length ? <><svg className="family-chart" viewBox="0 0 320 180" role="img" aria-label="Site families projected onto two principal components"><path d="M24 12v144h280" fill="none" stroke="currentColor" opacity=".25" />{points.map((point, index) => <circle key={`${point.id}-${index}`} cx={28 + x(point.pc1) * 264} cy={148 - y(point.pc2) * 128} r="4" fill="currentColor"><title>{point.name || point.id}: {point.family ?? point.cluster ?? 'Unassigned'}</title></circle>)}<text x="276" y="175">PC1</text><text x="2" y="14">PC2</text></svg><ul className="research-family-list">{points.map((point, index) => <li key={`${point.id}-${index}`}><span>{point.name || point.id}</span><span>{point.family ?? point.cluster ?? 'Unassigned'}</span></li>)}</ul></> : <p className="comparison-empty">Analysis not connected yet.</p>}</div></details>
+      <details className="research-section"><summary>Method & limitations</summary><div className="research-section-body"><p>Weighted Gower resemblance compares normalized numbers, ice categories, geology tags, and optional subsurface features.</p><p>Missing factors are excluded and the remaining weights are renormalized. Coverage shows how much of the requested weight has data.</p><p>A high score is a match across selected factors, not a probability or proof of suitability. Thermal scores rank Mars thermal inertia and Earth’s apparent proxy (1 − albedo) / annual day–night surface-temperature difference within each planet’s supplied catalog. These quantities are not physically equivalent.</p><a className="research-method-link" href="https://doi.org/10.2307/2528823" target="_blank" rel="noreferrer">Gower (1971) <span aria-hidden="true">↗</span></a></div></details>
+      <details className="research-section"><summary>Data sources <span className="research-section-meta">{sources.length || 'Pending'}</span></summary><div className="research-section-body">{sources.length ? <ul className="research-source-list">{sources.map((source) => <li key={source.href || source.url}><a href={safeExternalUrl(source.href || source.url)} target="_blank" rel="noreferrer"><span className="research-source-copy"><span>{source.name || 'Dataset'}</span>{source.agency && <small>{source.agency}</small>}</span><span aria-hidden="true">↗</span></a></li>)}</ul> : <p>Site dataset links pending.</p>}<p className="comparison-muted">Partner observations and papers appear in site details when supplied.</p></div></details>
+    </div>
   </div>
 }
