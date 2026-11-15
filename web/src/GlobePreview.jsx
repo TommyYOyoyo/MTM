@@ -7,6 +7,7 @@ import ComparisonDetails from './components/ComparisonDetails.jsx'
 import DualComparison from './components/DualComparison.jsx'
 import Credits from './components/Credits.jsx'
 import ResearchTools from './components/ResearchTools.jsx'
+import useResizableDrawer from './hooks/useResizableDrawer.js'
 import { DEFAULT_WEIGHTS } from './lib/constants.js'
 import { adaptSites, compareSites, normalizeWeights, rankComparisons, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
 import './globe-preview.css'
@@ -89,9 +90,8 @@ export default function GlobePreview() {
   const searchRef = useRef(null)
   const mobileBackRef = useRef(null)
   const comparisonMenuRef = useRef(null)
+  const comparisonControlsRef = useRef(null)
   const listRef = useRef(null)
-  const drawerGesture = useRef(null)
-  const ignoreDrawerClick = useRef(false)
 
   useEffect(() => {
     mountedRef.current = true
@@ -236,6 +236,16 @@ export default function GlobePreview() {
   const mobileDetail = isMobile && Boolean(locationPageId && selected) && !solarVisible
   const mobileComparison = isMobile && comparisonPage
   const benchmarkReport = validateBenchmarks(sites)
+  const drawer = useResizableDrawer({
+    drawerRef: listRef,
+    controlsRef: comparisonControlsRef,
+    searchRef,
+    enabled: !solarVisible && !loading && !error && !mobileDetail && !mobileComparison && !searchTerm,
+    isMobile,
+    collapsed: listCollapsed,
+    onCollapsedChange: setListCollapsed,
+    view: listView,
+  })
 
   useEffect(() => {
     document.title = creditsOpen ? 'Credits · Space Out' : mobileComparison ? 'Compare · Space Out' : mobileDetail ? `${selected.name} · Space Out` : 'Space Out'
@@ -518,33 +528,6 @@ export default function GlobePreview() {
     focusTarget?.focus()
   }
 
-  function beginDrawerDrag(event) {
-    if (!event.isPrimary || event.button !== 0) return
-    ignoreDrawerClick.current = false
-    drawerGesture.current = { pointerId: event.pointerId, startY: event.clientY }
-    event.currentTarget.setPointerCapture(event.pointerId)
-  }
-
-  function endDrawerDrag(event) {
-    const gesture = drawerGesture.current
-    if (!gesture || gesture.pointerId !== event.pointerId) return
-    drawerGesture.current = null
-    const distance = event.clientY - gesture.startY
-    if (Math.abs(distance) >= 24) {
-      ignoreDrawerClick.current = true
-      setListCollapsed(distance > 0)
-    }
-  }
-
-  function toggleDrawer(event) {
-    if (ignoreDrawerClick.current && event.detail !== 0) {
-      ignoreDrawerClick.current = false
-      return
-    }
-    ignoreDrawerClick.current = false
-    setListCollapsed((collapsed) => !collapsed)
-  }
-
   // Keep only the two visible 3D views mounted while comparing.
   if (dualComparison && canUseDualComparison) return (
     <DualComparison sites={sites} initialPlanet={dualComparison.planet} initialSelectedId={dualComparison.selectedId} weights={weights} earthEngine={earthEngine} earthSources={earthSources} onClose={closeDualComparison} />
@@ -590,11 +573,11 @@ export default function GlobePreview() {
           </div>
         )}
         <PlanetSwitch planet={solarVisible ? null : planet} onSelect={selectPlanet} className="preview-switch-main" disabled={transitioning} />
-        {!isMobile && !solarVisible && !loading && !error && <ComparisonControls mode={mode} targetId={target?.id || ''} onTargetChange={beginComparison} targets={targets} weights={weights} onWeightsChange={(next) => { setWeights(next); setPresetId('custom') }} presetId={presetId} onPresetChange={applyPreset} elevationLimit={elevationLimit} onElevationLimitChange={changeElevation} disabled={transitioning} placeholder={sampleData} onOpenDual={canUseDualComparison ? openDualComparison : undefined} />}
+        {!isMobile && !solarVisible && !loading && !error && <ComparisonControls panelRef={comparisonControlsRef} mode={mode} targetId={target?.id || ''} onTargetChange={beginComparison} targets={targets} weights={weights} onWeightsChange={(next) => { setWeights(next); setPresetId('custom') }} presetId={presetId} onPresetChange={applyPreset} elevationLimit={elevationLimit} onElevationLimitChange={changeElevation} disabled={transitioning} placeholder={sampleData} onOpenDual={canUseDualComparison ? openDualComparison : undefined} />}
         {!solarVisible && !loading && !error && (
           <>
-            <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}${listView === 'checks' ? ' is-research' : ''}`} aria-label="Available locations" hidden={Boolean(searchTerm)}>
-              <button className="preview-drawer-handle" type="button" aria-label={listCollapsed ? 'Expand locations' : 'Collapse locations'} aria-expanded={!listCollapsed} aria-controls="preview-list-content" onPointerDown={beginDrawerDrag} onPointerUp={endDrawerDrag} onPointerCancel={() => { drawerGesture.current = null }} onClick={toggleDrawer}>
+            <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}${listView === 'checks' ? ' is-research' : ''}${drawer.isDragging ? ' is-dragging' : ''}`} style={drawer.style} aria-label="Available locations" hidden={Boolean(searchTerm)}>
+              <button className="preview-drawer-handle" data-drawer-handle type="button" aria-label={listCollapsed ? 'Expand locations' : 'Collapse locations'} aria-expanded={!listCollapsed} aria-controls="preview-list-content" onPointerDown={drawer.onPointerDown} onPointerMove={drawer.onPointerMove} onPointerUp={drawer.onPointerUp} onPointerCancel={drawer.onPointerCancel} onClick={drawer.onClick} onKeyDown={drawer.onKeyDown}>
                 <span className="preview-drawer-grip" aria-hidden="true" />
                 <span className="preview-panel-title">{listView === 'browse' ? 'Available locations' : listView === 'checks' ? 'Research checks' : 'Analog matches'}<svg className="preview-location-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2.25" /></svg></span>
               </button>

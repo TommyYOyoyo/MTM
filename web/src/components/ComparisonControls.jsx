@@ -7,6 +7,7 @@ export default function ComparisonControls({
   targets = [], weights = {}, onWeightsChange, presetId = 'equal', onPresetChange,
   elevationLimit = null, onElevationLimitChange, disabled = false, placeholder = false,
   presentation = 'panel',
+  panelRef,
   onOpenDual,
 }) {
   const id = useId()
@@ -18,7 +19,7 @@ export default function ComparisonControls({
   const Container = isPage ? 'section' : 'details'
 
   return (
-    <Container className={`comparison-controls${isPage ? ' comparison-controls-page' : ''}`} aria-label={isPage ? 'Comparison settings' : undefined}>
+    <Container ref={panelRef} className={`comparison-controls${isPage ? ' comparison-controls-page' : ''}`} aria-label={isPage ? 'Comparison settings' : undefined}>
       {!isPage && <summary className="comparison-controls-summary">
         <span>Compare</span>
         <span className="comparison-controls-summary-meta">{placeholder ? 'Sample data' : mode === 'earth-to-mars' ? 'Earth → Mars' : 'Mars → Earth'}</span>
