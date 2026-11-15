@@ -1,5 +1,19 @@
 # Globe component handoff
 
+To run the standalone preview:
+
+```sh
+cd web
+npm ci
+npm run dev
+```
+
+Open `/globe-preview.html` at the address printed by Vite. Zoom out from Earth
+or Mars to explore the solar system; zoom back toward either planet or use the
+planet switch to return. Planet positions are calculated from the device clock
+with Astronomy Engine. Distances and sizes are adjusted for visibility, and
+the imagery is static. See `public/textures/solar/CREDITS.md` for sources.
+
 `src/components/Globe.jsx` is Programmer B's self-contained planet visualization. The parent owns the active planet, selected site, ranking and data loading.
 
 ```jsx
@@ -14,7 +28,7 @@ import Globe from './components/Globe.jsx'
 />
 ```
 
-`sites` uses the shared `sites.json` contract (`id`, `name`, `planet`, `lat`, `lon`, optional `benchmark`). Latitudes must be −90 to 90; longitudes must be −180 to 180. Invalid or missing coordinates are excluded, not moved to zero. Markers are filtered to the active planet. A selected marker is warm peach, highlighted results are muted teal, and other Earth benchmarks are lavender. The globe recenters on the selected site; clicking a point or using the keyboard-accessible site list calls `onSelect(id)`. The parent supplies the planet toggle.
+`sites` uses the shared `sites.json` contract (`id`, `name`, `planet`, `lat`, `lon`, optional `benchmark`). Latitudes must be −90 to 90; longitudes must be −180 to 180. Invalid or missing coordinates are excluded, not moved to zero. Markers are filtered to the active planet and shown in red, fading to a surface outline as the viewer zooms in; the selected marker is brighter and larger. The globe recenters on the selected site; clicking a point or using the keyboard-accessible site list calls `onSelect(id)`. The parent supplies the planet toggle.
 
 The component sizes itself to its container and offers a site list when WebGL is unavailable. It uses Tailwind classes already provided by the project. Images are served locally from `public/textures/earth.jpg` and `mars.jpg` and follow Vite's base path; see `public/textures/CREDITS.md` for source and attribution.
 

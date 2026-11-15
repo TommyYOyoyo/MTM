@@ -1,0 +1,16 @@
+{
+  "planets": {
+    "earth": {
+      "maxLevel": 6,
+      "tileSize": 512,
+      "sourceWidth": 21600,
+      "sourceHeight": 10800
+    },
+    "mars": {
+      "maxLevel": 6,
+      "tileSize": 512,
+      "sourceWidth": 23040,
+      "sourceHeight": 11520
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "year": 2023,
+    "radius_m": 5000,
+    "sources": [
+      {
+        "name": "NASA NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001"
+      },
+      {
+        "name": "NASA MODIS MOD11A2.061",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2"
+      },
+      {
+        "name": "NASA MODIS MCD43A3.061",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3"
+      }
+    ],
+    "method": "Area means inside a circular radius around each coordinate. NASADEM elevation and pixel-level slope use 30 m data from February 2000, not the selected year; coverage is approximately 56\u00b0S\u201360\u00b0N. MODIS shortwave white-sky albedo uses MCD43A3 at 500 m with mandatory QA bit 0 = 0 and values in [0,1]. Its daily images use overlapping 16-day windows. MOD11A2 day and night land surface temperatures use 1 km 8-day composites with mandatory QA bits 0\u20131 = 0. MODIS images are averaged by pixel across the selected calendar year, then spatially averaged; day and night are independently masked, so their difference is the difference of separate means, not a paired daily swing. LST is surface temperature, not air temperature or thermal inertia. Missing or masked coverage is null. The site coordinates may themselves be placeholders."
+  },
+  "sites": {
+    "atacama": {
+      "lat": -24.5,
+      "lon": -69.25,
+      "elevation_m": 2680.074914218511,
+      "slope_deg": 8.840528352041058,
+      "albedo": 0.1994192483956018,
+      "lst_day_c": 34.28785676700114,
+      "lst_night_c": 8.442311426146889,
+      "lst_day_night_c": 25.84554534085425
+    },
+    "earth_a": {
+      "lat": 10.0,
+      "lon": 20.0,
+      "elevation_m": 400.40584019113373,
+      "slope_deg": 2.0726828282435905,
+      "albedo": 0.13269347649833751,
+      "lst_day_c": 35.62587946040709,
+      "lst_night_c": 22.491633923479498,
+      "lst_day_night_c": 13.134245536927594
+    },
+    "earth_b": {
+      "lat": 75.0,
+      "lon": -40.0,
+      "elevation_m": null,
+      "slope_deg": null,
+      "albedo": 0.8098572661326098,
+      "lst_day_c": -34.402611993070906,
+      "lst_night_c": -37.89282184241495,
+      "lst_day_night_c": 3.4902098493440477
+    },
+    "earth_c": {
+      "lat": 70.0,
+      "lon": -150.0,
+      "elevation_m": null,
+      "slope_deg": null,
+      "albedo": 0.33992815692277845,
+      "lst_day_c": -10.731577618411723,
+      "lst_night_c": -11.19032394258225,
+      "lst_day_night_c": 0.4587463241705265
+    },
+    "earth_d": {
+      "lat": -30.0,
+      "lon": 135.0,
+      "elevation_m": 161.3009120952812,
+      "slope_deg": 1.7145385082890214,
+      "albedo": 0.1949706425036904,
+      "lst_day_c": null,
+      "lst_night_c": null,
+      "lst_day_night_c": null
+    }
+  }
+}

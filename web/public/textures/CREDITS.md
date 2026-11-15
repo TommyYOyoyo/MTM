@@ -1,6 +1,6 @@
 # Globe texture sources
 
-Both JPEGs are visualization textures, not source data for scientific measurements. Each is equirectangular, 4096 × 2048, with north at the top and longitude −180° at the left edge.
+These visualization images are not scientific measurements. The 8192 × 4096 JPEGs are equirectangular, north-up, with longitude −180° at the left edge. The globe also uses zoom-dependent tiles made from the full-resolution sources when available.
 
-- `earth.jpg`: NASA Blue Marble, composed from the western and eastern 4096 × 4096 source hemispheres and downsampled. Credit: Reto Stöckli, NASA Goddard Space Flight Center and NASA Earth Observatory. Source and downloads: https://svs.gsfc.nasa.gov/2915/
-- `mars.jpg`: Viking Merged Color Mosaic, NASA Viking Orbiter data sharpened with MDIM 1.0; downloaded as eight 90° × 90° PNG tiles from Arizona State University's Mars Space Flight Facility, assembled and downsampled. Credit: NASA Viking Orbiter, USGS Astrogeology Science Center, and Arizona State University Mars Space Flight Facility. Dataset documentation and downloads: https://www.mars.asu.edu/data/mdim_color/
+- Earth: NASA Blue Marble Next Generation, August 2004, with topography and bathymetry (source: 21,600 × 10,800). Credit: NASA Earth Observatory and Reto Stöckli (NASA Goddard Space Flight Center). Source: https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/
+- Mars: Viking Merged Color Mosaic, sharpened with MDIM 1.0 (source: 23,040 × 11,520). Credit: NASA Viking Orbiter, USGS Astrogeology Science Center, and Arizona State University Mars Space Flight Facility. Source: https://www.mars.asu.edu/data/mdim_color/
