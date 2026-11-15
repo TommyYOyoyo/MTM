@@ -1,4 +1,4 @@
-const NUMERIC_FACTORS = ["slope", "albedo", "thermal inertia", "sun angle", "roughness", ];
+const NUMERIC_FACTORS = ["slope", "albedo", "thermal", "sun", "roughness", ];
 
 const FACTORS = [
     ...NUMERIC_FACTORS,
