@@ -1,4 +1,4 @@
-# CONVERT EVERYTHING TO 0-1 FOR SCORING.JS
+# CONVERT EVERYTHING TO 0-1 FOR SCORING.JS!!
 
 AXIAL_TILT = {"mars": 25.2, "earth": 23.4} # tilt in deg  
 SLOPE_MAX = 30 # >=30 steepness --> 1.0
