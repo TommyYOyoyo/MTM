@@ -3,3 +3,4 @@ numpy
 rasterio
 scikit-learn
 matplotlib
+earthengine-api
