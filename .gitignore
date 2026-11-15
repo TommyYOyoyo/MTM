@@ -15,6 +15,7 @@
 Thumbs.db
 
 node_modules/
+.ai-apple-design/
 data/raw/
 .DS_Store
 
