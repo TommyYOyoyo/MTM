@@ -1,8 +1,10 @@
 import ResultsList  from "./components/ResultsList.jsx";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import Globe from "./components/Globe.jsx";
+import ComparisonControls from "./components/ComparisonControls.jsx";
 
 import { rankSites } from "./lib/scoring.js";
-import { DEFAULT_WEIGHTS } from "./lib/constants.js";
+import { normalizeWeights, WEIGHT_PRESETS } from "./lib/comparison.js";
 
 export default function App() {
   // App state
@@ -10,9 +12,9 @@ export default function App() {
   const [targetId, setTargetId] = useState("");
   const [selectedResultId, setSelectedResultId] = useState("");
 
-  const [weights, setWeights] = useState({
-    ...DEFAULT_WEIGHTS,
-  });
+  const [weights, setWeights] = useState(() => normalizeWeights());
+  const [presetId, setPresetId] = useState("equal");
+  const [elevationLimit, setElevationLimit] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -66,33 +68,64 @@ export default function App() {
 
   // Find the selected Mars target
   const marsSites = sites.filter(
-    site => site.planet === "mars"
+    site => site.planet === "mars" && (
+      elevationLimit === null || (
+        Number.isFinite(site.elevation_m) &&
+        site.elevation_m <= elevationLimit
+      )
+    )
   );
 
   const target = marsSites.find(
     site => site.id === targetId
   );
 
-  // Recalculate rankings when data, target, or weights change
-  const results = useMemo(() => {
-    if (!target) return [];
+  // Calculate rankings from the current target and weights
+  const earthSites = sites.filter(
+    site => site.planet === "earth"
+  );
 
-    const earthSites = sites.filter(
-      site => site.planet === "earth"
-    );
-
-    return rankSites(target, earthSites, weights);
-  }, [sites, target, weights]);
+  const results = target
+    ? rankSites(target, earthSites, weights)
+    : [];
 
   // Default to the highest-ranked result
-  const selectedResult =
+   const selectedResult =
     results.find(
       result => result.site.id === selectedResultId
     ) ?? results[0];
 
-  function handleTargetChange(event) {
-    setTargetId(event.target.value);
+   const topEarthIds = results
+        .filter(result => result.score !== null)
+        .slice(0, 5)
+        .map(result => result.site.id);
+
+    function selectMarsTarget(id) {
+    setTargetId(id);
     setSelectedResultId("");
+  }
+
+  function handleWeightsChange(nextWeights) {
+    setWeights(nextWeights);
+    setPresetId("custom");
+  }
+
+  function handlePresetChange(id) {
+    const preset = WEIGHT_PRESETS.find(item => item.id === id);
+    if (!preset) return;
+
+    setWeights({ ...preset.weights });
+    setPresetId(id);
+  }
+
+  function handleElevationChange(limit) {
+    setElevationLimit(limit);
+
+    if (target && limit !== null && (
+      !Number.isFinite(target.elevation_m) || target.elevation_m > limit
+    )) {
+      selectMarsTarget("");
+    }
   }
 
   if (loading) {
@@ -103,54 +136,90 @@ export default function App() {
     return <p role="alert">{error}</p>;
   }
 
-  return (
-    <main>
-      <h1>Mars Analog Finder</h1>
+    return (
+    <main className="min-h-screen bg-slate-950 p-4 text-white">
+      <h1 className="mb-6 text-2xl font-bold">
+        Mars Analog Finder
+      </h1>
 
-      <label htmlFor="mars-target">
-        Choose a Mars location:
-      </label>
+      <div className="grid items-start gap-6 lg:grid-cols-[240px_minmax(0,1fr)_300px]">
 
-      <select
-        id="mars-target"
-        value={targetId}
-        onChange={handleTargetChange}
-      >
-        <option value="" disabled>
-          Select a location
-        </option>
+        {/* Left: target controls */}
+        <section>
+          <h2 className="mb-3 text-xl font-semibold">
+            Mars target
+          </h2>
 
-        {marsSites.map(site => (
-          <option key={site.id} value={site.id}>
-            {site.name}
-          </option>
-        ))}
-      </select>
+          <ComparisonControls
+            presentation="page"
+            mode="mars-to-earth"
+            targets={marsSites}
+            targetId={targetId}
+            onTargetChange={selectMarsTarget}
+            weights={weights}
+            onWeightsChange={handleWeightsChange}
+            presetId={presetId}
+            onPresetChange={handlePresetChange}
+            elevationLimit={elevationLimit}
+            onElevationLimitChange={handleElevationChange}
+          />
+        </section>
 
-      <button
-        type="button"
-        onClick={() => setWeights({ ...DEFAULT_WEIGHTS })}
-      >
-        Reset weights
-      </button>
+        {/* Centre: the two globes */}
+        <section className="min-w-0 space-y-6">
+          <div>
+            <h2 className="mb-3 text-xl font-semibold">
+              Mars
+            </h2>
 
-      <h2>Earth matches</h2>
+            <Globe
+              sites={marsSites}
+              planet="mars"
+              selectedId={targetId}
+              onSelect={selectMarsTarget}
+            />
+          </div>
 
-      {!target ? (
-        <p>No Mars target available.</p>
-      ) : (
-        <ResultsList
-          results={results}
-          selectedId={selectedResult?.site.id}
-          onSelect={setSelectedResultId}
-        />
-      )}
+          <div>
+            <h2 className="mb-3 text-xl font-semibold">
+              Earth
+            </h2>
 
-      {selectedResult && (
-        <p>
-          Selected Earth location: {selectedResult.site.name}
-        </p>
-      )}
+            <Globe
+              sites={sites}
+              planet="earth"
+              selectedId={selectedResult?.site.id}
+              highlightIds={topEarthIds}
+              onSelect={setSelectedResultId}
+            />
+          </div>
+        </section>
+
+        {/* Right: ranking and current selection */}
+        <section>
+          <h2 className="mb-3 text-xl font-semibold">
+            Earth matches
+          </h2>
+
+          {!target ? (
+            <p>No Mars target available.</p>
+          ) : (
+            <ResultsList
+              results={results}
+              selectedId={selectedResult?.site.id}
+              onSelect={setSelectedResultId}
+            />
+          )}
+
+          {selectedResult && (
+            <p className="mt-4">
+              Selected Earth location:{" "}
+              {selectedResult.site.name}
+            </p>
+          )}
+        </section>
+
+      </div>
     </main>
   );
 }
