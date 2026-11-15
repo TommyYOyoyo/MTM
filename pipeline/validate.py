@@ -44,8 +44,10 @@ def gowerScore(marsSite, earthSite):
     similarities = []
     
     for factor in NUMERIC:
+        if factor == "roughness":
+            continue # team weights: roughness not used
         similarities.append(numericSimilarity(marsSite, earthSite, factor))
-        
+
     similarities.append(geologySimilarity(marsSite, earthSite))
     
     for factor in CATEGORY:
