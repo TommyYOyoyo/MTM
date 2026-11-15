@@ -1,10 +1,6 @@
-# Large raster/data files anywhere in the repo (safety net if one lands outside data/raw/)
-*.tif
-*.tiff
-*.img
-*.zip
-*.nc
-*.hdf
+data/raw/phoenix_met
+data/raw/MOLA_463m.tif
+data/raw/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif
 
 # Vercel CLI folder (created if anyone runs `vercel` locally)
 .vercel/
