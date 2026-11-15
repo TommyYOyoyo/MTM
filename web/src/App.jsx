@@ -1,4 +1,4 @@
-
+import ResultsList  from "./components/ResultsList.jsx";
 import { useEffect, useMemo, useState } from "react";
 
 import { rankSites } from "./lib/scoring.js";
@@ -138,30 +138,12 @@ export default function App() {
 
       {!target ? (
         <p>No Mars target available.</p>
-      ) : results.length === 0 ? (
-        <p>No Earth locations available.</p>
       ) : (
-        <ol>
-          {results.map(result => (
-            <li key={result.site.id}>
-              <button
-                type="button"
-                onClick={() =>
-                  setSelectedResultId(result.site.id)
-                }
-                aria-pressed={
-                  selectedResult?.site.id === result.site.id
-                }
-              >
-                {result.site.name}
-                {" — "}
-                {result.score === null
-                  ? "Insufficient data"
-                  : `${result.score.toFixed(1)} / 100`}
-              </button>
-            </li>
-          ))}
-        </ol>
+        <ResultsList
+          results={results}
+          selectedId={selectedResult?.site.id}
+          onSelect={setSelectedResultId}
+        />
       )}
 
       {selectedResult && (
