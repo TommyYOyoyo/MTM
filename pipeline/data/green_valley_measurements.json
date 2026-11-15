@@ -1,0 +1,16 @@
+{
+  "siteId": "green_valley_ez",
+  "planet": "mars",
+  "lat": 68.16,
+  "lon": -126.65,
+  "radius_km": 25,
+  "raw": {
+    "elevation_m": -4116,
+    "slope_deg": 0.7834498515292411,
+    "roughness_deg": 0.9476934835623481,
+    "albedo": 0.2038,
+    "subsurf_water": null,
+    "ti": 188.1
+  },
+  "method": "Computed with the existing pipeline/mars.py measure function, unchanged. MOLA source file supplied from the local NASA SHARE download; TES albedo, TES night thermal inertia and SWIM from data/raw. Elevation is a single DEM pixel; slope and roughness use the existing square pixel neighbourhood and latitude-adjusted x spacing; albedo is a single TES pixel. SWIM and TI use their existing neighbourhood rules. This extraction does not change the research pipeline method."
+}

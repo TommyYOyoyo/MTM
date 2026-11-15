@@ -67,5 +67,5 @@
   .mobile-comparison-header button:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
   .mobile-comparison-header button:disabled { opacity: .5; cursor: default; }
   .mobile-comparison-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px)); }
-  .is-mobile-comparison > .preview-beta { visibility: hidden; }
+  .is-mobile-comparison .preview-beta { visibility: hidden; }
 }

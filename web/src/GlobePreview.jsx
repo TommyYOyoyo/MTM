@@ -5,6 +5,7 @@ import ComparisonControls from './components/ComparisonControls.jsx'
 import MobileComparisonPage from './components/MobileComparisonPage.jsx'
 import ComparisonDetails from './components/ComparisonDetails.jsx'
 import DualComparison from './components/DualComparison.jsx'
+import Credits from './components/Credits.jsx'
 import ResearchTools from './components/ResearchTools.jsx'
 import { DEFAULT_WEIGHTS } from './lib/constants.js'
 import { adaptSites, compareSites, normalizeWeights, rankComparisons, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
@@ -68,6 +69,10 @@ export default function GlobePreview() {
   const [dualAvailable, setDualAvailable] = useState(() => window.matchMedia('(min-width: 48rem) and (hover: hover) and (pointer: fine)').matches)
   const [locationPageId, setLocationPageId] = useState(locationRoute)
   const [comparisonPage, setComparisonPage] = useState(() => window.location.hash === '#compare')
+  const [creditsOpen, setCreditsOpen] = useState(() => window.location.hash === '#credits')
+  const creditsOpenRef = useRef(window.location.hash === '#credits')
+  const creditsTriggerRef = useRef(null)
+  const creditsReturnHashRef = useRef(null)
   const [dualComparison, setDualComparison] = useState(null)
   const canUseDualComparison = DUAL_COMPARISON_ENABLED && dualAvailable
   const sitesRef = useRef([])
@@ -104,7 +109,21 @@ export default function GlobePreview() {
       setDualAvailable(event.matches)
       if (!event.matches) setDualComparison(null)
     }
-    const navigate = () => {
+    const navigate = (event) => {
+      if (event.type === 'hashchange' && creditsReturnHashRef.current === window.location.href) {
+        creditsReturnHashRef.current = null
+        return
+      }
+      const credits = window.location.hash === '#credits'
+      const returningFromCredits = creditsOpenRef.current && !credits
+      creditsOpenRef.current = credits
+      setCreditsOpen(credits)
+      if (credits) return
+      if (returningFromCredits) {
+        if (event.type === 'popstate') creditsReturnHashRef.current = window.location.href
+        requestAnimationFrame(() => creditsTriggerRef.current?.focus())
+        return
+      }
       const comparing = window.location.hash === '#compare'
       setComparisonPage(comparing)
       if (comparing) return
@@ -134,7 +153,7 @@ export default function GlobePreview() {
 
   useEffect(() => {
     const controller = new AbortController()
-    fetch(`${import.meta.env.BASE_URL}sites.json`, { signal: controller.signal })
+    fetch(`${import.meta.env.BASE_URL}sites.json`, { signal: controller.signal, cache: 'no-cache' })
       .then((response) => {
         if (!response.ok) throw new Error(`Request failed (${response.status})`)
         return response.json()
@@ -164,7 +183,7 @@ export default function GlobePreview() {
     const controller = new AbortController()
     async function optionalData(file) {
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}${file}`, { signal: controller.signal })
+        const response = await fetch(`${import.meta.env.BASE_URL}${file}`, { signal: controller.signal, cache: 'no-cache' })
         return response.ok && response.headers.get('content-type')?.includes('json') ? await response.json() : null
       } catch { return null }
     }
@@ -179,7 +198,7 @@ export default function GlobePreview() {
 
   useEffect(() => {
     const controller = new AbortController()
-    fetch(`${import.meta.env.BASE_URL}earth-engine.json`, { signal: controller.signal })
+    fetch(`${import.meta.env.BASE_URL}earth-engine.json`, { signal: controller.signal, cache: 'no-cache' })
       .then((response) => {
         if (!response.ok) return null
         return response.json()
@@ -219,11 +238,11 @@ export default function GlobePreview() {
   const benchmarkReport = validateBenchmarks(sites)
 
   useEffect(() => {
-    document.title = mobileComparison ? 'Compare · MTM' : mobileDetail ? `${selected.name} · MTM` : 'MTM Globe Preview'
-    if (!mobileDetail) return undefined
+    document.title = creditsOpen ? 'Credits · Space Out' : mobileComparison ? 'Compare · Space Out' : mobileDetail ? `${selected.name} · Space Out` : 'Space Out'
+    if (!mobileDetail || creditsOpen) return undefined
     const frame = requestAnimationFrame(() => mobileBackRef.current?.focus())
     return () => cancelAnimationFrame(frame)
-  }, [mobileComparison, mobileDetail, selected?.name])
+  }, [creditsOpen, mobileComparison, mobileDetail, selected?.name])
   const earthRecord = planet === 'earth' && selected ? earthEngine?.sites?.[selected.id] : null
   const earthData = Number.isFinite(earthRecord?.lat) && Number.isFinite(earthRecord?.lon)
     && Math.abs(earthRecord.lat - selected.lat) <= 1e-6
@@ -411,6 +430,23 @@ export default function GlobePreview() {
     setComparisonPage(true)
   }
 
+  function openCredits() {
+    creditsOpenRef.current = true
+    window.history.pushState({ ...window.history.state, spaceOutCredits: true }, '', `${window.location.pathname}${window.location.search}#credits`)
+    setCreditsOpen(true)
+  }
+
+  function closeCredits() {
+    setCreditsOpen(false)
+    if (window.location.hash === '#credits' && window.history.state?.spaceOutCredits) {
+      window.history.back()
+    } else {
+      creditsOpenRef.current = false
+      if (window.location.hash === '#credits') window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`)
+    }
+    requestAnimationFrame(() => creditsTriggerRef.current?.focus())
+  }
+
   function closeMobileComparison() {
     setComparisonPage(false)
     if (window.location.hash === '#compare') {
@@ -440,7 +476,7 @@ export default function GlobePreview() {
     const url = URL.createObjectURL(new Blob([resultsToCsv(visibleResults, target, weights)], { type: 'text/csv;charset=utf-8' }))
     const link = document.createElement('a')
     link.href = url
-    link.download = `mtm-${target.id}-${listView === 'discovery' ? 'discovery' : 'matches'}.csv`
+    link.download = `space-out-${target.id}-${listView === 'discovery' ? 'discovery' : 'matches'}.csv`
     link.click()
     setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
@@ -516,6 +552,7 @@ export default function GlobePreview() {
 
   return (
     <div className={`preview-shell${mobileDetail ? ' is-mobile-detail' : ''}${mobileComparison ? ' is-mobile-comparison' : ''}`}>
+      <div inert={creditsOpen} aria-hidden={creditsOpen}>
       {mobileDetail && <header className="mobile-location-header"><button ref={mobileBackRef} type="button" className="mobile-location-back" aria-label="Back to map" onClick={closeDetails}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7" /></svg><span>Back</span></button><h1 className="mobile-location-title">{selected.name}</h1></header>}
       {mobileDetail && <button type="button" className="mobile-location-center" aria-label="Center on selected location" title="Center on location" onClick={() => globeRefs.current[planet]?.focusSite(selected.id)}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /><path d="M12 2v3m0 14v3M2 12h3m14 0h3" /></svg></button>}
       <main className="preview-map" aria-label="Planet explorer" inert={mobileComparison} aria-hidden={mobileComparison}>
@@ -529,7 +566,7 @@ export default function GlobePreview() {
         {error && <p className="preview-message preview-error" role="alert">Unable to load locations: {error}</p>}
         {spaceError && <p className="preview-message preview-error" role="status">Solar system view unavailable.</p>}
       </main>
-      <footer className="preview-beta"><span>Beta</span><span>© MTM 2026</span></footer>
+      <footer className="preview-beta"><span>Alpha</span><button ref={creditsTriggerRef} className="preview-credits-link" type="button" onClick={openCredits} aria-label="Space Out 2026 credits and sources">© Space Out 2026</button></footer>
       <div className={`preview-chrome${searchTerm ? ' is-searching' : ''}${solarVisible ? ' is-space' : ''}`} inert={mobileComparison} aria-hidden={mobileComparison}>
         {!solarVisible && !loading && !error && (
           <div className="preview-search">
@@ -556,14 +593,14 @@ export default function GlobePreview() {
         {!isMobile && !solarVisible && !loading && !error && <ComparisonControls mode={mode} targetId={target?.id || ''} onTargetChange={beginComparison} targets={targets} weights={weights} onWeightsChange={(next) => { setWeights(next); setPresetId('custom') }} presetId={presetId} onPresetChange={applyPreset} elevationLimit={elevationLimit} onElevationLimitChange={changeElevation} disabled={transitioning} placeholder={sampleData} onOpenDual={canUseDualComparison ? openDualComparison : undefined} />}
         {!solarVisible && !loading && !error && (
           <>
-            <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}`} aria-label="Sample locations" hidden={Boolean(searchTerm)}>
+            <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}`} aria-label="Available locations" hidden={Boolean(searchTerm)}>
               <button className="preview-drawer-handle" type="button" aria-label={listCollapsed ? 'Expand locations' : 'Collapse locations'} aria-expanded={!listCollapsed} aria-controls="preview-list-content" onPointerDown={beginDrawerDrag} onPointerUp={endDrawerDrag} onPointerCancel={() => { drawerGesture.current = null }} onClick={toggleDrawer}>
                 <span className="preview-drawer-grip" aria-hidden="true" />
                 <span className="preview-panel-title">{listView === 'browse' ? 'Available locations' : listView === 'checks' ? 'Research checks' : 'Analog matches'}<svg className="preview-location-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2.25" /></svg></span>
               </button>
               <PlanetSwitch planet={planet} onSelect={selectPlanet} className="preview-switch-mobile" disabled={transitioning} />
               <div id="preview-list-content" inert={listCollapsed} aria-hidden={listCollapsed}>
-              <div className="comparison-list-tabs" role="group" aria-label="Location list view">{[['browse', 'Locations'], ['matches', 'Matches'], ['discovery', 'Discovery'], ['checks', 'Checks']].map(([value, label]) => <button key={value} type="button" aria-pressed={listView === value} onClick={() => setListView(value)}>{label}</button>)}</div>
+              <div className="comparison-list-tabs" role="group" aria-label="Location list view">{[['browse', 'Locations'], ['matches', 'Matches'], ...(discovery.length ? [['discovery', 'Discovery']] : []), ['checks', 'Checks']].map(([value, label]) => <button key={value} type="button" aria-pressed={listView === value} onClick={() => setListView(value)}>{label}</button>)}</div>
               {listView === 'checks' ? <ResearchTools report={benchmarkReport} families={families} sites={sites} /> : listView !== 'browse' ? <>
                 <div className="comparison-list-context"><p>{target ? <>Target: <strong>{target.name}</strong></> : 'Choose a target in Compare.'}</p>{target && <p className="comparison-muted">{sampleData ? 'Example ranking · sample data' : 'Weighted resemblance'}{listView === 'discovery' ? ' · partial, unreviewed' : ''}</p>}</div>
                 {target && <div className="comparison-result-tools"><label>Coverage <select aria-label="Minimum data coverage" value={minCoverage} onChange={(event) => setMinCoverage(Number(event.target.value))}><option value="0">Any</option><option value="50">50%+</option><option value="75">75%+</option><option value="100">100%</option></select></label>{candidatePlanet === 'earth' && listView === 'matches' && <label><input type="checkbox" checked={benchmarkOnly} onChange={(event) => setBenchmarkOnly(event.target.checked)} /> Benchmarks</label>}<button type="button" onClick={exportResults} disabled={!visibleResults.length}>Export CSV</button></div>}
@@ -599,6 +636,8 @@ export default function GlobePreview() {
         )}
       </div>
       {mobileComparison && <MobileComparisonPage key={mode} settings={{ mode, targetId: target?.id || '', weights, presetId, elevationLimit }} sites={sites} placeholder={sampleData} disabled={transitioning || loading || Boolean(error)} onBack={closeMobileComparison} onDone={applyMobileComparison} />}
+      </div>
+      {creditsOpen && <Credits sites={sites} isMobile={isMobile} onClose={closeCredits} />}
     </div>
   )
 }

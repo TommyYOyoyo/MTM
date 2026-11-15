@@ -1,9 +1,23 @@
 # Connect the research data
 
-The browser consumes `public/sites.json` using the existing handoff schema. Replace
-the current placeholder rows with the pipeline output; no live backend is required.
+The Alpha interface consumes `public/sites.json` using the existing handoff schema.
+The research export contains 36 locations: 13 Mars and 23 Earth. Green Valley's
+missing CSV ID is repaired, and its measurements were extracted from the
+downloaded Mars rasters using the existing pipeline. No live backend is required.
 `n` values must already be normalized by the pipeline. The browser does not invent
 measurements or convert Earth temperature swing into Mars thermal inertia.
+
+Earth thermal ranks use the apparent proxy `(1 − albedo) / ΔT` within the supplied
+Earth catalog; Mars ranks use TES thermal inertia within the Mars catalog. These
+are not physically equivalent. Three polar Earth sites omit the thermal rank.
+The supplied Earth MODIS extraction uses 2023 composites without additional QA
+filtering and must not be described as quality-screened.
+
+Run `python pipeline/prepare_web_data.py` after updating the research CSV and
+measurement export. It validates the join, preserves raw measurements, rebuilds
+normalization, and writes `sites.json`, the matching `earth-engine.json`, and
+`catalog-metadata.json`. Unknown modern ice remains null, while the supplied
+`permafrost` category is preserved rather than silently relabeled `ground_ice`.
 
 To connect the final export, replace `web/public/sites.json`, put referenced
 images in `web/public/img/` (or `images/`), and reload the webpage. Keep the IDs
@@ -14,7 +28,7 @@ placeholder rows can be removed; adding real rows does not require a code change
 ## Interface readiness
 
 The home page and `/globe-preview.html` both load the comparison interface.
-`/app.html` preserves the teammate app entry without changing `App.jsx`.
+`/app.html` preserves the teammate app entry and uses the same data adapter.
 
 Connected now: both comparison directions, target selection, the pushed scoring
 functions and presets, weights, rankings, coverage filters, a Mars elevation
@@ -22,10 +36,10 @@ filter, comparison details, CSV exports, benchmark checks, source/paper links,
 and universal analogy limits. The globe highlights the current top five matches.
 Selecting a site still centers its marker; space navigation hides the panels.
 
-Research-dependent slots remain explicit: relief/satellite images, research
-pros/cons, partner observations, benchmark pairings, Discovery scan results and
-PCA/family results. Missing content is shown as pending. No sample score is
-presented as scientific validation.
+Real use cases, notes, benchmark pairings and papers appear where supplied.
+Empty image and partner-observation sections are omitted. Discovery is hidden
+until scan candidates are supplied. Missing numeric inputs remain visible as
+missing, and no resemblance score establishes scientific suitability.
 
 On mobile, the search bar's menu opens a separate Compare page. Changes are held
 until Done applies them and returns to the map. Back (including browser Back)
@@ -40,9 +54,8 @@ and loads level-six zoom tiles from an immutable commit in the team's public
 GitHub repository. The image files are identical to the local full-resolution
 tiles. Normal development and production builds keep all tiles local.
 
-The Python measurement, normalization, Discovery and validation pipelines are
-still the data team's work; this change does not fabricate their output or edit
-their research CSV.
+The preparation step integrates the data team's measurements and repairs template
+metadata. It does not fabricate missing measurements or Discovery results.
 
 ## Site fields
 
@@ -61,9 +74,12 @@ their research CSV.
   | --- | --- | --- |
   | Slope | `slope_deg`, `slope` | degrees |
   | Albedo | `albedo` | unitless |
-  | Mars thermal inertia | `thermal_inertia`, `thermal_inertia_j` | J m⁻² K⁻¹ s⁻½ |
+  | Mars thermal inertia | `thermal_inertia`, `thermal_inertia_j`, `ti` | J m⁻² K⁻¹ s⁻½ |
+  | Earth apparent thermal proxy | `apparent_ti` | K⁻¹ |
+  | Earth surface temperature | `lst_day_k`, `lst_night_k` | °C after subtracting 273.15 |
   | Earth day–night surface temperature | `lst_day_night_c`, `day_night_c`, `temperature_swing_c` | °C |
-  | Roughness | `roughness_m`, `roughness` | metres |
+  | Slope variability | `roughness_deg` | degrees, standard deviation of slope |
+  | Height roughness | `roughness_m` | metres |
   | Mars elevation | `elevation_m` | metres |
 
   These are display measurements. Scoring continues to use `n`, so the pipeline
@@ -192,8 +208,8 @@ optional chart label; `family` is the grouping label, and `cluster` is an accept
 alias. The chart is a view of supplied results, not a browser-run clustering
 algorithm, and it does not change resemblance scores.
 
-Both optional files can be absent: the corresponding feature remains available
-with a pending-data message. The existing `earth-engine.json` is another optional
+Both optional files can be absent. Discovery is shown only when scan candidates
+are supplied. The `earth-engine.json` file is a matching optional
 measurement export; its site IDs and coordinates must match `sites.json`. Those
 measurements appear in details, while scoring uses normalized values in `sites`.
 

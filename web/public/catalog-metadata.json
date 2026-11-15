@@ -1,0 +1,46 @@
+{
+  "status": "research_catalog",
+  "release": "alpha",
+  "sourceCommit": "6b464a2",
+  "counts": {
+    "total": 36,
+    "mars": 13,
+    "earth": 23,
+    "benchmarks": 6
+  },
+  "research_source": "pipeline/data/sites_input.csv",
+  "measurement_source": "web/public/sites.json raw measurements from completed data commit; Green Valley separately extracted with the same Mars pipeline",
+  "normalization": {
+    "slope": "clip(slope_deg / 30, 0, 1)",
+    "roughness": "clip(slope standard deviation in degrees / 15, 0, 1)",
+    "albedo": "clip(raw albedo, 0, 1)",
+    "thermal": "Separate relative rank within each supplied planetary catalog; Mars TES ti versus Earth apparent_ti; Earth absolute latitude >60° excluded",
+    "sun": "Highest annual noon solar-altitude proxy using latitude and axial tilt, normalized to 0–1; not measured insolation"
+  },
+  "cleaned": {
+    "assigned_id": {
+      "Green Valley": "green_valley_ez"
+    },
+    "removed": "Only obsolete SAMPLE editorial notes and EXAMPLE use-case prefixes",
+    "modern_ice_unknown": [
+      "karapinar_new_site",
+      "qaidam_basin_bm",
+      "sambhar_salt_lake_new_site",
+      "tuya_new_site",
+      "wells_new_site"
+    ],
+    "permafrost": "Preserved from researcher CSV; not silently relabelled as ground ice"
+  },
+  "limitations": [
+    "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+    "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+    "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+    "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period.",
+    "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+    "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+    "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+    "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities.",
+    "Catalog entries are researcher-supplied candidates; completing this import does not establish scientific validation, global discovery, or field suitability. Some rows lack papers or coordinate-source links.",
+    "Benchmark pairings are only the six explicitly marked Earth rows; unresolved twin labels are not inferred."
+  ]
+}

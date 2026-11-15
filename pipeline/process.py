@@ -4,6 +4,7 @@ import pandas as pd
 import ee
 import mars, earth, normalize
 import json
+from prepare_web_data import prepare_web_data
 
 SITES_CSV = "pipeline/data/sites_input.csv" 
 OUT_JSON = "web/public/sites.json"
@@ -18,8 +19,9 @@ def splitList(text, separator="|"):
 def load_sites(path):
     df = pd.read_csv(path, encoding="utf-8-sig")
     
-    # drop empty
-    df = df.dropna(subset=["id"])
+    if df["id"].isna().any():
+        missing = df.loc[df["id"].isna(), "name"].tolist()
+        raise ValueError(f"Research sites need an ID before processing: {missing}")
     
     # str to numeric
     for col in NUMERIC:
@@ -55,12 +57,12 @@ def main():
         site["raw"] = rawBySite.get(site["id"], {})
         site["n"] = normalizedBySite[site["id"]]
         site["benchmark"] = site.get("benchmark") == "yes"
-        if site.get("ice") == "permafrost":
-            site["ice"] = "ground_ice"
         site["papers"] = splitList(site.get("papers"), ";")
         
     with open(OUT_JSON, "w", encoding="utf-8") as outFile:
-        json.dump(sites, outFile, indent=2, ensure_ascii=False)
+        json.dump(sites, outFile, indent=2, ensure_ascii=False, allow_nan=False)
+
+    prepare_web_data(csv_path=SITES_CSV, measurements_path=OUT_JSON, output_path=OUT_JSON)
     
     print(f"done wirting {len(sites)} sites to {OUT_JSON}")
     

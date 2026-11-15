@@ -6,7 +6,7 @@
     "type": "landing",
     "lat": -4.589467,
     "lon": 137.441633,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -21,7 +21,7 @@
       "A Habitable Fluvio-Lacustrine Environment at Yellowknife Bay, Gale Crater, Mars | 10.1126/science.1242777"
     ],
     "coord_source": "https://mars.nasa.gov/mmgis-maps/MSL/Layers/json/MSL_waypoints.json",
-    "notes": "SAMPLE row: verify tags/ice against a paper",
+    "notes": null,
     "raw": {
       "elevation_m": -4500,
       "slope_deg": 1.6387928299774257,
@@ -36,7 +36,42 @@
       "thermal": 1.0,
       "albedo": 0.2313,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "jezero",
@@ -45,7 +80,7 @@
     "type": "landing",
     "lat": 18.444627,
     "lon": 77.450886,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -60,7 +95,7 @@
       "Perseverance rover reveals an ancient delta-lake system and flood deposits at Jezero crater, Mars | 10.1126/science.abl4051"
     ],
     "coord_source": "https://mars.nasa.gov/mmgis-maps/M20/Layers/json/M20_waypoints.json",
-    "notes": "SAMPLE row: verify tags/ice against a paper",
+    "notes": null,
     "raw": {
       "elevation_m": -2566,
       "slope_deg": 1.4532342181200186,
@@ -72,10 +107,45 @@
     "n": {
       "slope": 0.04844114060400062,
       "roughness": 0.07164865075864021,
-      "thermal": 0.8181818181818182,
+      "thermal": 0.8333333333333334,
       "albedo": 0.1681,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "phoenix",
@@ -84,7 +154,7 @@
     "type": "landing",
     "lat": 68.22,
     "lon": -125.75,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "ground_ice",
     "tags": [
       "periglacial",
@@ -99,7 +169,7 @@
       "Detection of Perchlorate and the Soluble Chemistry of Martian Soil at the Phoenix Lander Site | 10.1126/science.1172466"
     ],
     "coord_source": "https://science.nasa.gov/mission/mars-phoenix/",
-    "notes": "SAMPLE row: verify tags/ice against a paper",
+    "notes": null,
     "raw": {
       "elevation_m": -4128,
       "slope_deg": 0.6800107641009795,
@@ -114,7 +184,42 @@
       "thermal": 0.0,
       "albedo": 0.2038,
       "sun": 0.522
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "meridiani",
@@ -123,7 +228,7 @@
     "type": "landing",
     "lat": -1.95,
     "lon": -5.53,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -149,10 +254,45 @@
     "n": {
       "slope": 0.0061375033187020395,
       "roughness": 0.007220815345613124,
-      "thermal": 0.18181818181818182,
+      "thermal": 0.25,
       "albedo": 0.1283,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "gusev",
@@ -161,7 +301,7 @@
     "type": "landing",
     "lat": -14.572,
     "lon": 175.478,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -187,10 +327,45 @@
     "n": {
       "slope": 0.013386277125863938,
       "roughness": 0.026703670011584992,
-      "thermal": 0.5454545454545454,
+      "thermal": 0.5833333333333334,
       "albedo": 0.2231,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "gale_ez",
@@ -199,7 +374,7 @@
     "type": "exploration_zone",
     "lat": -4.5965,
     "lon": 137.4019,
-    "radius_km": 25,
+    "radius_km": 25.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -226,10 +401,45 @@
     "n": {
       "slope": 0.19925314453000403,
       "roughness": 0.36380998655027935,
-      "thermal": 0.7272727272727273,
+      "thermal": 0.75,
       "albedo": 0.2313,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 25.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "ne_syrtis_ez",
@@ -238,7 +448,7 @@
     "type": "exploration_zone",
     "lat": 17.885,
     "lon": 77.202,
-    "radius_km": 25,
+    "radius_km": 25.0,
     "ice": "none",
     "tags": [
       "sulfate"
@@ -263,10 +473,118 @@
     "n": {
       "slope": 0.10483953186328851,
       "roughness": 0.23073054560066766,
-      "thermal": 0.6363636363636364,
+      "thermal": 0.6666666666666666,
       "albedo": 0.1742,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 25.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
+  },
+  {
+    "id": "green_valley_ez",
+    "name": "Green Valley",
+    "planet": "mars",
+    "type": "exploration_zone",
+    "lat": 68.16,
+    "lon": -126.65,
+    "radius_km": 25.0,
+    "ice": "permafrost",
+    "tags": [
+      "glacial",
+      "basaltic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "McMurdo Dry Valleys",
+    "use_case": "Identifier des minéraux et creuser sous les glaces pour avoir des indices du passage de la vie",
+    "papers": [
+      "Mars Exploration Program 2007 Phoenix landing site selection and characteristics | The high elevation Dry Valleys in Antarctica as analog sites for subsurface ice on Mars"
+    ],
+    "coord_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2007JE003021 | https://www.sciencedirect.com/science/article/pii/S0032063313001360",
+    "notes": null,
+    "raw": {
+      "elevation_m": -4116,
+      "slope_deg": 0.7834498515292411,
+      "roughness_deg": 0.9476934835623481,
+      "albedo": 0.2038,
+      "subsurf_water": null,
+      "ti": 188.1
+    },
+    "n": {
+      "slope": 0.026114995050974702,
+      "roughness": 0.0631795655708232,
+      "thermal": 0.16666666666666666,
+      "albedo": 0.2038,
+      "sun": 0.523
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 25.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "meridiani_planum_ez",
@@ -275,7 +593,7 @@
     "type": "exploration_zone",
     "lat": 0.2,
     "lon": -2.5,
-    "radius_km": 25,
+    "radius_km": 25.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -302,10 +620,45 @@
     "n": {
       "slope": 0.0633710668051052,
       "roughness": 0.24498587703882185,
-      "thermal": 0.36363636363636365,
+      "thermal": 0.4166666666666667,
       "albedo": 0.1528,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 25.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "home_plate",
@@ -314,7 +667,7 @@
     "type": "landing",
     "lat": -14.64,
     "lon": 175.53,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -343,10 +696,45 @@
     "n": {
       "slope": 0.013375850167638526,
       "roughness": 0.038932099296809165,
-      "thermal": 0.45454545454545453,
+      "thermal": 0.5,
       "albedo": 0.2395,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "arcadia_ez",
@@ -355,7 +743,7 @@
     "type": "exploration_zone",
     "lat": 46.581,
     "lon": -165.15,
-    "radius_km": 25,
+    "radius_km": 25.0,
     "ice": "ground_ice",
     "tags": [
       "periglacial"
@@ -368,7 +756,7 @@
       "Widespread excess ice in Arcadia Planitia, Mars | 10.1002/2015GL064844"
     ],
     "coord_source": null,
-    "notes": "SAMPLE row: take the centre lat/lon from the OpenPlanetary EZ table or the 2015 workshop abstract",
+    "notes": null,
     "raw": {
       "elevation_m": -3986,
       "slope_deg": 0.23017789969877675,
@@ -380,10 +768,45 @@
     "n": {
       "slope": 0.007672596656625892,
       "roughness": 0.011149943024276462,
-      "thermal": 0.2727272727272727,
+      "thermal": 0.3333333333333333,
       "albedo": 0.2435,
       "sun": 0.762
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 25.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "atacama_yungay_bm",
@@ -392,7 +815,7 @@
     "type": "analog",
     "lat": -24.0884,
     "lon": -69.9945,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "perchlorate",
@@ -404,12 +827,12 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "EXAMPLE: test rover instruments on Gale-like sediments",
+    "use_case": "test rover instruments on Gale-like sediments",
     "papers": [
       "The Atacama Rover Astrobiology Drilling Studies (ARADS) Project | 10.1089/ast.2022.0126"
     ],
     "coord_source": "https://journals.sagepub.com/doi/10.1089/ast.2022.0126",
-    "notes": "SAMPLE row: benchmark = yes, twin = id of the Mars site it resembles",
+    "notes": null,
     "raw": {
       "slope_deg": 3.64011249681979,
       "roughness_deg": 2.5887522249343053,
@@ -426,7 +849,37 @@
       "thermal": 0.0,
       "albedo": 0.24547024806296608,
       "sun": 0.992
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "antarctic_plateau_new_site",
@@ -435,7 +888,7 @@
     "type": "analog",
     "lat": -75.1,
     "lon": 123.39,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "glacier",
     "tags": [
       "glacial"
@@ -443,12 +896,12 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "EXAMPLE: drilling tests in ice-rich ground like Phoenix",
+    "use_case": "drilling tests in ice-rich ground like Phoenix",
     "papers": [
       "‘White Mars’ – nearly two decades of biomedical research at the Antarctic Concordia station | 10.1113/ep088352"
     ],
     "coord_source": "https://calval.cr.usgs.gov/apps/dome-c",
-    "notes": "SAMPLE row: one exact point from the paper, not a whole region",
+    "notes": null,
     "raw": {
       "slope_deg": 0.04995119895309931,
       "roughness_deg": 0.04744352076957944,
@@ -465,7 +918,37 @@
       "thermal": null,
       "albedo": 0.8159662149219434,
       "sun": 0.426
-    }
+    },
+    "sources": [
+      {
+        "name": "Copernicus DEM GLO-30 · 2024_1",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30_2024_1",
+        "agency": "Copernicus / ESA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "dallol_new_site",
@@ -474,7 +957,7 @@
     "type": "analog",
     "lat": 14.242,
     "lon": 40.3,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "evaporite",
@@ -506,7 +989,37 @@
       "thermal": 0.8947368421052632,
       "albedo": 0.2314789833290625,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "university_valley_bm",
@@ -515,8 +1028,8 @@
     "type": "analog",
     "lat": -77.86,
     "lon": 160.71,
-    "radius_km": 5,
-    "ice": "ground_ice",
+    "radius_km": 5.0,
+    "ice": "permafrost",
     "tags": [
       "periglacial",
       "glacial",
@@ -548,7 +1061,37 @@
       "thermal": null,
       "albedo": 0.3297511748989359,
       "sun": 0.395
-    }
+    },
+    "sources": [
+      {
+        "name": "Copernicus DEM GLO-30 · 2024_1",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30_2024_1",
+        "agency": "Copernicus / ESA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "kilimanjaro_new_site",
@@ -557,7 +1100,7 @@
     "type": "analog",
     "lat": -3.0674,
     "lon": 37.3556,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "glacier",
     "tags": [
       "periglacial",
@@ -589,7 +1132,37 @@
       "thermal": 0.3684210526315789,
       "albedo": 0.11412398041690183,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "kilauea_bm",
@@ -598,7 +1171,7 @@
     "type": "analog",
     "lat": 19.421,
     "lon": -155.287,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -630,7 +1203,37 @@
       "thermal": 0.631578947368421,
       "albedo": 0.0991295553360465,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "death_valley_bm",
@@ -639,7 +1242,7 @@
     "type": "analog",
     "lat": 35.72,
     "lon": -116.38,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary"
@@ -669,7 +1272,37 @@
       "thermal": 0.42105263157894735,
       "albedo": 0.21803013281889674,
       "sun": 0.863
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "bodele_new_site",
@@ -678,7 +1311,7 @@
     "type": "analog",
     "lat": 17.0,
     "lon": 18.0,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -709,7 +1342,37 @@
       "thermal": 0.2631578947368421,
       "albedo": 0.38272491419331256,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "taklamakan_new_site",
@@ -718,7 +1381,7 @@
     "type": "analog",
     "lat": 39.25,
     "lon": 83.7,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary"
@@ -746,7 +1409,37 @@
       "thermal": 0.05263157894736842,
       "albedo": 0.26605405871758986,
       "sun": 0.824
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "loma_new_site",
@@ -755,7 +1448,7 @@
     "type": "analog",
     "lat": 47.9483,
     "lon": -110.4972,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -786,7 +1479,37 @@
       "thermal": 0.47368421052631576,
       "albedo": 0.19973470016463715,
       "sun": 0.727
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "deccan_traps_bm",
@@ -795,7 +1518,7 @@
     "type": "analog",
     "lat": 17.9211,
     "lon": 73.675,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -826,7 +1549,37 @@
       "thermal": 0.7894736842105263,
       "albedo": 0.12518279047073272,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "svalbard_bm",
@@ -835,8 +1588,8 @@
     "type": "analog",
     "lat": 78.1945,
     "lon": 16.0919,
-    "radius_km": 5,
-    "ice": "ground_ice",
+    "radius_km": 5.0,
+    "ice": "permafrost",
     "tags": [
       "periglacial"
     ],
@@ -865,7 +1618,37 @@
       "thermal": null,
       "albedo": 0.33671435337860167,
       "sun": 0.391
-    }
+    },
+    "sources": [
+      {
+        "name": "Copernicus DEM GLO-30 · 2024_1",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30_2024_1",
+        "agency": "Copernicus / ESA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "karoo_new_site",
@@ -874,7 +1657,7 @@
     "type": "analog",
     "lat": -30.5,
     "lon": 28.5,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -903,7 +1686,37 @@
       "thermal": 0.5263157894736842,
       "albedo": 0.15930403227523068,
       "sun": 0.921
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "parana_traps_new_site",
@@ -912,7 +1725,7 @@
     "type": "analog",
     "lat": -24.7,
     "lon": -51.5,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -944,7 +1757,37 @@
       "thermal": 0.9473684210526315,
       "albedo": 0.15127961787046296,
       "sun": 0.986
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "chilcotin_group_new_site",
@@ -953,7 +1796,7 @@
     "type": "analog",
     "lat": 51.1792,
     "lon": -121.4375,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -984,7 +1827,37 @@
       "thermal": 0.7368421052631579,
       "albedo": 0.1572045547026819,
       "sun": 0.691
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "qaidam_basin_bm",
@@ -993,8 +1866,8 @@
     "type": "analog",
     "lat": 38.396,
     "lon": 91.523,
-    "radius_km": 5,
-    "ice": "none",
+    "radius_km": 5.0,
+    "ice": null,
     "tags": [
       "sedimentary",
       "clay",
@@ -1029,7 +1902,38 @@
       "thermal": 0.15789473684210525,
       "albedo": 0.2802132410023451,
       "sun": 0.833
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period.",
+      "Modern ice is unverified in the research notes and is excluded from scoring. A glacial geology tag can refer to ancient formation conditions."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "sambhar_salt_lake_new_site",
@@ -1038,8 +1942,8 @@
     "type": "analog",
     "lat": 26.925333,
     "lon": 75.197117,
-    "radius_km": 5,
-    "ice": "none",
+    "radius_km": 5.0,
+    "ice": null,
     "tags": [
       "sedimentary",
       "evaporite",
@@ -1072,7 +1976,38 @@
       "thermal": 0.5789473684210527,
       "albedo": 0.18452109239853803,
       "sun": 0.961
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period.",
+      "Modern ice is unverified in the research notes and is excluded from scoring. A glacial geology tag can refer to ancient formation conditions."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "ladakh_new_site",
@@ -1081,8 +2016,8 @@
     "type": "analog",
     "lat": 33.301,
     "lon": 78.003,
-    "radius_km": 5,
-    "ice": "ground_ice",
+    "radius_km": 5.0,
+    "ice": "permafrost",
     "tags": [
       "sedimentary",
       "clay",
@@ -1116,7 +2051,37 @@
       "thermal": 0.10526315789473684,
       "albedo": 0.260284435473083,
       "sun": 0.89
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "wells_new_site",
@@ -1125,8 +2090,8 @@
     "type": "analog",
     "lat": 51.769736,
     "lon": -120.007803,
-    "radius_km": 5,
-    "ice": "glacier",
+    "radius_km": 5.0,
+    "ice": null,
     "tags": [
       "basaltic",
       "volcanic",
@@ -1158,7 +2123,38 @@
       "thermal": 1.0,
       "albedo": 0.12124681481603192,
       "sun": 0.685
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period.",
+      "Modern ice is unverified in the research notes and is excluded from scoring. A glacial geology tag can refer to ancient formation conditions."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "tuya_new_site",
@@ -1167,8 +2163,8 @@
     "type": "analog",
     "lat": 59.195,
     "lon": -130.434,
-    "radius_km": 5,
-    "ice": "glacier",
+    "radius_km": 5.0,
+    "ice": null,
     "tags": [
       "basaltic",
       "volcanic",
@@ -1200,7 +2196,38 @@
       "thermal": 0.8421052631578947,
       "albedo": 0.35639839177166155,
       "sun": 0.602
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period.",
+      "Modern ice is unverified in the research notes and is excluded from scoring. A glacial geology tag can refer to ancient formation conditions."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "karapinar_new_site",
@@ -1209,8 +2236,8 @@
     "type": "analog",
     "lat": 37.686132,
     "lon": 33.640597,
-    "radius_km": 5,
-    "ice": "none",
+    "radius_km": 5.0,
+    "ice": null,
     "tags": [
       "basaltic",
       "volcanic"
@@ -1241,7 +2268,38 @@
       "thermal": 0.3157894736842105,
       "albedo": 0.18753784412350932,
       "sun": 0.841
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period.",
+      "Modern ice is unverified in the research notes and is excluded from scoring. A glacial geology tag can refer to ancient formation conditions."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "olympus_mons",
@@ -1250,7 +2308,7 @@
     "type": "exploration_zone",
     "lat": 18.4,
     "lon": -134.0,
-    "radius_km": 25,
+    "radius_km": 25.0,
     "ice": "none",
     "tags": [
       "basaltic",
@@ -1276,10 +2334,45 @@
     "n": {
       "slope": 0.14543216485285512,
       "roughness": 0.4182902812312453,
-      "thermal": 0.09090909090909091,
+      "thermal": 0.08333333333333333,
       "albedo": 0.3078,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 25.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "utopia_ez",
@@ -1288,7 +2381,7 @@
     "type": "exploration_zone",
     "lat": 46.07,
     "lon": 92.12,
-    "radius_km": 25,
+    "radius_km": 25.0,
     "ice": "ground_ice",
     "tags": [
       "periglacial"
@@ -1313,10 +2406,45 @@
     "n": {
       "slope": 0.02009170248558094,
       "roughness": 0.028809016219751096,
-      "thermal": 0.9090909090909091,
+      "thermal": 0.9166666666666666,
       "albedo": 0.1161,
       "sun": 0.768
-    }
+    },
+    "sources": [
+      {
+        "name": "MGS MOLA global DEM · 463 m",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "agency": "NASA / USGS"
+      },
+      {
+        "name": "MGS TES bolometric albedo · 7.4 km",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+        "agency": "NASA / USGS / ASU"
+      },
+      {
+        "name": "MGS TES night thermal inertia · 2007 map",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+        "agency": "NASA PDS"
+      },
+      {
+        "name": "SWIM ice-consistency map",
+        "url": "https://swim.psi.edu/",
+        "agency": "NASA / Planetary Science Institute"
+      }
+    ],
+    "sampling": {
+      "radius_km": 25.0,
+      "terrain_scale_m": 463.0935,
+      "year": null,
+      "method": "Existing Mars pipeline: single-pixel elevation/albedo and square pixel neighbourhoods"
+    },
+    "limits": [
+      "Mars elevation and albedo are single-pixel samples; slope, slope standard deviation, SWIM and thermal inertia use the supplied pipeline’s square pixel neighbourhoods. Their physical east–west extent varies with latitude.",
+      "Mars exploration zones generally use a 25 km nominal neighbourhood, while Earth measurements use a 5 km circular area. Dataset resolutions and acquisition dates differ.",
+      "SWIM values express consistency with subsurface ice, not an ice probability or measured ice fraction. Missing map coverage remains unavailable.",
+      "Thermal scores are relative ranks within the supplied catalog on each planet; Earth apparent thermal inertia and Mars physical thermal inertia are different quantities."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "rio_tinto_bm",
@@ -1325,7 +2453,7 @@
     "type": "analog",
     "lat": 37.7219,
     "lon": -6.5592,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -1356,7 +2484,37 @@
       "thermal": 0.6842105263157895,
       "albedo": 0.12745792493798105,
       "sun": 0.841
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   },
   {
     "id": "el_tatio_bm",
@@ -1365,7 +2523,7 @@
     "type": "analog",
     "lat": -22.3314,
     "lon": -68.0103,
-    "radius_km": 5,
+    "radius_km": 5.0,
     "ice": "none",
     "tags": [
       "volcanic"
@@ -1395,6 +2553,36 @@
       "thermal": 0.21052631578947367,
       "albedo": 0.16167149725978533,
       "sun": 1.0
-    }
+    },
+    "sources": [
+      {
+        "name": "NASADEM HGT.001",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MCD43A3.061 shortwave albedo",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3",
+        "agency": "NASA"
+      },
+      {
+        "name": "MODIS MOD11A2.061 land surface temperature",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+        "agency": "NASA"
+      }
+    ],
+    "sampling": {
+      "radius_km": 5,
+      "terrain_scale_m": 463.0935,
+      "year": 2023,
+      "method": "5 km circular Earth Engine area; annual MODIS composite means"
+    },
+    "limits": [
+      "Earth measurements use 2023 annual MODIS means over a 5 km circular area. The supplied pipeline did not apply MODIS QA-bit filtering.",
+      "The Earth thermal proxy is (1 − albedo) / (mean day LST − mean night LST). It is not physical thermal inertia; day and night are separate annual composite means.",
+      "Thermal scores are relative ranks within the supplied catalog for each planet. Earth thermal scores above 60° absolute latitude are excluded.",
+      "Terrain slope and its standard deviation use a DEM aggregated to nominal 463 m in a geographic projection; physical east–west sampling varies with latitude. DEM acquisition dates differ from the 2023 MODIS period."
+    ],
+    "data_status": "research_catalog"
   }
 ]

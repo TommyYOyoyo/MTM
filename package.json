@@ -1,5 +1,5 @@
 {
-  "name": "mtm",
+  "name": "space-out",
   "private": true,
   "scripts": {
     "dev": "npm --prefix web run dev",

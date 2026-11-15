@@ -4,7 +4,7 @@ import Globe from "./components/Globe.jsx";
 import ComparisonControls from "./components/ComparisonControls.jsx";
 
 import { rankSites } from "./lib/scoring.js";
-import { normalizeWeights, WEIGHT_PRESETS } from "./lib/comparison.js";
+import { adaptSites, normalizeWeights, WEIGHT_PRESETS } from "./lib/comparison.js";
 
 export default function App() {
   // App state
@@ -25,7 +25,7 @@ export default function App() {
 
     async function loadSites() {
       try {
-        const response = await fetch("/sites.json");
+        const response = await fetch(`${import.meta.env.BASE_URL}sites.json`, { cache: "no-cache" });
 
         if (!response.ok) {
           throw new Error(
@@ -35,15 +35,16 @@ export default function App() {
 
         const data = await response.json();
 
-        if (!Array.isArray(data)) {
-          throw new Error("sites.json must contain an array.");
+        if (!Array.isArray(data) && !Array.isArray(data?.sites)) {
+          throw new Error("sites.json must contain an array or a sites array.");
         }
 
         if (cancelled) return;
 
-        setSites(data);
+        const adapted = adaptSites(data);
+        setSites(adapted);
 
-        const firstMarsSite = data.find(
+        const firstMarsSite = adapted.find(
           site => site.planet === "mars"
         );
 
@@ -139,7 +140,7 @@ export default function App() {
     return (
     <main className="min-h-screen bg-slate-950 p-4 text-white">
       <h1 className="mb-6 text-2xl font-bold">
-        Mars Analog Finder
+        Space Out
       </h1>
 
       <div className="grid items-start gap-6 lg:grid-cols-[240px_minmax(0,1fr)_300px]">

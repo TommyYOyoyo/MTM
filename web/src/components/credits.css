@@ -1,0 +1,30 @@
+.credits-dialog, .credits-page { box-sizing: border-box; color: #f5f5f3; background: #15171a; font: .875rem/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+.credits-dialog { position: fixed; inset: 0; width: min(48rem, calc(100vw - 4rem)); max-width: none; height: min(46rem, 82dvh); max-height: none; margin: auto; padding: 0; overflow: hidden; border: 1px solid #ffffff30; border-radius: 1.5rem; box-shadow: 0 2rem 7rem #0009; }
+.credits-dialog[open] { display: flex; flex-direction: column; }
+.credits-dialog::backdrop { background: #05060899; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.credits-header { display: flex; flex: none; align-items: center; gap: .75rem; min-height: 4rem; padding: .625rem 1.25rem .625rem 1.5rem; border-bottom: 1px solid #ffffff20; }
+.credits-header h1 { margin: 0; font-size: 1rem; font-weight: 650; }
+.credits-header-label { margin-left: auto; font-size: .8125rem; color: #bfc0c3; }
+.credits-close, .credits-back { display: inline-flex; align-items: center; justify-content: center; flex: none; gap: .125rem; min-width: 2.75rem; min-height: 2.75rem; padding: .5rem; border: 0; border-radius: .875rem; background: transparent; color: #fff; font: inherit; cursor: pointer; }
+.credits-close:hover, .credits-back:hover { background: #ffffff12; }
+.credits-close svg, .credits-back svg { width: 1.125rem; height: 1.125rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.credits-content { min-height: 0; flex: 1; padding: 1.75rem 2rem 2rem; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #ffffff40 transparent; }
+.credits-creators h2, .credits-section h2 { margin: 0; font-size: 1rem; line-height: 1.4; font-weight: 650; }
+.credits-creators > p { margin: .375rem 0 1rem; color: #bfc0c3; font-size: .8125rem; }
+.credits-creators ol { display: grid; grid-template-columns: 1fr 1fr; gap: .625rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+.credits-section { margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid #ffffff20; }
+.credits-source-list { display: grid; gap: 1rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.credits-content a { color: #f5f5f3; text-decoration: underline; text-decoration-color: #ffffff50; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.credits-content a:hover { text-decoration-color: #fff; }
+.credits-source-list p { margin: .2rem 0 0; color: #bfc0c3; font-size: .8125rem; }
+.credits-source-list .credits-agency { font-size: .75rem; }
+.credits-note { margin: 1.5rem 0 0; color: #bfc0c3; font-size: .75rem; }
+.credits-close:focus-visible, .credits-back:focus-visible, .credits-content a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.credits-page { position: fixed; z-index: 20; inset: 0; display: flex; flex-direction: column; overflow: hidden; }
+.credits-page .credits-header { padding: env(safe-area-inset-top, 0px) .875rem 0 .375rem; min-height: calc(3.5rem + env(safe-area-inset-top, 0px)); gap: .375rem; }
+.credits-page .credits-header h1 { margin-left: .25rem; }
+.credits-page .credits-content { padding: 1.5rem 1.25rem max(2rem, env(safe-area-inset-bottom, 0px)); }
+.credits-page .credits-creators ol { grid-template-columns: 1fr; gap: .625rem; }
+@media (prefers-reduced-transparency: reduce) { .credits-dialog::backdrop { background: #050608ed; backdrop-filter: none; -webkit-backdrop-filter: none; } }
+@media (prefers-contrast: more) { .credits-dialog, .credits-header, .credits-section { border-color: #ffffff90; } .credits-content p, .credits-header-label { color: #fff; } }
+@supports (corner-shape: squircle) { .credits-dialog, .credits-close, .credits-back { corner-shape: squircle; } }

@@ -74,7 +74,7 @@ export default function DualComparison({ sites = [], initialPlanet = 'mars', ini
 
   useEffect(() => {
     const previousTitle = document.title
-    document.title = 'Dual comparison · MTM'
+    document.title = 'Dual comparison · Space Out'
     closeRef.current?.focus()
     const escape = (event) => {
       if (event.key === 'Escape') onClose?.()

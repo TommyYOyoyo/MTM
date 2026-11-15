@@ -5,7 +5,7 @@ import { overallScore, rankSites } from './scoring.js'
 export const FACTOR_INFO = [
   { key: 'slope', label: 'Slope', kind: 'numeric', unit: '°', description: 'Normalized terrain slope. Compare measurements made at comparable ground scales.' },
   { key: 'albedo', label: 'Albedo', kind: 'numeric', unit: '', description: 'Surface reflectivity, normalized to 0–1.' },
-  { key: 'thermal', label: 'Thermal', kind: 'numeric', unit: 'percentile', description: 'Relative thermal rank within each planet. Mars thermal inertia and Earth day–night surface temperature difference are different quantities.' },
+  { key: 'thermal', label: 'Thermal', kind: 'numeric', unit: 'percentile', description: 'Relative rank within each planet: Mars TES thermal inertia versus Earth apparent thermal inertia, (1 − albedo) / day–night surface-temperature difference. These are different quantities; the score compares ranks, not physical equivalence.' },
   { key: 'sun', label: 'Sun', kind: 'numeric', unit: 'index', description: 'Latitude and axial-tilt proxy; not a measurement of local illumination or weather.' },
   { key: 'roughness', label: 'Roughness', kind: 'numeric', unit: 'index', description: 'Optional normalized terrain roughness. Its sampling scale must be documented.' },
   { key: 'ice', label: 'Ice', kind: 'category', unit: '', description: 'Exact agreement of the documented ice category.' },
@@ -17,6 +17,7 @@ const nonnegative = (value) => Number.isFinite(value) && value > 0 ? value : 0
 const CORE_WEIGHTS = Object.fromEntries(FACTORS.map((key) => [key, nonnegative(DEFAULT_WEIGHTS[key])]))
 const numberOrNull = (value) => ['number', 'string'].includes(typeof value) && !(typeof value === 'string' && !value.trim()) && Number.isFinite(Number(value)) ? Number(value) : null
 const list = (value) => Array.isArray(value) ? value : typeof value === 'string' ? value.split(/[;\n]/) : []
+const textList = (value) => list(value).filter((entry) => typeof entry === 'string').map((entry) => entry.trim()).filter(Boolean)
 const words = (value) => [...new Set((Array.isArray(value) ? value : typeof value === 'string' ? value.split(/[,;\n]/) : []).filter((entry) => typeof entry === 'string').map((entry) => entry.trim().toLowerCase()).filter(Boolean))]
 const category = (value) => typeof value === 'string' && value.trim() && !/^(unknown|missing|n\/a|null|undefined|nan)$/i.test(value.trim()) ? value.trim().toLowerCase() : null
 const isTrue = (value) => value === true || value === 1 || typeof value === 'string' && /^(true|yes|1)$/i.test(value.trim())
@@ -66,7 +67,8 @@ export const WEIGHT_PRESETS = [
 
 export function safeExternalUrl(value) {
   try {
-    const parsed = new URL(value)
+    if (typeof value !== 'string' || /[|\r\n]/.test(value)) return null
+    const parsed = new URL(value.trim())
     return ['http:', 'https:'].includes(parsed.protocol) ? parsed.href : null
   } catch { return null }
 }
@@ -78,12 +80,51 @@ export function safeImageUrl(value) {
   return /^(?:\.?\/)?[\w/-]+\.(?:png|jpe?g|webp|avif|svg)(?:\?[^#]*)?$/i.test(value) && !value.includes('..') ? value : null
 }
 
-export function paperUrl(paper) {
-  if (typeof paper === 'string') paper = { doi: paper }
-  const direct = safeExternalUrl(paper?.url)
+function doiValue(value) {
+  const doi = typeof value === 'string' ? value.trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').replace(/^doi:\s*/i, '') : ''
+  return /^10\.\d{4,9}\/\S+$/i.test(doi) ? doi : null
+}
+
+function paperEntry(value) {
+  if (value && typeof value === 'object' && !Array.isArray(value)) {
+    const entry = { ...value }
+    const url = safeExternalUrl(entry.url || entry.href)
+    const doi = doiValue(entry.doi)
+    return { ...entry, ...(url ? { url } : {}), ...(doi ? { doi } : {}) }
+  }
+  if (typeof value !== 'string' || !value.trim()) return null
+  const parts = value.split('|').map((part) => part.trim()).filter(Boolean)
+  if (!parts.length) return null
+  const identifiers = parts.length > 1 ? parts.slice(1) : parts
+  const url = identifiers.map(safeExternalUrl).find(Boolean)
+  const doi = identifiers.map(doiValue).find(Boolean)
+  return {
+    title: parts[0],
+    ...(url ? { url } : {}),
+    ...(doi ? { doi } : {}),
+    ...(!url && !doi && parts.length > 1 ? { identifier: parts.slice(1).join(' | ') } : {}),
+  }
+}
+
+export function paperUrl(value) {
+  const paper = paperEntry(value)
+  const direct = safeExternalUrl(paper?.url || paper?.href)
   if (direct) return direct
-  const doi = typeof paper?.doi === 'string' ? paper.doi.trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').replace(/^doi:\s*/i, '') : ''
-  return /^10\.\d{4,9}\/\S+$/i.test(doi) ? `https://doi.org/${encodeURI(doi).replace(/[?#]/g, (character) => encodeURIComponent(character))}` : null
+  const doi = doiValue(paper?.doi)
+  return doi ? `https://doi.org/${encodeURI(doi).replace(/[?#]/g, (character) => encodeURIComponent(character))}` : null
+}
+
+function linkEntries(value, defaultLabel) {
+  return list(value).flatMap((entry) => {
+    if (typeof entry === 'string') {
+      const parts = entry.split('|').map((part) => part.trim()).filter(Boolean)
+      const href = parts.map(safeExternalUrl).find(Boolean)
+      return href ? [{ name: parts.find((part) => !safeExternalUrl(part)) || defaultLabel, label: parts.find((part) => !safeExternalUrl(part)) || defaultLabel, url: href, href }] : []
+    }
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return []
+    const href = safeExternalUrl(entry.url || entry.href)
+    return href ? [{ ...entry, name: entry.name || entry.label || defaultLabel, url: href, href }] : []
+  })
 }
 
 function sanitizeScoringSite(site = {}) {
@@ -111,31 +152,34 @@ export function adaptSites(data, { discovery = false } = {}) {
     seen.add(id)
     const site = sanitizeScoringSite({ ...row, discovery: discovery || isTrue(row.discovery) })
     const dataIssues = NUMERIC_FACTORS.filter((key) => row.n?.[key] !== null && row.n?.[key] !== undefined && row.n?.[key] !== '' && site.n[key] === null).map((key) => `Invalid normalized ${key}`)
-    const paperEntries = list(row.papers).map((entry) => {
-      if (typeof entry !== 'string') return entry
-      const [title, doi] = entry.split('|').map((part) => part.trim())
-      return { title, doi: doi || title }
-    }).filter((entry) => entry && typeof entry === 'object')
+    const paperEntries = list(row.papers).map(paperEntry).filter(Boolean)
     const placeholder = placeholderDataset || isTrue(row.placeholder) || /\b(fake|sample|example|placeholder)\b/i.test([row.name, row.notes, row.data_status, row.status, ...paperEntries.map((entry) => entry.title)].filter(Boolean).join(' '))
     const benchmarkTargets = benchmarkTargetsFor(row)
+    const coordSources = [...new Set([...list(row.coord_sources), ...list(row.coord_source)].flatMap((entry) => typeof entry === 'string' ? entry.split('|') : []).map(safeExternalUrl).filter(Boolean))]
+    const links = linkEntries(row.links, 'Related link')
+    const linkUrls = new Set(links.map((entry) => entry.href))
+    coordSources.slice(1).forEach((href, index) => {
+      if (!linkUrls.has(href)) links.push({ label: `Coordinate source ${index + 2}`, url: href, href })
+    })
     return [{
       ...site, id, planet, lat, lon,
       name: typeof row.name === 'string' && row.name.trim() ? row.name.trim() : id,
-      elevation_m: numberOrNull(row.elevation_m),
+      elevation_m: numberOrNull(row.elevation_m) ?? numberOrNull(row.raw?.elevation_m) ?? numberOrNull(row.measurements?.elevation_m),
       radius_km: numberOrNull(row.radius_km),
       benchmark: isTrue(row.benchmark), benchmarkTargets, expectedMarsIds: benchmarkTargets,
       placeholder, discovery: discovery || isTrue(row.discovery),
       dataStatus: placeholder ? 'placeholder' : discovery || isTrue(row.discovery) ? 'partial' : 'provided',
       dataIssues,
       raw: row.raw && typeof row.raw === 'object' && !Array.isArray(row.raw) ? row.raw : row.measurements && typeof row.measurements === 'object' && !Array.isArray(row.measurements) ? row.measurements : {},
-      pros: list(row.pros).filter((entry) => typeof entry === 'string'),
-      cons: list(row.cons).filter((entry) => typeof entry === 'string'),
-      limits: list(row.limits).filter((entry) => typeof entry === 'string'),
+      pros: textList(row.pros),
+      cons: textList(row.cons),
+      limits: textList(row.limits),
+      limitations: textList(row.limitations),
       papers: paperEntries.map((entry) => ({ ...entry, href: paperUrl(entry) })),
-      sources: list(row.sources).filter((entry) => entry && typeof entry === 'object').map((entry) => ({ ...entry, href: safeExternalUrl(entry.url) })).filter((entry) => entry.href),
-      links: list(row.links).filter((entry) => entry && typeof entry === 'object').map((entry) => ({ ...entry, href: safeExternalUrl(entry.url) })).filter((entry) => entry.href),
+      sources: linkEntries(row.sources, 'Dataset'),
+      links,
       img: safeImageUrl(row.img), satellite_img: safeImageUrl(row.satellite_img),
-      coord_source: safeExternalUrl(row.coord_source),
+      coord_source: coordSources[0] || null, coord_sources: coordSources,
     }]
   })
 }

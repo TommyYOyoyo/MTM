@@ -149,3 +149,49 @@ test('reference helpers reject executable links and accept complete DOIs', () =>
   assert.equal(paperUrl({ doi: '10.2307/2528823' }), 'https://doi.org/10.2307/2528823')
   assert.equal(paperUrl({ doi: 'SAMPLE: replace this' }), null)
 })
+
+test('research handoff keeps paper URLs, unresolved identifiers and every coordinate source', () => {
+  const [research] = adaptSites([site('gale_ez', 'mars', {
+    papers: [
+      'Assessing Gale crater as a landing site | https://www.hou.usra.edu/meetings/explorationzone2015/pdf/1020.pdf',
+      'Ancient lake sediments | 10.1126/science.1242777',
+      'Antarctic soil study | 20200001776',
+      'Unresolved title | Another title | Third title',
+    ],
+    coord_source: 'https://example.org/coordinates | https://example.org/second | https://example.org/third',
+    links: [{ label: 'Related paper', href: 'https://example.org/paper' }],
+    sources: ['NASA terrain | https://example.org/dem', { name: 'Albedo', href: 'https://example.org/albedo' }, 'Unsafe | javascript:alert(1)'],
+    limitations: 'Sampling scale differs; Field notes are incomplete',
+  })])
+  assert.equal(research.papers[0].href, 'https://www.hou.usra.edu/meetings/explorationzone2015/pdf/1020.pdf')
+  assert.equal(research.papers[0].doi, undefined)
+  assert.equal(research.papers[1].href, 'https://doi.org/10.1126/science.1242777')
+  assert.equal(research.papers[2].identifier, '20200001776')
+  assert.equal(research.papers[2].doi, undefined)
+  assert.equal(research.papers[2].href, null)
+  assert.equal(research.papers[3].href, null)
+  assert.equal(research.papers[3].identifier, 'Another title | Third title')
+  assert.equal(research.coord_source, 'https://example.org/coordinates')
+  assert.deepEqual(research.coord_sources, ['https://example.org/coordinates', 'https://example.org/second', 'https://example.org/third'])
+  assert.deepEqual(research.links.map((entry) => entry.href), ['https://example.org/paper', 'https://example.org/second', 'https://example.org/third'])
+  assert.deepEqual(research.sources.map((entry) => entry.name), ['NASA terrain', 'Albedo'])
+  assert.deepEqual(research.limitations, ['Sampling scale differs', 'Field notes are incomplete'])
+  assert.equal(safeExternalUrl('https://example.org/a | https://example.org/b'), null)
+  assert.equal(paperUrl('Human exploration study | https://example.org/study.pdf'), 'https://example.org/study.pdf')
+})
+
+test('research elevation filters use supplied raw measurements and preserve zero elevations', () => {
+  const catalog = adaptSites([
+    site('earth_target', 'earth'),
+    site('raw_mars', 'mars', { raw: { elevation_m: -4500, ti: 364.4 } }),
+    site('measured_mars', 'mars', { measurements: { elevation_m: '-2000' } }),
+    site('zero_mars', 'mars', { elevation_m: 0, raw: { elevation_m: -3000 } }),
+  ])
+  assert.deepEqual(catalog.slice(1).map((entry) => entry.elevation_m), [-4500, -2000, 0])
+  const results = rankComparisons(catalog[0], catalog, { slope: 100 }, { maxElevation: -1000 })
+  assert.deepEqual(results.map((entry) => entry.site.id), ['measured_mars', 'raw_mars'])
+  assert.equal(catalog[1].raw.ti, 364.4)
+  const [missingNormalized] = adaptSites([site('raw_only', 'mars', { n: {}, raw: { ti: 364.4, slope_deg: 4 } })])
+  assert.equal(missingNormalized.n.thermal, null)
+  assert.equal(missingNormalized.n.slope, null)
+})
