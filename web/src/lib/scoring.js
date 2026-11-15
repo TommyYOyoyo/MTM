@@ -86,7 +86,7 @@ export function overallScore(target, candidate, weights = DEFAULT_WEIGHTS) {
 
         if (weight === 0) continue;
 
-        const sim = CompareFactor(target, candidate, factor);
+        const sim = compareFactor(target, candidate, factor);
         parts.push({factor, weight, sim});
 
         if (sim === null) continue;
@@ -94,15 +94,15 @@ export function overallScore(target, candidate, weights = DEFAULT_WEIGHTS) {
         weightedTotal += weight * sim;
         totalWeight += weight;
 
-        const score = totalWeight > 0 ? (weightedTotal / totalWeight) * 100 : null;
-
     }
+
+    const score = totalWeight > 0 ? (weightedTotal / totalWeight) * 100 : null;
 
     return {score, parts};
 }
 
 export function rankSites(target, candidates, weights = DEFAULT_WEIGHTS) {
-    topSites = candidates.map(site => ({
+    return candidates.map(site => ({
         site, 
         ...overallScore(target, site, weights)
     }))
