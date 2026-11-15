@@ -43,17 +43,17 @@ CONFIG_PATH="$TEST_ROOT/config.json"
 load_config
 get_backend_state() { cat "$TEST_ROOT/state"; }
 run_ts() {
-    [[ "$1" == up && "$2" == --auth-key=file:* && "$3" == --timeout=120s ]]
+    [[ "$1" == up && "$2" == --auth-key=file:* && "$3" == --timeout=120s ]] || die 'Incorrect login arguments.'
     local key_path="${2#--auth-key=file:}"
-    [[ "$(cat "$key_path")" == tskey-auth-offline-test-only ]]
-    [[ "$(/usr/bin/stat -f '%Lp' "$key_path")" == 600 ]]
+    [[ "$(cat "$key_path")" == tskey-auth-offline-test-only ]] || die 'Incorrect key file contents.'
+    [[ "$(/usr/bin/stat -f '%Lp' "$key_path")" == 600 ]] || die 'Key file permissions are not private.'
     printf '%s' "$key_path" > "$TEST_ROOT/key-path"
     printf Running > "$TEST_ROOT/state"
 }
 connect_tailscale
 [[ ! -e "$(cat "$TEST_ROOT/key-path")" ]]
 BASH
-check 'New logins use and delete a private auth-key file'
+check 'New logins use and delete a protected auth-key file'
 
 printf NeedsLogin > "$TEST_ROOT/state"
 if bash > "$TEST_ROOT/failed-auth" 2>&1 <<'BASH'
@@ -67,14 +67,24 @@ connect_tailscale
 BASH
 then exit 1; fi
 [[ ! -e "$(cat "$TEST_ROOT/failed-key-path")" ]]
-check 'Failed logins report an error and clean credentials'
+check 'Failed logins report an error and clean temporary credentials'
+
+mkdir -p "$TEST_ROOT/Fake.app/Contents/MacOS"
+printf '{"CFBundleIdentifier":"io.tailscale.ipn.macos"}' > "$TEST_ROOT/Fake.app/Contents/Info.plist"
+bash <<'BASH'
+source "$TEST_SCRIPT_DIR/connect-mac.command"
+GUI_CLIENT=1
+TAILSCALE="$TEST_ROOT/Fake.app/Contents/MacOS/Tailscale"
+[[ "$(auth_temp_parent)" == "$HOME/Library/Containers/io.tailscale.ipn.macos/Data/tmp" ]]
+BASH
+check 'The App Store client uses its own readable app container'
 
 printf Stopped > "$TEST_ROOT/state"
 bash <<'BASH'
 source "$TEST_SCRIPT_DIR/connect-mac.command"
 get_backend_state() { cat "$TEST_ROOT/state"; }
 run_ts() {
-    [[ "$#" == 2 && "$1" == up && "$2" == --timeout=120s ]]
+    [[ "$#" == 2 && "$1" == up && "$2" == --timeout=120s ]] || die 'A stopped login consumed a new key.'
     printf Running > "$TEST_ROOT/state"
 }
 AUTH_KEY='expired-key-must-not-be-used'

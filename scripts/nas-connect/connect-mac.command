@@ -7,18 +7,22 @@ umask 077
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_PATH="$SCRIPT_DIR/nas-config.local.json"
 WORK_DIR=""
+AUTH_WORK_DIR=""
 TAILSCALE=""
 GUI_CLIENT=0
 
 log() { printf '%s\n' "$*"; }
 die() { printf 'Error: %s\n' "$*" >&2; exit 1; }
-cleanup() { if [[ -n "$WORK_DIR" ]]; then rm -rf -- "$WORK_DIR"; fi; }
+cleanup() {
+    if [[ -n "$AUTH_WORK_DIR" ]]; then rm -rf -- "$AUTH_WORK_DIR"; fi
+    if [[ -n "$WORK_DIR" ]]; then rm -rf -- "$WORK_DIR"; fi
+}
 setting() { /usr/bin/plutil -extract "$1" raw -expect string -o - "$CONFIG_PATH" 2>/dev/null; }
 
 load_config() {
     [[ -f "$CONFIG_PATH" ]] || die "Copy nas-config.example.json to nas-config.local.json and fill in the credentials."
     CONFIG_PATH="$(cd -- "$(dirname -- "$CONFIG_PATH")" && pwd)/$(basename -- "$CONFIG_PATH")"
-    /usr/bin/plutil -lint "$CONFIG_PATH" >/dev/null 2>&1 || die "The settings file is not valid JSON."
+    /usr/bin/plutil -convert xml1 -o /dev/null "$CONFIG_PATH" >/dev/null 2>&1 || die "The settings file is not valid JSON."
     NAS_HOST="$(setting nasHost)" || die "nasHost must be a string."
     SHARE_NAME="$(setting shareName)" || die "shareName must be a string."
     SMB_USERNAME="$(setting smbUsername)" || die "smbUsername must be a string."
@@ -34,6 +38,29 @@ ensure_work_dir() {
         WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/nasa-connect.XXXXXXXX")"
         chmod 700 "$WORK_DIR"
     fi
+}
+
+auth_temp_parent() {
+    local bundle_id
+    if [[ "$GUI_CLIENT" -eq 1 ]]; then
+        bundle_id="$(/usr/bin/plutil -extract CFBundleIdentifier raw -o - "${TAILSCALE%/MacOS/Tailscale}/Info.plist" 2>/dev/null)" || return 1
+        if [[ "$bundle_id" == io.tailscale.ipn.macos ]]; then
+            # The App Store binary can read its own container, but not Terminal's TMPDIR.
+            printf '%s' "$HOME/Library/Containers/$bundle_id/Data/tmp"
+            return
+        fi
+    fi
+    printf '%s' "${TMPDIR:-/tmp}"
+}
+
+create_auth_file() {
+    local parent
+    parent="$(auth_temp_parent)" || die "Could not determine Tailscale's private temporary folder."
+    mkdir -p "$parent" || die "Cannot access Tailscale's private temporary folder. Allow your terminal to access Tailscale's app data if macOS asks."
+    AUTH_WORK_DIR="$(mktemp -d "$parent/nasa-connect.XXXXXXXX")" || die "Cannot create a private key file in Tailscale's temporary folder."
+    chmod 700 "$AUTH_WORK_DIR"
+    printf '%s' "$AUTH_KEY" > "$AUTH_WORK_DIR/auth-key"
+    chmod 600 "$AUTH_WORK_DIR/auth-key"
 }
 
 download() {
@@ -109,7 +136,7 @@ start_client() {
 }
 
 connect_tailscale() {
-    local state deadline key_path
+    local state deadline
     deadline=$((SECONDS + 120))
     state="$(get_backend_state)"
     while [[ -z "$state" || "$state" == Starting ]]; do
@@ -121,16 +148,16 @@ connect_tailscale() {
         Running) log "Tailscale is already connected; reusing its current login." ;;
         NeedsLogin|NoState)
             [[ "$AUTH_KEY" == tskey-auth-* ]] || die "Set tailscaleAuthKey to a valid Tailscale auth key."
-            ensure_work_dir
-            key_path="$WORK_DIR/auth-key"
-            printf '%s' "$AUTH_KEY" > "$key_path"
-            chmod 600 "$key_path"
             log "Authenticating this Mac with Tailscale..."
-            if ! run_ts up "--auth-key=file:$key_path" --timeout=120s; then
-                rm -f -- "$key_path"
+            create_auth_file
+            if ! run_ts up "--auth-key=file:$AUTH_WORK_DIR/auth-key" --timeout=120s; then
+                rm -rf -- "$AUTH_WORK_DIR"
+                AUTH_WORK_DIR=""
                 die "Tailscale authentication failed. Check key expiry, reuse settings and device approval."
             fi
-            rm -f -- "$key_path" ;;
+            rm -rf -- "$AUTH_WORK_DIR"
+            AUTH_WORK_DIR=""
+            ;;
         Stopped) run_ts up --timeout=120s ;;
         NeedsMachineAuth) die "Approve this computer in the Tailscale admin console, then rerun the script." ;;
         *) die "Tailscale is in an unsupported state: $state. Open Tailscale and resolve it, then rerun the script." ;;

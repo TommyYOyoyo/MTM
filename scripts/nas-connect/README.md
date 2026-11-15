@@ -33,8 +33,9 @@ for administrator access. Current Tailscale installers require macOS 13+, Window
    installer from Tailscale, verify its SHA-256 checksum and publisher signature,
    and install it. Windows selects x64, ARM64 or x86; Mac uses the universal PKG.
 3. Reuse an existing connected Tailscale login. Resume a stopped client's saved
-   login. For a new login, pass the configured key through a protected temporary
-   file and remove it after the attempt.
+   login. For a new login, pass the key through a protected temporary file and
+   remove it after the attempt. On Mac's App Store version, this file is placed
+   inside Tailscale's own temporary folder so the app can read it.
 4. Wait for NAS TCP port 445, then mount / map the share. Existing matching
    mounts are reused. Other shares and occupied drive letters are preserved.
 

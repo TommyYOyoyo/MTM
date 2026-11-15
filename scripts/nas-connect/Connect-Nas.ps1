@@ -116,7 +116,8 @@ function Invoke-TailscaleUp {
     param([string]$Cli, [object]$Config, [string]$State)
     $directory = $null
     try {
-        $arguments = @('up', '--unattended=true', '--timeout=120s')
+        # Keep up free of preference flags so saved non-default settings survive.
+        $arguments = @('up', '--timeout=120s')
         if ($State -in @('NeedsLogin', 'NoState')) {
             if ($Config.tailscaleAuthKey -notlike 'tskey-auth-*') { throw 'Set tailscaleAuthKey to a valid Tailscale auth key.' }
             $directory = New-PrivateTempDirectory
@@ -147,16 +148,15 @@ function Invoke-TailscaleSetup {
         Start-Sleep -Seconds 2
     } while ($true)
     switch ($state) {
-        'Running' {
-            & $cli set --unattended=true
-            if ($LASTEXITCODE -ne 0) { throw 'Could not enable unattended mode in Tailscale.' }
-        }
+        'Running' { }
         'NeedsLogin' { Invoke-TailscaleUp $cli $Config $state }
         'NoState' { Invoke-TailscaleUp $cli $Config $state }
         'Stopped' { Invoke-TailscaleUp $cli $Config $state }
         'NeedsMachineAuth' { throw 'Approve this computer in the Tailscale admin console, then rerun the launcher.' }
         default { throw "Tailscale is in an unsupported state: $state. Open Tailscale and resolve it, then rerun the launcher." }
     }
+    & $cli set --unattended=true
+    if ($LASTEXITCODE -ne 0) { throw 'Could not enable unattended mode in Tailscale.' }
     $deadline = [DateTime]::UtcNow.AddSeconds(120)
     while ((Get-TailscaleState $cli) -ne 'Running') {
         if ((Get-TailscaleState $cli) -eq 'NeedsMachineAuth') { throw 'Approve this computer in the Tailscale admin console, then rerun the launcher.' }
