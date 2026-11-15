@@ -1,7 +1,327 @@
 {
-  "metadata": {
-    "status": "not_connected",
-    "method": null
+ "metadata": {
+  "status": "connected",
+  "method": "PCA (2 components) + k-means (k=5, silhouette)",
+  "explained_variance": [
+   0.462,
+   0.305
+  ]
+ },
+ "points": [
+  {
+   "id": "gale",
+   "name": "Gale crater (Curiosity, Bradbury Landing)",
+   "planet": "mars",
+   "pc1": 0.4069,
+   "pc2": -0.3332,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
   },
-  "points": []
+  {
+   "id": "jezero",
+   "name": "Jezero crater (Perseverance, Octavia E. Butler Landing)",
+   "planet": "mars",
+   "pc1": 0.225,
+   "pc2": -0.3234,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "phoenix",
+   "name": "Phoenix site (Vastitas Borealis)",
+   "planet": "mars",
+   "pc1": -0.5222,
+   "pc2": 0.1485,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "meridiani",
+   "name": "Eagle crater (Opportunity, Challenger Memorial Station)",
+   "planet": "mars",
+   "pc1": -0.3853,
+   "pc2": -0.1683,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "gusev",
+   "name": "Gusev crater (Spirit, Columbia Memorial Station)",
+   "planet": "mars",
+   "pc1": -0.0521,
+   "pc2": -0.2681,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "gale_ez",
+   "name": "Aeolis Palus",
+   "planet": "mars",
+   "pc1": 0.2559,
+   "pc2": -0.024,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "ne_syrtis_ez",
+   "name": "Northeast Syrtis",
+   "planet": "mars",
+   "pc1": 0.116,
+   "pc2": -0.1299,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "meridiani_planum_ez",
+   "name": "Meridiani Planums",
+   "planet": "mars",
+   "pc1": -0.1395,
+   "pc2": -0.0482,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "home_plate",
+   "name": "Home Plate (Columbia Hills, Spirit)",
+   "planet": "mars",
+   "pc1": -0.1338,
+   "pc2": -0.2268,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "arcadia_ez",
+   "name": "Arcadia Planitia exploration zone",
+   "planet": "mars",
+   "pc1": -0.2969,
+   "pc2": -0.072,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "atacama_yungay_bm",
+   "name": "Yungay, Chile",
+   "planet": "earth",
+   "pc1": -0.4866,
+   "pc2": 0.0739,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "antarctic_plateau_new_site",
+   "name": "High Antartic Polar Plateau",
+   "planet": "earth",
+   "pc1": -0.1232,
+   "pc2": 0.063,
+   "cluster": 4,
+   "family": "Family 5: high albedo"
+  },
+  {
+   "id": "dallol_new_site",
+   "name": "Dallol, Danakil Depression",
+   "planet": "earth",
+   "pc1": 0.268,
+   "pc2": -0.3886,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "university_valley_bm",
+   "name": "University Valley, Antartica",
+   "planet": "earth",
+   "pc1": 0.2471,
+   "pc2": 0.7199,
+   "cluster": 3,
+   "family": "Family 4: low sun"
+  },
+  {
+   "id": "kilimanjaro_new_site",
+   "name": "Uhuru Peak, Mount Kilimanjaro",
+   "planet": "earth",
+   "pc1": 0.0969,
+   "pc2": 0.4088,
+   "cluster": 0,
+   "family": "Family 1: high slope"
+  },
+  {
+   "id": "kilauea_bm",
+   "name": "Kilauea Crater, Hawaii",
+   "planet": "earth",
+   "pc1": 0.0874,
+   "pc2": -0.2068,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "death_valley_bm",
+   "name": "Death Valley, California",
+   "planet": "earth",
+   "pc1": -0.0498,
+   "pc2": 0.0699,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "bodele_new_site",
+   "name": "Bodélé Depression, Chad",
+   "planet": "earth",
+   "pc1": -0.331,
+   "pc2": -0.1635,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "taklamakan_new_site",
+   "name": "Taklamakan Desert, Tarim basin",
+   "planet": "earth",
+   "pc1": -0.4765,
+   "pc2": 0.0375,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "loma_new_site",
+   "name": "Loma, Montana",
+   "planet": "earth",
+   "pc1": -0.071,
+   "pc2": -0.0556,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "deccan_traps_bm",
+   "name": "Deccan Traps",
+   "planet": "earth",
+   "pc1": 0.397,
+   "pc2": 0.0935,
+   "cluster": 0,
+   "family": "Family 1: high slope"
+  },
+  {
+   "id": "svalbard_bm",
+   "name": "Svalbard",
+   "planet": "earth",
+   "pc1": 0.183,
+   "pc2": 0.5893,
+   "cluster": 3,
+   "family": "Family 4: low sun"
+  },
+  {
+   "id": "karoo_new_site",
+   "name": "Karoo Flood Basalt Province",
+   "planet": "earth",
+   "pc1": 0.0098,
+   "pc2": -0.0833,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "parana_traps_new_site",
+   "name": "Paraná Traps",
+   "planet": "earth",
+   "pc1": 0.4315,
+   "pc2": -0.1869,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "chilcotin_group_new_site",
+   "name": "Chilcotin Group",
+   "planet": "earth",
+   "pc1": 0.3023,
+   "pc2": 0.1378,
+   "cluster": 0,
+   "family": "Family 1: high slope"
+  },
+  {
+   "id": "qaidam_basin_bm",
+   "name": "Qaidam Basin (Dalangtan Playa, site X0)",
+   "planet": "earth",
+   "pc1": -0.3837,
+   "pc2": -0.003,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "sambhar_salt_lake_new_site",
+   "name": "Sambhar Salt Lake (AK103T sampling site)",
+   "planet": "earth",
+   "pc1": -0.0178,
+   "pc2": -0.2705,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "ladakh_new_site",
+   "name": "Ladakh (Tso Kar, Pin 2 permafrost mound)",
+   "planet": "earth",
+   "pc1": -0.3666,
+   "pc2": 0.1368,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "wells_new_site",
+   "name": "Wells Gray–Clearwater Volcanic Field (Second Canyon Creek)",
+   "planet": "earth",
+   "pc1": 0.6342,
+   "pc2": 0.2179,
+   "cluster": 0,
+   "family": "Family 1: high slope"
+  },
+  {
+   "id": "tuya_new_site",
+   "name": "Tuya Volcanic Field (Mathews Tuya)",
+   "planet": "earth",
+   "pc1": 0.4178,
+   "pc2": 0.2284,
+   "cluster": 0,
+   "family": "Family 1: high slope"
+  },
+  {
+   "id": "karapinar_new_site",
+   "name": "Karapınar Volcanic Field (Meke Gölü maar)",
+   "planet": "earth",
+   "pc1": -0.2008,
+   "pc2": -0.0081,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "olympus_mons",
+   "name": "Olympus Mons",
+   "planet": "mars",
+   "pc1": -0.3346,
+   "pc2": 0.2152,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  },
+  {
+   "id": "utopia_ez",
+   "name": "Western Utopia Planitia (Ulrich et al. 2011 study area)",
+   "planet": "mars",
+   "pc1": 0.3071,
+   "pc2": -0.2933,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "rio_tinto_bm",
+   "name": "Río Tinto (Peña de Hierro), Spain",
+   "planet": "earth",
+   "pc1": 0.1694,
+   "pc2": -0.0903,
+   "cluster": 2,
+   "family": "Family 3: high thermal"
+  },
+  {
+   "id": "el_tatio_bm",
+   "name": "El Tatio geyser field, Chile",
+   "planet": "earth",
+   "pc1": -0.1839,
+   "pc2": 0.2033,
+   "cluster": 1,
+   "family": "Family 2: low thermal"
+  }
+ ]
 }

@@ -1,56 +1,75 @@
-# RANK STABILITY: do the benchmarks stay in the top 5 when the weights change randomly?
-# 1,000 random weightings (Dirichlet = random weights that always sum to 1). Prints numbers for the slide.
-import json, sys
+# DO BENCHMARKS STAY IN TOP 5 WHEN THE WEIGHTS CHANGE RANDOMLY? (1000 RANDOM WEIGHTINGS)
+
+import json
 import numpy as np
 import validate
 
-SITES_JSON = "web/public/sites.json"
+SITES_JSON = "web/public/sites.json" # run from inside pipeline/
 RUNS = 1000
 TOP_K = 5
-FACTORS = validate.NUMERIC + ["geology"] + validate.CATEGORY   # same 8 factors as the app
 
+# similarity of 1 mars site vs 1 earth site for all 8 factors, missing --> nan
+def factorSimilarities(marsSite, earthSite):
+    similarities = []
 
-def similarities(marsSite, earthSite):
-    out = []
-    for f in validate.NUMERIC:
-        out.append(validate.numericSimilarity(marsSite, earthSite, f))
-    out.append(validate.geologySimilarity(marsSite, earthSite))
-    for f in validate.CATEGORY:
-        out.append(validate.categorySimilarity(marsSite, earthSite, f))
-    return np.array([np.nan if s is None else s for s in out])
+    for factor in validate.NUMERIC:
+        similarities.append(validate.numericSimilarity(marsSite, earthSite, factor))
 
+    similarities.append(validate.geologySimilarity(marsSite, earthSite))
 
-def weightedScore(sims, weights):
-    usable = ~np.isnan(sims)
+    for factor in validate.CATEGORY:
+        similarities.append(validate.categorySimilarity(marsSite, earthSite, factor))
+
+    return np.array([np.nan if s is None else s for s in similarities])
+
+# weighted avg, missing factor --> its weight is shared by the others
+def weightedScore(similarities, weights):
+    usable = ~np.isnan(similarities)
+
     if not usable.any():
         return None
-    return 100 * np.sum(sims[usable] * weights[usable]) / np.sum(weights[usable])   # missing factor -> its weight is shared out
 
+    return 100 * np.sum(similarities[usable] * weights[usable]) / np.sum(weights[usable])
 
-def main(sitesPath=SITES_JSON):
-    sites = json.load(open(sitesPath, encoding="utf-8"))
-    mars = {s["id"]: s for s in sites if s["planet"] == "mars"}
-    earth = [s for s in sites if s["planet"] == "earth" and s.get("lat") is not None]
-    benchmarks = [s for s in earth if s.get("benchmark") and s.get("twin") in mars]
+def main():
+    with open(SITES_JSON, encoding="utf-8") as sitesFile:
+        sites = json.load(sitesFile)
 
+    marsById = {site["id"]: site for site in sites if site["planet"] == "mars"}
+    earthSites = [site for site in sites if site["planet"] == "earth" and site.get("lat") is not None]
+    benchmarks = [site for site in earthSites if site.get("benchmark") and site.get("twin") in marsById]
+
+    # random weights that always add up to 1 (dirichlet)
     rng = np.random.default_rng(0)
-    allWeights = rng.dirichlet(np.ones(len(FACTORS)), size=RUNS)
-    simCache = {(b["twin"], e["id"]): similarities(mars[b["twin"]], e) for b in benchmarks for e in earth}
+    allWeights = rng.dirichlet(np.ones(8), size=RUNS)
 
     hitsPerRun = np.zeros(RUNS)
-    for b in benchmarks:
-        inTop = 0
-        for r, w in enumerate(allWeights):
-            scores = [(weightedScore(simCache[(b["twin"], e["id"])], w), e["id"]) for e in earth]
-            ranking = [eid for sc, eid in sorted(((sc, eid) for sc, eid in scores if sc is not None), reverse=True)]
-            if b["id"] in ranking and ranking.index(b["id"]) < TOP_K:
-                inTop += 1
-                hitsPerRun[r] += 1
-        print(f"{b['id']:>22} -> {b['twin']:<14} top-{TOP_K} in {inTop / RUNS:.0%} of weightings")
 
-    print(f"median benchmarks in top-{TOP_K} per weighting: {np.median(hitsPerRun):.0f} / {len(benchmarks)}")
-    print(f"weightings with at least half the benchmarks in top-{TOP_K}: {np.mean(hitsPerRun >= len(benchmarks) / 2):.0%}")
+    for benchmark in benchmarks:
+        marsSite = marsById[benchmark["twin"]]
 
+        # compute similarities once, only the weights change
+        simsByEarth = {earth["id"]: factorSimilarities(marsSite, earth) for earth in earthSites}
+
+        timesInTop = 0
+        for run, weights in enumerate(allWeights):
+            scored = []
+            for earthId, sims in simsByEarth.items():
+                score = weightedScore(sims, weights)
+                if score is not None:
+                    scored.append((score, earthId))
+
+            scored.sort(reverse=True) # best first
+            ranking = [earthId for score, earthId in scored]
+
+            if benchmark["id"] in ranking and ranking.index(benchmark["id"]) < TOP_K:
+                timesInTop += 1
+                hitsPerRun[run] += 1
+
+        print(benchmark["id"], "-->", marsSite["id"], "| top", TOP_K, "in", round(timesInTop / RUNS * 100), "% of weightings")
+
+    print("median benchmarks in top", TOP_K, ":", int(np.median(hitsPerRun)), "/", len(benchmarks))
+    print("weightings w/ at least half in top", TOP_K, ":", round(np.mean(hitsPerRun >= len(benchmarks) / 2) * 100), "%")
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main()
