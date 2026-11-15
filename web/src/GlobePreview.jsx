@@ -1,9 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import Globe from './components/Globe.jsx'
 import SolarSystem from './components/SolarSystem.jsx'
+import ComparisonControls from './components/ComparisonControls.jsx'
+import MobileComparisonPage from './components/MobileComparisonPage.jsx'
+import ComparisonDetails from './components/ComparisonDetails.jsx'
+import ResearchTools from './components/ResearchTools.jsx'
+import { DEFAULT_WEIGHTS } from './lib/constants.js'
+import { adaptSites, compareSites, normalizeWeights, rankComparisons, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
 import './globe-preview.css'
+import './comparison-ui.css'
+import './mobile-location.css'
 
 const clockNow = () => performance.now()
+
+function locationRoute() {
+  try { return window.location.hash.startsWith('#location=') ? decodeURIComponent(window.location.hash.slice(10)) : null } catch { return null }
+}
 
 function validSite(site, planet) {
   return site?.planet === planet
@@ -41,6 +53,19 @@ export default function GlobePreview() {
   const [search, setSearch] = useState('')
   const [listCollapsed, setListCollapsed] = useState(true)
   const [earthEngine, setEarthEngine] = useState(null)
+  const [targetId, setTargetId] = useState('')
+  const [weights, setWeights] = useState(() => normalizeWeights(DEFAULT_WEIGHTS))
+  const [presetId, setPresetId] = useState('equal')
+  const [listView, setListView] = useState('browse')
+  const [minCoverage, setMinCoverage] = useState(0)
+  const [benchmarkOnly, setBenchmarkOnly] = useState(false)
+  const [elevationLimit, setElevationLimit] = useState(null)
+  const [discovery, setDiscovery] = useState([])
+  const [families, setFamilies] = useState(null)
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 35rem)').matches)
+  const [locationPageId, setLocationPageId] = useState(locationRoute)
+  const [comparisonPage, setComparisonPage] = useState(() => window.location.hash === '#compare')
+  const sitesRef = useRef([])
   const [solarMounted, setSolarMounted] = useState(false)
   const [globePlanets, setGlobePlanets] = useState(['mars'])
   const [solarVisible, setSolarVisible] = useState(false)
@@ -52,6 +77,8 @@ export default function GlobePreview() {
   const transitioningRef = useRef(false)
   const mountedRef = useRef(true)
   const searchRef = useRef(null)
+  const mobileBackRef = useRef(null)
+  const comparisonMenuRef = useRef(null)
   const listRef = useRef(null)
   const drawerGesture = useRef(null)
   const ignoreDrawerClick = useRef(false)
@@ -62,6 +89,35 @@ export default function GlobePreview() {
   }, [])
 
   useEffect(() => {
+    const media = window.matchMedia('(max-width: 35rem)')
+    const resize = (event) => setIsMobile(event.matches)
+    const navigate = () => {
+      const comparing = window.location.hash === '#compare'
+      setComparisonPage(comparing)
+      if (comparing) return
+      const id = locationRoute()
+      const site = sitesRef.current.find((item) => item.id === id)
+      setLocationPageId(site ? id : null)
+      setSelectedId(site ? id : null)
+      if (site) {
+        setPlanet(site.planet)
+        setGlobePlanets([site.planet])
+        solarVisibleRef.current = false
+        setSolarVisible(false)
+        setSolarMounted(false)
+      }
+    }
+    media.addEventListener('change', resize)
+    window.addEventListener('popstate', navigate)
+    window.addEventListener('hashchange', navigate)
+    return () => {
+      media.removeEventListener('change', resize)
+      window.removeEventListener('popstate', navigate)
+      window.removeEventListener('hashchange', navigate)
+    }
+  }, [])
+
+  useEffect(() => {
     const controller = new AbortController()
     fetch(`${import.meta.env.BASE_URL}sites.json`, { signal: controller.signal })
       .then((response) => {
@@ -69,8 +125,16 @@ export default function GlobePreview() {
         return response.json()
       })
       .then((data) => {
-        if (!Array.isArray(data)) throw new Error('Site data must be an array')
-        setSites(data)
+        if (!Array.isArray(data) && !Array.isArray(data?.sites)) throw new Error('Site data must be an array or an object with a sites array')
+        const adapted = adaptSites(data)
+        setSites(adapted)
+        sitesRef.current = adapted
+        const routedSite = adapted.find((site) => site.id === locationRoute())
+        if (routedSite) {
+          setSelectedId(routedSite.id)
+          setPlanet(routedSite.planet)
+          setGlobePlanets([routedSite.planet])
+        }
       })
       .catch((problem) => {
         if (problem.name !== 'AbortError') setError(problem.message)
@@ -78,6 +142,23 @@ export default function GlobePreview() {
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false)
       })
+    return () => controller.abort()
+  }, [])
+
+  useEffect(() => {
+    const controller = new AbortController()
+    async function optionalData(file) {
+      try {
+        const response = await fetch(`${import.meta.env.BASE_URL}${file}`, { signal: controller.signal })
+        return response.ok && response.headers.get('content-type')?.includes('json') ? await response.json() : null
+      } catch { return null }
+    }
+    optionalData('discovery.json').then((data) => {
+      if (!controller.signal.aborted && data) setDiscovery(adaptSites(Array.isArray(data) ? data : { ...data, sites: data.sites || data.candidates || [] }, { discovery: true }))
+    })
+    optionalData('families.json').then((data) => {
+      if (!controller.signal.aborted) setFamilies(data)
+    })
     return () => controller.abort()
   }, [])
 
@@ -95,12 +176,39 @@ export default function GlobePreview() {
     return () => controller.abort()
   }, [])
 
+  const mode = planet === 'earth' ? 'mars-to-earth' : 'earth-to-mars'
+  const targetPlanet = mode === 'mars-to-earth' ? 'mars' : 'earth'
+  const candidatePlanet = targetPlanet === 'mars' ? 'earth' : 'mars'
+  const targets = sites.filter((site) => validSite(site, targetPlanet)
+    && (targetPlanet !== 'mars' || elevationLimit === null
+      || Number.isFinite(site.elevation_m) && site.elevation_m <= elevationLimit))
+  const target = targets.find((site) => site.id === targetId) || null
   const planetSites = sites.filter((site) => validSite(site, planet))
+  const sampleData = sites.some((site) => site.placeholder)
+  const candidates = sites.filter((site) => validSite(site, candidatePlanet))
+  const rankingOptions = { minCoverage, benchmarkOnly, ...(candidatePlanet === 'mars' && elevationLimit !== null ? { maxElevation: elevationLimit } : {}) }
+  const ranked = target ? rankComparisons(target, candidates, weights, rankingOptions) : []
+  const discoveryCandidates = discovery.filter((site) => validSite(site, 'earth') && (!site.targetId || site.targetId === targetId))
+  const discovered = target?.planet === 'mars' ? rankComparisons(target, discoveryCandidates, weights, { minCoverage }) : []
+  const visibleResults = listView === 'discovery' ? discovered : ranked
+  const globeSites = listView === 'discovery' ? [...sites, ...discovery.filter((site) => !sites.some((existing) => existing.id === site.id))] : sites
+  const highlightIds = target && planet === candidatePlanet ? visibleResults.slice(0, 5).map((result) => result.site.id) : []
   const searchTerm = search.trim().toLocaleLowerCase()
   const searchResults = searchTerm
-    ? planetSites.filter((site) => String(site.name || site.id).toLocaleLowerCase().includes(searchTerm))
+    ? globeSites.filter((site) => validSite(site, planet) && String(site.name || site.id).toLocaleLowerCase().includes(searchTerm))
     : []
-  const selected = planetSites.find((site) => site.id === selectedId)
+  const selected = globeSites.find((site) => validSite(site, planet) && site.id === selectedId)
+  const selectedResult = selected && target && selected.planet !== target.planet ? compareSites(target, selected, weights) : null
+  const mobileDetail = isMobile && Boolean(locationPageId && selected) && !solarVisible
+  const mobileComparison = isMobile && comparisonPage
+  const benchmarkReport = validateBenchmarks(sites)
+
+  useEffect(() => {
+    document.title = mobileComparison ? 'Compare · MTM' : mobileDetail ? `${selected.name} · MTM` : 'MTM Globe Preview'
+    if (!mobileDetail) return undefined
+    const frame = requestAnimationFrame(() => mobileBackRef.current?.focus())
+    return () => cancelAnimationFrame(frame)
+  }, [mobileComparison, mobileDetail, selected?.name])
   const earthRecord = planet === 'earth' && selected ? earthEngine?.sites?.[selected.id] : null
   const earthData = Number.isFinite(earthRecord?.lat) && Number.isFinite(earthRecord?.lon)
     && Math.abs(earthRecord.lat - selected.lat) <= 1e-6
@@ -109,26 +217,6 @@ export default function GlobePreview() {
     ? earthEngine.metadata.sources.filter((source) => source && typeof source === 'object')
       .map((source) => ({ ...source, href: safeLink(source.url) })).filter((source) => source.href)
     : []
-  const earthContext = [
-    Number.isFinite(earthEngine?.metadata?.year) ? earthEngine.metadata.year : null,
-    Number.isFinite(earthEngine?.metadata?.radius_m) ? `${earthEngine.metadata.radius_m / 1000} km radius` : null,
-  ].filter((value) => value !== null).join(' · ')
-  const earthValues = earthData && typeof earthData === 'object' && !Array.isArray(earthData) ? [
-    ['Elevation', earthData.elevation_m, 'm'],
-    ['Slope', earthData.slope_deg, '°'],
-    ['Albedo', earthData.albedo, ''],
-    ['Day surface temp.', earthData.lst_day_c, '°C'],
-    ['Night surface temp.', earthData.lst_night_c, '°C'],
-    ['Day − night temp.', earthData.lst_day_night_c, '°C'],
-  ] : null
-  const sources = Array.isArray(selected?.sources)
-    ? selected.sources.map((source) => ({ ...source, href: safeLink(source.url) })).filter((source) => source.href)
-    : []
-  const factors = [
-    ['Slope', selected?.n?.slope],
-    ['Albedo', selected?.n?.albedo],
-    ['Thermal', selected?.n?.thermal],
-  ]
 
   async function openSolarSystem() {
     if (transitioningRef.current || solarVisibleRef.current) return
@@ -152,6 +240,7 @@ export default function GlobePreview() {
       await scene.prepareTravel(planet, view)
       if (!mountedRef.current) return
       setSelectedId(null)
+      clearLocationPage()
       setSearch('')
       solarVisibleRef.current = true
       setSolarVisible(true)
@@ -263,10 +352,94 @@ export default function GlobePreview() {
     }
   }
 
+  async function beginComparison(id) {
+    if (!id) { setTargetId(''); setSelectedId(null); return }
+    const point = sites.find((site) => site.id === id)
+    if (!point || transitioningRef.current) return
+    const nextPlanet = point.planet === 'mars' ? 'earth' : 'mars'
+    clearLocationPage()
+    setTargetId(id)
+    setBenchmarkOnly(false)
+    setListView('matches')
+    setListCollapsed(false)
+    setSearch('')
+    setSelectedId(null)
+    await selectPlanet(nextPlanet)
+  }
+
+  function applyPreset(id) {
+    const preset = WEIGHT_PRESETS.find((item) => item.id === id)
+    if (!preset) return
+    setWeights(normalizeWeights(preset.weights))
+    setPresetId(id)
+  }
+
+  function changeElevation(value) {
+    setElevationLimit(value)
+    if (target?.planet === 'mars' && value !== null && (!Number.isFinite(target.elevation_m) || target.elevation_m > value)) setTargetId('')
+  }
+
+  function openMobileComparison() {
+    if (transitioningRef.current) return
+    searchRef.current?.blur()
+    window.history.pushState({ ...window.history.state, mtmComparison: true }, '', `${window.location.pathname}${window.location.search}#compare`)
+    setComparisonPage(true)
+  }
+
+  function closeMobileComparison() {
+    setComparisonPage(false)
+    if (window.location.hash === '#compare') {
+      if (window.history.state?.mtmComparison) window.history.back()
+      else window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`)
+    }
+    requestAnimationFrame(() => comparisonMenuRef.current?.focus())
+  }
+
+  function applyMobileComparison(settings) {
+    if (transitioningRef.current) return
+    setTargetId(settings.targetId)
+    setWeights(settings.weights)
+    setPresetId(settings.presetId)
+    setElevationLimit(settings.elevationLimit)
+    setBenchmarkOnly(false)
+    setSearch('')
+    setSelectedId(null)
+    setLocationPageId(null)
+    setListView('matches')
+    setListCollapsed(false)
+    closeMobileComparison()
+  }
+
+  function exportResults() {
+    if (!target) return
+    const url = URL.createObjectURL(new Blob([resultsToCsv(visibleResults, target, weights)], { type: 'text/csv;charset=utf-8' }))
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `mtm-${target.id}-${listView === 'discovery' ? 'discovery' : 'matches'}.csv`
+    link.click()
+    setTimeout(() => URL.revokeObjectURL(url), 1000)
+  }
+
+  async function selectResult(id) {
+    if (transitioningRef.current) return
+    if (planet !== candidatePlanet || solarVisibleRef.current) await selectPlanet(candidatePlanet)
+    selectLocation(id)
+  }
+
   function selectLocation(id) {
     // Selecting the current site again should still return the camera to it.
     if (id === selectedId) globeRefs.current[planet]?.focusSite(id)
     setSelectedId(id)
+    if (window.matchMedia('(max-width: 35rem)').matches) {
+      setListCollapsed(true)
+      if (locationRoute() !== id) window.history.pushState({ ...window.history.state, mtmLocation: true }, '', `${window.location.pathname}${window.location.search}#location=${encodeURIComponent(id)}`)
+      setLocationPageId(id)
+    }
+  }
+
+  function clearLocationPage() {
+    if (locationRoute()) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`)
+    setLocationPageId(null)
   }
 
   function closeDetails() {
@@ -276,6 +449,11 @@ export default function GlobePreview() {
     const focusTarget = previousLocation || searchRef.current
     if (selectedId && !solarVisibleRef.current) globeRefs.current[planet]?.randomizeView()
     setSelectedId(null)
+    if (locationPageId) {
+      setLocationPageId(null)
+      if (window.history.state?.mtmLocation) window.history.back()
+      else clearLocationPage()
+    }
     focusTarget?.focus()
   }
 
@@ -307,11 +485,13 @@ export default function GlobePreview() {
   }
 
   return (
-    <div className="preview-shell">
-      <main className="preview-map" aria-label="Planet explorer">
+    <div className={`preview-shell${mobileDetail ? ' is-mobile-detail' : ''}${mobileComparison ? ' is-mobile-comparison' : ''}`}>
+      {mobileDetail && <header className="mobile-location-header"><button ref={mobileBackRef} type="button" className="mobile-location-back" aria-label="Back to map" onClick={closeDetails}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7" /></svg><span>Back</span></button><h1 className="mobile-location-title">{selected.name}</h1></header>}
+      {mobileDetail && <button type="button" className="mobile-location-center" aria-label="Center on selected location" title="Center on location" onClick={() => globeRefs.current[planet]?.focusSite(selected.id)}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /><path d="M12 2v3m0 14v3M2 12h3m14 0h3" /></svg></button>}
+      <main className="preview-map" aria-label="Planet explorer" inert={mobileComparison} aria-hidden={mobileComparison}>
         {!loading && !error && <div className={`preview-planet-layer${solarVisible ? ' is-hidden' : ''}`} aria-hidden={solarVisible} inert={solarVisible}>{globePlanets.map((name) => (
           <div key={name} style={{ position: 'absolute', inset: 0, opacity: name === planet ? 1 : 0, pointerEvents: name === planet ? 'auto' : 'none' }} aria-hidden={name !== planet} inert={name !== planet}>
-            <Globe ref={(node) => { if (node) globeRefs.current[name] = node; else delete globeRefs.current[name] }} sites={sites} planet={name} selectedId={name === planet ? selectedId : null} onSelect={selectLocation} onSpace={name === planet ? openSolarSystem : undefined} showSiteList={false} initialAltitude={name === planet ? undefined : 0.9} fill />
+            <Globe ref={(node) => { if (node) globeRefs.current[name] = node; else delete globeRefs.current[name] }} sites={mobileDetail ? globeSites.filter((site) => site.id === selectedId) : globeSites} planet={name} selectedId={name === planet ? selectedId : null} highlightIds={name === planet ? highlightIds : []} onSelect={selectLocation} onSpace={name === planet ? openSolarSystem : undefined} showSiteList={false} initialAltitude={name === planet ? undefined : 0.9} fill />
           </div>
         ))}</div>}
         {solarMounted && <div className={`preview-solar-layer${solarVisible ? '' : ' is-hidden'}`} aria-hidden={!solarVisible} inert={!solarVisible}><SolarSystem ref={solarRef} planet={planet} sites={sites} onReturn={selectPlanet} /></div>}
@@ -320,11 +500,12 @@ export default function GlobePreview() {
         {spaceError && <p className="preview-message preview-error" role="status">Solar system view unavailable.</p>}
       </main>
       <footer className="preview-beta"><span>Beta</span><span>© MTM 2026</span></footer>
-      <div className={`preview-chrome${searchTerm ? ' is-searching' : ''}${solarVisible ? ' is-space' : ''}`}>
+      <div className={`preview-chrome${searchTerm ? ' is-searching' : ''}${solarVisible ? ' is-space' : ''}`} inert={mobileComparison} aria-hidden={mobileComparison}>
         {!solarVisible && !loading && !error && (
           <div className="preview-search">
             <input ref={searchRef} className={`preview-search-input${search ? ' has-query' : ''}`} type="search" aria-label="Search locations" placeholder="Search locations" value={search} onChange={(event) => setSearch(event.target.value)} />
             <svg className="preview-search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.75" cy="10.75" r="6.75" /><path d="m16 16 4.25 4.25" /></svg>
+            <button ref={comparisonMenuRef} className="preview-search-menu" type="button" aria-label="Open comparison settings" onClick={openMobileComparison} disabled={transitioning}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
             {search && (
               <button className="preview-search-clear" type="button" aria-label="Clear search" onClick={() => { setSearch(''); searchRef.current?.focus() }}>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8" /></svg>
@@ -342,16 +523,22 @@ export default function GlobePreview() {
           </div>
         )}
         <PlanetSwitch planet={solarVisible ? null : planet} onSelect={selectPlanet} className="preview-switch-main" disabled={transitioning} />
+        {!isMobile && !solarVisible && !loading && !error && <ComparisonControls mode={mode} targetId={target?.id || ''} onTargetChange={beginComparison} targets={targets} weights={weights} onWeightsChange={(next) => { setWeights(next); setPresetId('custom') }} presetId={presetId} onPresetChange={applyPreset} elevationLimit={elevationLimit} onElevationLimitChange={changeElevation} disabled={transitioning} placeholder={sampleData} />}
         {!solarVisible && !loading && !error && (
           <>
             <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}`} aria-label="Sample locations" hidden={Boolean(searchTerm)}>
               <button className="preview-drawer-handle" type="button" aria-label={listCollapsed ? 'Expand locations' : 'Collapse locations'} aria-expanded={!listCollapsed} aria-controls="preview-list-content" onPointerDown={beginDrawerDrag} onPointerUp={endDrawerDrag} onPointerCancel={() => { drawerGesture.current = null }} onClick={toggleDrawer}>
                 <span className="preview-drawer-grip" aria-hidden="true" />
-                <span className="preview-panel-title">Available locations<svg className="preview-location-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2.25" /></svg></span>
+                <span className="preview-panel-title">{listView === 'browse' ? 'Available locations' : listView === 'checks' ? 'Research checks' : 'Analog matches'}<svg className="preview-location-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2.25" /></svg></span>
               </button>
               <PlanetSwitch planet={planet} onSelect={selectPlanet} className="preview-switch-mobile" disabled={transitioning} />
               <div id="preview-list-content" inert={listCollapsed} aria-hidden={listCollapsed}>
-              {planetSites.length ? (
+              <div className="comparison-list-tabs" role="group" aria-label="Location list view">{[['browse', 'Locations'], ['matches', 'Matches'], ['discovery', 'Discovery'], ['checks', 'Checks']].map(([value, label]) => <button key={value} type="button" aria-pressed={listView === value} onClick={() => setListView(value)}>{label}</button>)}</div>
+              {listView === 'checks' ? <ResearchTools report={benchmarkReport} families={families} sites={sites} /> : listView !== 'browse' ? <>
+                <div className="comparison-list-context"><p>{target ? <>Target: <strong>{target.name}</strong></> : 'Choose a target in Compare.'}</p>{target && <p className="comparison-muted">{sampleData ? 'Example ranking · sample data' : 'Weighted resemblance'}{listView === 'discovery' ? ' · partial, unreviewed' : ''}</p>}</div>
+                {target && <div className="comparison-result-tools"><label>Coverage <select aria-label="Minimum data coverage" value={minCoverage} onChange={(event) => setMinCoverage(Number(event.target.value))}><option value="0">Any</option><option value="50">50%+</option><option value="75">75%+</option><option value="100">100%</option></select></label>{candidatePlanet === 'earth' && listView === 'matches' && <label><input type="checkbox" checked={benchmarkOnly} onChange={(event) => setBenchmarkOnly(event.target.checked)} /> Benchmarks</label>}<button type="button" onClick={exportResults} disabled={!visibleResults.length}>Export CSV</button></div>}
+                {listView === 'discovery' && target?.planet !== 'mars' ? <p className="comparison-empty">Choose a Mars target for discovery.</p> : visibleResults.length ? <ol className="preview-site-list">{visibleResults.map((result, index) => <li key={result.site.id}><button type="button" className="preview-site-button comparison-result" aria-pressed={selectedId === result.site.id} onClick={() => selectResult(result.site.id)} disabled={transitioning}><span className="preview-site-number">{String(index + 1).padStart(2, '0')}</span><span className="preview-site-name">{result.site.name}<small>{result.site.benchmark ? 'Benchmark · ' : ''}{Math.round(result.coverage)}% data coverage</small></span><span className="comparison-result-score">{result.score === null ? '—' : `${result.score.toFixed(1)}%`}</span></button></li>)}</ol> : <p className="comparison-empty">{!target ? 'Select a target to see ranked analogs.' : listView === 'discovery' && !discovery.length ? 'Global scan not connected. Discovery candidates will appear here.' : 'No sites match these filters.'}</p>}
+              </> : planetSites.length ? (
                 <ol className="preview-site-list">
                   {planetSites.map((site, index) => (
                     <li key={site.id}>
@@ -373,46 +560,15 @@ export default function GlobePreview() {
               </div>
               <div id="preview-details-content">
                 <div aria-live="polite">
-              {selected ? (
-                <div className="preview-selection">
-                  <h1>{selected.name || selected.id}</h1>
-                  <p className="preview-selection-meta">Test location</p>
-                  <dl className="preview-coordinates">
-                    <div><dt>Similarity</dt><dd>Not calculated</dd></div>
-                    <div><dt>Latitude</dt><dd>{selected.lat.toFixed(2)}°</dd></div>
-                    <div><dt>Longitude</dt><dd>{selected.lon.toFixed(2)}°</dd></div>
-                  </dl>
-                  {earthValues && (
-                    <div className="preview-factors">
-                      <p className="preview-sidebar-label">EARTH ENGINE DATA</p>
-                      {earthContext && <p className="preview-selection-meta">{earthContext}</p>}
-                      <dl className="preview-coordinates">
-                        {earthValues.map(([name, value, unit]) => (
-                          <div key={name}><dt>{name}</dt><dd>{Number.isFinite(value) ? `${value.toFixed(2)}${unit ? ` ${unit}` : ''}` : '—'}</dd></div>
-                        ))}
-                      </dl>
-                      {earthSources.length > 0 && <ul className="preview-source-list">{earthSources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.name || 'Source'} ↗</a></li>)}</ul>}
-                    </div>
-                  )}
-                  <div className="preview-factors">
-                    <p className="preview-sidebar-label">SAMPLE VALUES · NORMALIZED</p>
-                    <dl className="preview-coordinates">
-                      {factors.map(([name, value]) => <div key={name}><dt>{name}</dt><dd>{Number.isFinite(value) ? value.toFixed(2) : 'Missing'}</dd></div>)}
-                    </dl>
-                  </div>
-                  <div className="preview-sources">
-                    <p className="preview-sidebar-label">SOURCES</p>
-                    {sources.length ? <ul className="preview-source-list">{sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.name || 'Source'} ↗</a></li>)}</ul> : <p className="preview-selection-meta">No sources provided</p>}
-                    <ul className="preview-source-list"><li><a href={`${import.meta.env.BASE_URL}textures/solar/CREDITS.md`} target="_blank" rel="noreferrer">Planet imagery credits ↗</a></li></ul>
-                  </div>
-                </div>
-              ) : <div className="preview-empty"><h1>Choose a location</h1></div>}
+                  <button className="comparison-primary-action" type="button" disabled={transitioning || selected.discovery} onClick={() => beginComparison(selected.id)}>{selected.planet === 'mars' ? 'Find Earth analogs' : 'Find Mars analogs'}</button>
+                  <ComparisonDetails key={selected.id} site={selected} target={selectedResult ? target : null} result={selectedResult} isPlaceholder={selected.placeholder || Boolean(selectedResult?.placeholder)} earthData={earthData} earthSources={earthSources} />
                 </div>
               </div>
             </aside>}
           </>
         )}
       </div>
+      {mobileComparison && <MobileComparisonPage key={mode} settings={{ mode, targetId: target?.id || '', weights, presetId, elevationLimit }} sites={sites} placeholder={sampleData} disabled={transitioning || loading || Boolean(error)} onBack={closeMobileComparison} onDone={applyMobileComparison} />}
     </div>
   )
 }

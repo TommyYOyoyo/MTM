@@ -84,8 +84,9 @@ const Globe = forwardRef(function Globe({ sites = [], planet = 'mars', selectedI
   const cameraTarget = useRef(null)
   const textureUrl = `${import.meta.env.BASE_URL}textures/${currentPlanet}.jpg`
   const tileRoot = `${import.meta.env.BASE_URL}textures/tiles`
+  const detailTileRoot = import.meta.env.VITE_GLOBE_DETAIL_TILE_BASE_URL
   const tileLevel = tileLevels?.[currentPlanet]
-  const tileUrl = useCallback((x, y, level) => `${tileRoot}/${currentPlanet}/${level}/${x}/${y}.jpg`, [tileRoot, currentPlanet])
+  const tileUrl = useCallback((x, y, level) => `${level === 6 && detailTileRoot ? detailTileRoot : tileRoot}/${currentPlanet}/${level}/${x}/${y}.jpg`, [tileRoot, detailTileRoot, currentPlanet])
 
   useImperativeHandle(ref, () => ({
     isReady() { return globeReady.current },
