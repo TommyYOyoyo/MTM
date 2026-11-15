@@ -1,0 +1,99 @@
+PDS_VERSION_ID                   = PDS3
+
+/* FILE DATA ELEMENTS */
+
+RECORD_TYPE                      = FIXED_LENGTH
+RECORD_BYTES                     = 49
+FILE_RECORDS                     = 164
+
+
+
+/* POINTERS TO DATA OBJECTS */
+
+^TABLE                           = "MS120RMA_00906861804_1DFDM1.TAB"
+
+
+/* IDENTIFICATION DATA ELEMENTS */
+
+DATA_SET_ID                      = "PHX-M-MET-3-PT-RDR-V1.0"
+PRODUCT_ID                       = "MS120RMA_00906861804_1DFDM1"
+PRODUCT_TYPE                     = RDR
+PRODUCT_VERSION_ID               = "V1.5 D-33236"
+RELEASE_ID                       = "0003"
+INSTRUMENT_HOST_ID               = PHX
+INSTRUMENT_HOST_NAME             = "PHOENIX"
+INSTRUMENT_ID                    = MET
+INSTRUMENT_TYPE                  = "IN SITU METEOROLOGY"
+LOCAL_TRUE_SOLAR_TIME            = "12:11:54"
+LOCAL_MEAN_SOLAR_TIME            = "11:40:50"
+MISSION_NAME                     = "PHOENIX"
+MISSION_PHASE_NAME               = "EXTENDED MISSION"
+PLANET_DAY_NUMBER                = 120
+PRODUCER_INSTITUTION_NAME        = "YORK UNIVERSITY"
+PRODUCT_CREATION_TIME            = 2009-02-17T16:49:22.000
+OPS_TOKEN                        = 16#1DFD0000#
+SPACECRAFT_CLOCK_CNT_PARTITION   = 1
+SPACECRAFT_CLOCK_START_COUNT     = "906861803.941"
+START_TIME                       = 2008-09-26T02:01:55.941
+STOP_TIME                        = 2008-09-27T01:21:21.941
+TARGET_NAME                      = MARS
+TARGET_TYPE                      = PLANET
+
+/* HISTORY DATA ELEMENTS */
+
+SOFTWARE_NAME                    = "PressureCorrector"
+SOFTWARE_VERSION_ID              = "1.0"
+PROCESSING_HISTORY_TEXT          = "CODMAC LEVEL 2 TO LEVEL 3"
+
+/* COMMANDED PARAMETERS */
+
+OPS_TOKEN_ACTIVITY               = 16#1DFD#
+PERIOD_DURATION                  = 512
+PERIOD_NUMBER                    = 164
+
+
+/* TABLE DATA ELEMENTS */
+
+OBJECT                           = TABLE
+  INTERCHANGE_FORMAT             = ASCII
+  COLUMNS                        = 3
+  ROWS                           = 164
+  ROW_BYTES                      = 49
+
+  OBJECT                         = COLUMN
+    COLUMN_NUMBER                = 1
+    NAME                         = "DURATION"
+    DATA_TYPE                    = ASCII_REAL
+    START_BYTE                   = 1
+    BYTES                        = 15
+    UNIT                         = "SECONDS"
+    DESCRIPTION                  = "The absolute number of seconds since START_TIME."
+  END_OBJECT                     = COLUMN
+
+  OBJECT                         = COLUMN
+    COLUMN_NUMBER                = 2
+    NAME                         = "FRAME_COUNT"
+    DATA_TYPE                    = ASCII_INTEGER
+    START_BYTE                   = 17
+    BYTES                        = 15
+    UNIT                         = "DN"
+    DESCRIPTION                  = "The absolute number of frames since instrument power up."
+  END_OBJECT                     = COLUMN
+
+  OBJECT                         = COLUMN
+    COLUMN_NUMBER                = 3
+    NAME                         = "SENSOR_TEMPERATURE"
+    DATA_TYPE                    = ASCII_REAL
+    START_BYTE                   = 33
+    BYTES                        = 15
+    UNIT                         = "KELVIN"
+    DESCRIPTION                  = "The temperature of thermocap 1 inside the pressure sensor."
+  END_OBJECT                     = COLUMN
+
+END_OBJECT                       = TABLE
+
+END
+
+
+
+

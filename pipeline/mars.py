@@ -2,13 +2,16 @@ import rasterio
 import numpy as np
 
 MOLA = "data/raw/MOLA_463m.tif"
-RADIUS = 3396190
+TES_ALBEDO = "data/raw/TES_albedo_7410m.tif"
+
+RADIUS_MOLA = 3396190
+RADIUS_TES = 3396000
 PIXEL = 463.0935 # in meter
 
 # latittude and longitude to xy
-def coordsToXY(lat, lon):
-    x = RADIUS * np.radians(lon)
-    y = RADIUS * np.radians(lat)
+def coordsToXY(lat, lon, radius=RADIUS_MOLA):
+    x = radius * np.radians(lon)
+    y = radius * np.radians(lat)
     return x, y 
 
 # read map pixel value
@@ -17,7 +20,7 @@ def readPixel(src, lat, lon):
     row, col = src.index(x, y)
     
     # load pixel value
-    value = int(src.read(1, window=((row, row+1), (col, col+1)))[0][0])
+    value = int(src.read(1, window=((row, row+1), (col, col+1)))[0, 0])
     
     if value == src.nodata:
         return None
@@ -44,11 +47,23 @@ def readSlope(src, lat, lon, radius_km=5):
                     # slope              roughness (standard dev of slopes)
     return float(np.nanmean(slope_deg)), float(np.nanstd(slope_deg))
 
+# albedo reading
+def readAlbedo(src, lat, lon):
+    x, y = coordsToXY(lat, lon, RADIUS_TES)
+    row, col = src.index(x, y)
+    
+    value = float(src.read(1, window=((row, row+1), (col, col+1)))[0, 0])
+    
+    if value <= -1e30 or np.isnan(value): #nodat
+        return None
+    
+    return round(value, 4)
+
 # measurement for each site of mars 
 def measure(sites):
     results = {}
 
-    with rasterio.open(MOLA) as src:
+    with rasterio.open(MOLA) as src, rasterio.open(TES_ALBEDO) as alb:
         for site in sites:
             # prevent using earth data
             if site.get("planet") != "mars":
@@ -63,7 +78,8 @@ def measure(sites):
             
             elevation = readPixel(src, siteLat, siteLon)
             slope = readSlope(src, siteLat, siteLon, radius_km = siteRad)
-            results[site["id"]] = {"elevation_m" : elevation, "slope_deg" : slope[0], "roughness_deg": slope[1]}
+            albedo = readAlbedo(alb, siteLat, siteLon)
+            results[site["id"]] = {"elevation_m" : elevation, "slope_deg" : slope[0], "roughness_deg": slope[1], "albedo": albedo}
         
     return results
 
@@ -77,5 +93,3 @@ if __name__ == "__main__":
     
     print(measure(tests))
     
-    
-# convert lat/lon to xy
