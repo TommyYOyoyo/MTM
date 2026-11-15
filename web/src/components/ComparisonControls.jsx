@@ -7,6 +7,7 @@ export default function ComparisonControls({
   targets = [], weights = {}, onWeightsChange, presetId = 'equal', onPresetChange,
   elevationLimit = null, onElevationLimitChange, disabled = false, placeholder = false,
   presentation = 'panel',
+  onOpenDual,
 }) {
   const id = useId()
   const activePreset = WEIGHT_PRESETS.some((preset) => preset.id === presetId) ? presetId : 'custom'
@@ -26,6 +27,7 @@ export default function ComparisonControls({
       <div className="comparison-controls-content">
         <fieldset className="comparison-controls-fields" disabled={disabled}>
           <legend className="comparison-sr-only">Comparison settings</legend>
+          {!isPage && onOpenDual && <button type="button" className="comparison-dual-action" onClick={onOpenDual}><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="M12 5v14" /></svg><span>Dual comparison</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg></button>}
           <div className="comparison-direction">
             <span>Direction</span>
             <span>{mode === 'earth-to-mars' ? 'Earth → Mars' : 'Mars → Earth'}</span>

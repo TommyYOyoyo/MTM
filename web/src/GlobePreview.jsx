@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Globe from './components/Globe.jsx'
 import SolarSystem from './components/SolarSystem.jsx'
 import ComparisonControls from './components/ComparisonControls.jsx'
 import MobileComparisonPage from './components/MobileComparisonPage.jsx'
 import ComparisonDetails from './components/ComparisonDetails.jsx'
+import DualComparison from './components/DualComparison.jsx'
 import ResearchTools from './components/ResearchTools.jsx'
 import { DEFAULT_WEIGHTS } from './lib/constants.js'
 import { adaptSites, compareSites, normalizeWeights, rankComparisons, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
@@ -12,6 +13,7 @@ import './comparison-ui.css'
 import './mobile-location.css'
 
 const clockNow = () => performance.now()
+const DUAL_COMPARISON_ENABLED = false
 
 function locationRoute() {
   try { return window.location.hash.startsWith('#location=') ? decodeURIComponent(window.location.hash.slice(10)) : null } catch { return null }
@@ -63,8 +65,11 @@ export default function GlobePreview() {
   const [discovery, setDiscovery] = useState([])
   const [families, setFamilies] = useState(null)
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 35rem)').matches)
+  const [dualAvailable, setDualAvailable] = useState(() => window.matchMedia('(min-width: 48rem) and (hover: hover) and (pointer: fine)').matches)
   const [locationPageId, setLocationPageId] = useState(locationRoute)
   const [comparisonPage, setComparisonPage] = useState(() => window.location.hash === '#compare')
+  const [dualComparison, setDualComparison] = useState(null)
+  const canUseDualComparison = DUAL_COMPARISON_ENABLED && dualAvailable
   const sitesRef = useRef([])
   const [solarMounted, setSolarMounted] = useState(false)
   const [globePlanets, setGlobePlanets] = useState(['mars'])
@@ -90,7 +95,15 @@ export default function GlobePreview() {
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 35rem)')
-    const resize = (event) => setIsMobile(event.matches)
+    const dualMedia = window.matchMedia('(min-width: 48rem) and (hover: hover) and (pointer: fine)')
+    const resize = (event) => {
+      setIsMobile(event.matches)
+      if (event.matches) setDualComparison(null)
+    }
+    const changeDualAvailability = (event) => {
+      setDualAvailable(event.matches)
+      if (!event.matches) setDualComparison(null)
+    }
     const navigate = () => {
       const comparing = window.location.hash === '#compare'
       setComparisonPage(comparing)
@@ -108,10 +121,12 @@ export default function GlobePreview() {
       }
     }
     media.addEventListener('change', resize)
+    dualMedia.addEventListener('change', changeDualAvailability)
     window.addEventListener('popstate', navigate)
     window.addEventListener('hashchange', navigate)
     return () => {
       media.removeEventListener('change', resize)
+      dualMedia.removeEventListener('change', changeDualAvailability)
       window.removeEventListener('popstate', navigate)
       window.removeEventListener('hashchange', navigate)
     }
@@ -374,6 +389,16 @@ export default function GlobePreview() {
     setPresetId(id)
   }
 
+  function openDualComparison() {
+    if (transitioningRef.current || !canUseDualComparison) return
+    setDualComparison({ planet, selectedId: selected?.id || null })
+  }
+
+  const closeDualComparison = useCallback(() => {
+    setDualComparison(null)
+    requestAnimationFrame(() => searchRef.current?.focus())
+  }, [])
+
   function changeElevation(value) {
     setElevationLimit(value)
     if (target?.planet === 'mars' && value !== null && (!Number.isFinite(target.elevation_m) || target.elevation_m > value)) setTargetId('')
@@ -484,6 +509,11 @@ export default function GlobePreview() {
     setListCollapsed((collapsed) => !collapsed)
   }
 
+  // Keep only the two visible 3D views mounted while comparing.
+  if (dualComparison && canUseDualComparison) return (
+    <DualComparison sites={sites} initialPlanet={dualComparison.planet} initialSelectedId={dualComparison.selectedId} weights={weights} earthEngine={earthEngine} earthSources={earthSources} onClose={closeDualComparison} />
+  )
+
   return (
     <div className={`preview-shell${mobileDetail ? ' is-mobile-detail' : ''}${mobileComparison ? ' is-mobile-comparison' : ''}`}>
       {mobileDetail && <header className="mobile-location-header"><button ref={mobileBackRef} type="button" className="mobile-location-back" aria-label="Back to map" onClick={closeDetails}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7" /></svg><span>Back</span></button><h1 className="mobile-location-title">{selected.name}</h1></header>}
@@ -523,7 +553,7 @@ export default function GlobePreview() {
           </div>
         )}
         <PlanetSwitch planet={solarVisible ? null : planet} onSelect={selectPlanet} className="preview-switch-main" disabled={transitioning} />
-        {!isMobile && !solarVisible && !loading && !error && <ComparisonControls mode={mode} targetId={target?.id || ''} onTargetChange={beginComparison} targets={targets} weights={weights} onWeightsChange={(next) => { setWeights(next); setPresetId('custom') }} presetId={presetId} onPresetChange={applyPreset} elevationLimit={elevationLimit} onElevationLimitChange={changeElevation} disabled={transitioning} placeholder={sampleData} />}
+        {!isMobile && !solarVisible && !loading && !error && <ComparisonControls mode={mode} targetId={target?.id || ''} onTargetChange={beginComparison} targets={targets} weights={weights} onWeightsChange={(next) => { setWeights(next); setPresetId('custom') }} presetId={presetId} onPresetChange={applyPreset} elevationLimit={elevationLimit} onElevationLimitChange={changeElevation} disabled={transitioning} placeholder={sampleData} onOpenDual={canUseDualComparison ? openDualComparison : undefined} />}
         {!solarVisible && !loading && !error && (
           <>
             <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}`} aria-label="Sample locations" hidden={Boolean(searchTerm)}>

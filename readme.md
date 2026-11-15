@@ -26,6 +26,14 @@ with research-reviewed rows connects the real data. See
 optional discovery candidates, and analysis files. The production home page now
 opens the same comparison interface as the globe preview.
 
+Dual comparison is currently hidden behind `DUAL_COMPARISON_ENABLED` in
+`web/src/GlobePreview.jsx`. When enabled, desktop **Compare → Dual comparison** inspects two Earth locations
+or two Mars locations side by side. Each half has an independent **Planet / Terrain**
+view and scrollable data. It uses the same weights and scoring as Compare.
+The included Gale, Jezero and Phoenix terrain models use real MOLA elevations;
+Earth comparison needs valid Earth rows in the catalog. See
+[pipeline/TERRAIN.md](pipeline/TERRAIN.md) to add terrain models for new sites.
+
 Push test from Thomas Ma :)
 Push test from Christoph
 
