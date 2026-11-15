@@ -23,7 +23,7 @@ function compareFactor(a, b, factor) {
             valueA < 0 || valueA > 1 ||
             valueB < 0 || valueB > 1
         ) {
-            throw new Error(`Invalid normalized value for ${factor}`)
+            throw new Error(`Invalid normalized value for ${factor}`);
         }
 
         return 1 - Math.abs(valueA - valueB);
@@ -78,7 +78,7 @@ export function overallScore(target, candidate, weights = DEFAULT_WEIGHTS) {
     const parts = [];
 
     for (const factor of FACTORS) {
-        const weight = weights[factor] ?? 0
+        const weight = weights[factor] ?? 0;
 
         if (!Number.isFinite(weight) || weight < 0) {
             throw new Error(`Invalid weight for ${factor}`);
@@ -99,5 +99,18 @@ export function overallScore(target, candidate, weights = DEFAULT_WEIGHTS) {
     }
 
     return {score, parts};
+}
+
+export function rankSites(target, candidates, weights = DEFAULT_WEIGHTS) {
+    topSites = candidates.map(site => ({
+        site, 
+        ...overallScore(target, site, weights)
+    }))
+    .sort((a, b) => {
+        const scoreA = a.score ?? -1;
+        const scoreB = b.score ?? -1;
+
+        return scoreB - scoreA || a.site.id.localeCompare(b.site.id)
+    });
 }
 
