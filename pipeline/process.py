@@ -42,7 +42,6 @@ def main():
     
     sites = load_sites(SITES_CSV)
     
-    
     # TODO: for each Mars site -> mars.measure(site) 
     # TODO: for each Earth site -> earth_gee.measure(sites) 
     # TODO: normalize.add_n_values(sites)     
