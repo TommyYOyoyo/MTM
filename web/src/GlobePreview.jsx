@@ -637,7 +637,7 @@ export default function GlobePreview() {
       </div>
       {mobileComparison && <MobileComparisonPage key={mode} settings={{ mode, targetId: target?.id || '', weights, presetId, elevationLimit }} sites={sites} placeholder={sampleData} disabled={transitioning || loading || Boolean(error)} onBack={closeMobileComparison} onDone={applyMobileComparison} />}
       </div>
-      {creditsOpen && <Credits sites={sites} isMobile={isMobile} onClose={closeCredits} />}
+      {creditsOpen && <Credits sites={[...sites, ...discovery]} isMobile={isMobile} onClose={closeCredits} />}
     </div>
   )
 }

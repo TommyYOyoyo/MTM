@@ -58,5 +58,6 @@ test('unverified ice stays unknown and polar thermal ranks remain excluded', () 
     assert.equal(sites.find((site) => site.id === id)?.ice, null)
   }
   assert.ok(earth.filter((site) => Math.abs(site.lat) > 60).every((site) => site.n.thermal === null))
-  assert.equal(sites.find((site) => site.id === 'university_valley_bm').ice, 'permafrost')
+  assert.equal(sites.find((site) => site.id === 'university_valley_bm').ice, 'ground_ice')
+  assert.equal(sites.find((site) => site.id === 'university_valley_bm').research_ice, 'permafrost')
 })

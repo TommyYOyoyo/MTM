@@ -40,6 +40,7 @@ function rawValue(site, keys) {
 function factorValue(site, factor) {
   if (!site) return '—'
   if (factor === 'geology') return list(site.tags).map(cleanLabel).join(', ') || 'Missing'
+  if (factor === 'ice' && site.research_ice && site.research_ice !== site.ice) return `${cleanLabel(site.ice)} (${cleanLabel(site.research_ice)})`
   if (factor === 'ice' || factor === 'subsurface') return cleanLabel(site[factor]) || 'Missing'
   if (factor === 'thermal' && site.planet === 'earth') {
     const proxy = rawValue(site, ['apparent_ti'])

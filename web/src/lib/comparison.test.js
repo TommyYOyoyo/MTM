@@ -6,17 +6,17 @@ import { DEFAULT_WEIGHTS } from './constants.js'
 
 const site = (id, planet, extra = {}) => ({ id, name: id, planet, lat: 10, lon: 20, n: { slope: 0.2, albedo: 0.3, thermal: 0.4, sun: 0.7 }, ice: 'none', tags: ['basaltic'], ...extra })
 
-test('equal weights are exact peers, then sliders keep 100 integer percent and optional factors stay off', () => {
+test('equal includes roughness, then sliders keep 100 integer percent and subsurface stays off', () => {
   let weights = normalizeWeights()
   assert.equal(weights.slope, weights.geology)
   assert.equal(weights.ice, weights.albedo)
+  assert.equal(weights.roughness, weights.slope)
   assert.ok(Math.abs(Object.values(weights).reduce((sum, weight) => sum + weight, 0) - 100) < 1e-10)
   for (const value of [99, 100, 0, 33, 67]) {
     weights = setFactorWeight(weights, 'slope', value)
     assert.equal(weights.slope, value)
     assert.equal(Object.values(weights).reduce((sum, weight) => sum + weight, 0), 100)
     assert.ok(Object.values(weights).every(Number.isInteger))
-    assert.equal(weights.roughness, 0)
     assert.equal(weights.subsurface, 0)
   }
   weights = setFactorWeight(weights, 'subsurface', 25)

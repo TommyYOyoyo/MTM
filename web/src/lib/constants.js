@@ -15,6 +15,7 @@ export const FACTORS = [
 
 export const DEFAULT_WEIGHTS = {
   slope: 1,
+  roughness: 1,
   albedo: 1,
   thermal: 1,
   sun: 1,

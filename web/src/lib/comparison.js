@@ -8,10 +8,18 @@ export const FACTOR_INFO = [
   { key: 'thermal', label: 'Thermal', kind: 'numeric', unit: 'percentile', description: 'Relative rank within each planet: Mars TES thermal inertia versus Earth apparent thermal inertia, (1 − albedo) / day–night surface-temperature difference. These are different quantities; the score compares ranks, not physical equivalence.' },
   { key: 'sun', label: 'Sun', kind: 'numeric', unit: 'index', description: 'Latitude and axial-tilt proxy; not a measurement of local illumination or weather.' },
   { key: 'roughness', label: 'Roughness', kind: 'numeric', unit: 'index', description: 'Optional normalized terrain roughness. Its sampling scale must be documented.' },
-  { key: 'ice', label: 'Ice', kind: 'category', unit: '', description: 'Exact agreement of the documented ice category.' },
+  { key: 'ice', label: 'Ice', kind: 'category', unit: '', description: 'Agreement of the documented ice category. Permafrost and ground ice share the agreed scoring category; unverified ice remains missing.' },
   { key: 'geology', label: 'Geology', kind: 'tags', unit: '', description: 'Shared geology tags divided by the larger unique tag list.' },
   { key: 'subsurface', label: 'Subsurface', kind: 'category', unit: '', description: 'Optional exact agreement of documented cave or lava-tube tags.' },
 ]
+
+const DATASET_SOURCES = {
+  'NASA/NASADEM_HGT/001': { name: 'NASADEM HGT.001', agency: 'NASA', url: 'https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001' },
+  'MODIS/061/MCD43A3': { name: 'MODIS MCD43A3.061 shortwave albedo', agency: 'NASA', url: 'https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD43A3' },
+  'MODIS/061/MOD11A2': { name: 'MODIS MOD11A2.061 land surface temperature', agency: 'NASA', url: 'https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2' },
+  'MODIS/061/MOD13A2': { name: 'MODIS MOD13A2.061 vegetation indices', agency: 'NASA', url: 'https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2' },
+  'JRC/GSW1_4/GlobalSurfaceWater': { name: 'JRC Global Surface Water v1.4', agency: 'European Commission JRC / Google', url: 'https://developers.google.com/earth-engine/datasets/catalog/JRC_GSW1_4_GlobalSurfaceWater' },
+}
 
 const nonnegative = (value) => Number.isFinite(value) && value > 0 ? value : 0
 const CORE_WEIGHTS = Object.fromEntries(FACTORS.map((key) => [key, nonnegative(DEFAULT_WEIGHTS[key])]))
@@ -117,6 +125,8 @@ export function paperUrl(value) {
 function linkEntries(value, defaultLabel) {
   return list(value).flatMap((entry) => {
     if (typeof entry === 'string') {
+      const dataset = DATASET_SOURCES[entry.trim()]
+      if (dataset) return [{ ...dataset, href: dataset.url }]
       const parts = entry.split('|').map((part) => part.trim()).filter(Boolean)
       const href = parts.map(safeExternalUrl).find(Boolean)
       return href ? [{ name: parts.find((part) => !safeExternalUrl(part)) || defaultLabel, label: parts.find((part) => !safeExternalUrl(part)) || defaultLabel, url: href, href }] : []
@@ -130,11 +140,12 @@ function linkEntries(value, defaultLabel) {
 function sanitizeScoringSite(site = {}) {
   if (!site || typeof site !== 'object') site = {}
   const discovery = isTrue(site.discovery)
+  const researchIce = category(site.research_ice) || category(site.ice)
   const n = Object.fromEntries(NUMERIC_FACTORS.map((factor) => {
     const value = numberOrNull(site.n?.[factor])
     return [factor, value !== null && value >= 0 && value <= 1 ? value : null]
   }))
-  return { ...site, n, discovery, tags: discovery ? [] : words(site.tags), ice: discovery ? null : category(site.ice), subsurface: discovery ? null : category(site.subsurface), placeholder: placeholderSite(site) }
+  return { ...site, n, discovery, tags: discovery ? [] : words(site.tags), research_ice: researchIce, ice: discovery ? null : researchIce === 'permafrost' ? 'ground_ice' : researchIce, subsurface: discovery ? null : category(site.subsurface), placeholder: placeholderSite(site) }
 }
 
 /** Accept the handoff JSON contract plus harmless CSV-export aliases. Never invent n values. */
@@ -142,6 +153,7 @@ export function adaptSites(data, { discovery = false } = {}) {
   const rows = Array.isArray(data) ? data : Array.isArray(data?.sites) ? data.sites : []
   const placeholderDataset = !Array.isArray(data) && /\b(fake|sample|example|placeholder)\b/i.test([data?.metadata?.status, data?.metadata?.data_status].filter(Boolean).join(' '))
   const seen = new Set()
+  const datasetSources = linkEntries(data?.metadata?.sources, 'Dataset')
   return rows.flatMap((row) => {
     if (!row || typeof row !== 'object' || Array.isArray(row)) return []
     const id = typeof row.id === 'string' ? row.id.trim() : ''
@@ -176,7 +188,7 @@ export function adaptSites(data, { discovery = false } = {}) {
       limits: textList(row.limits),
       limitations: textList(row.limitations),
       papers: paperEntries.map((entry) => ({ ...entry, href: paperUrl(entry) })),
-      sources: linkEntries(row.sources, 'Dataset'),
+      sources: linkEntries(row.sources, 'Dataset').length ? linkEntries(row.sources, 'Dataset') : datasetSources,
       links,
       img: safeImageUrl(row.img), satellite_img: safeImageUrl(row.satellite_img),
       coord_source: coordSources[0] || null, coord_sources: coordSources,
