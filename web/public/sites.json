@@ -6,7 +6,7 @@
     "type": "landing",
     "lat": -4.589467,
     "lon": 137.441633,
-    "radius_km": 5.0,
+    "radius_km": 5,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -15,10 +15,10 @@
     ],
     "subsurface": null,
     "benchmark": false,
-    "twin": null,
+    "twin": "death_valley_bm",
     "use_case": "Target site: rover-explored ancient lake sediments",
     "papers": [
-      "SAMPLE: replace with a real paper (Title | DOI)"
+      "A Habitable Fluvio-Lacustrine Environment at Yellowknife Bay, Gale Crater, Mars | 10.1126/science.1242777"
     ],
     "coord_source": "https://mars.nasa.gov/mmgis-maps/MSL/Layers/json/MSL_waypoints.json",
     "notes": "SAMPLE row: verify tags/ice against a paper",
@@ -45,7 +45,7 @@
     "type": "landing",
     "lat": 18.444627,
     "lon": 77.450886,
-    "radius_km": 5.0,
+    "radius_km": 5,
     "ice": "none",
     "tags": [
       "sedimentary",
@@ -57,7 +57,7 @@
     "twin": null,
     "use_case": "Target site: ancient delta and lake deposits",
     "papers": [
-      "SAMPLE: replace with a real paper (Title | DOI)"
+      "Perseverance rover reveals an ancient delta-lake system and flood deposits at Jezero crater, Mars | 10.1126/science.abl4051"
     ],
     "coord_source": "https://mars.nasa.gov/mmgis-maps/M20/Layers/json/M20_waypoints.json",
     "notes": "SAMPLE row: verify tags/ice against a paper",
@@ -72,7 +72,7 @@
     "n": {
       "slope": 0.04844114060400062,
       "roughness": 0.07164865075864021,
-      "thermal": 0.5,
+      "thermal": 0.8181818181818182,
       "albedo": 0.1681,
       "sun": 1.0
     }
@@ -84,7 +84,7 @@
     "type": "landing",
     "lat": 68.22,
     "lon": -125.75,
-    "radius_km": 5.0,
+    "radius_km": 5,
     "ice": "ground_ice",
     "tags": [
       "periglacial",
@@ -92,10 +92,11 @@
     ],
     "subsurface": null,
     "benchmark": false,
-    "twin": null,
+    "twin": "university_valley_bm",
     "use_case": "Target site: shallow ground ice in the northern plains",
     "papers": [
-      "SAMPLE: replace with a real paper (Title | DOI)"
+      "H2O at the Phoenix Landing Site | 10.1126/science.1172339",
+      "Detection of Perchlorate and the Soluble Chemistry of Martian Soil at the Phoenix Lander Site | 10.1126/science.1172466"
     ],
     "coord_source": "https://science.nasa.gov/mission/mars-phoenix/",
     "notes": "SAMPLE row: verify tags/ice against a paper",
@@ -116,92 +117,1284 @@
     }
   },
   {
+    "id": "meridiani",
+    "name": "Eagle crater (Opportunity, Challenger Memorial Station)",
+    "planet": "mars",
+    "type": "landing",
+    "lat": -1.95,
+    "lon": -5.53,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "sulfate"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "rio_tinto_bm",
+    "use_case": "Target site: analyze clues of water on mars in the pass",
+    "papers": [
+      "The Opportunity Rover's Athena Science Investigation at Meridiani Planum, Mars | 10.1126/science.1106171"
+    ],
+    "coord_source": "https://an.rsl.wustl.edu/merb/AN/an3.aspx | https://www.nasa.gov/image-article/rovers-landing-hardware-eagle-crater-mars/",
+    "notes": "source does not indicate a twin",
+    "raw": {
+      "elevation_m": -1384,
+      "slope_deg": 0.18412509956106118,
+      "roughness_deg": 0.10831223018419686,
+      "albedo": 0.1283,
+      "subsurf_water": 0.059,
+      "ti": 192.9
+    },
+    "n": {
+      "slope": 0.0061375033187020395,
+      "roughness": 0.007220815345613124,
+      "thermal": 0.18181818181818182,
+      "albedo": 0.1283,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "gusev",
+    "name": "Gusev crater (Spirit, Columbia Memorial Station)",
+    "planet": "mars",
+    "type": "landing",
+    "lat": -14.572,
+    "lon": 175.478,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "Investigae the past history of water on mars",
+    "papers": [
+      "Exploring Gusev Crater with Spirit: Review of science objectives and testable hypotheses | 10.1029/2002JE002026"
+    ],
+    "coord_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7133449/ | https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2002JE002026",
+    "notes": "lat and lon were converted to respect the -180 to 180 degres convention",
+    "raw": {
+      "elevation_m": -1941,
+      "slope_deg": 0.40158831377591814,
+      "roughness_deg": 0.4005550501737749,
+      "albedo": 0.2231,
+      "subsurf_water": 0.092,
+      "ti": 265.3
+    },
+    "n": {
+      "slope": 0.013386277125863938,
+      "roughness": 0.026703670011584992,
+      "thermal": 0.5454545454545454,
+      "albedo": 0.2231,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "gale_ez",
+    "name": "Aeolis Palus",
+    "planet": "mars",
+    "type": "exploration_zone",
+    "lat": -4.5965,
+    "lon": 137.4019,
+    "radius_km": 25,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "clay",
+      "impact"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "death_valley_bm",
+    "use_case": "Look for water through sediments",
+    "papers": [
+      "Assessing Gale crater as a landing site for the first human mission to Mars | https://www.hou.usra.edu/meetings/explorationzone2015/pdf/1020.pdf"
+    ],
+    "coord_source": "https://www.hou.usra.edu/meetings/explorationzone2015/pdf/1020.pdf |  https://cosmochemistry-papers.com/2026/09/23/estimating-past-fluid-ph-and-evaporative-conditions-in-gale-crater-using-terrestrial-analog-samples-from-death-valley-ca/",
+    "notes": null,
+    "raw": {
+      "elevation_m": -4487,
+      "slope_deg": 5.977594335900121,
+      "roughness_deg": 5.45714979825419,
+      "albedo": 0.2313,
+      "subsurf_water": 0.067,
+      "ti": 303.8
+    },
+    "n": {
+      "slope": 0.19925314453000403,
+      "roughness": 0.36380998655027935,
+      "thermal": 0.7272727272727273,
+      "albedo": 0.2313,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "ne_syrtis_ez",
+    "name": "Northeast Syrtis",
+    "planet": "mars",
+    "type": "exploration_zone",
+    "lat": 17.885,
+    "lon": 77.202,
+    "radius_km": 25,
+    "ice": "none",
+    "tags": [
+      "sulfate"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "Oman Ophiolites",
+    "use_case": "Look for the high diviserity of minerals that could be hints of hte presence of water in the past",
+    "papers": [
+      "The geological history of Northeast Syrtis Major, Mars | 10.1016/j.icarus.2017.03.030"
+    ],
+    "coord_source": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/2130.pdf | https://www-robotics.jpl.nasa.gov/media/documents/Data-driven%20surface%20traversability%20analysis%20for%20Mars%202020%20landing%20site%20selection.pdf | https://dev.macrostrat.org/mars/syrtis-jezero/#a=5&e=42&overlays=&ve=1.5&x=76.881&y=17.765&z=17712",
+    "notes": null,
+    "raw": {
+      "elevation_m": -2075,
+      "slope_deg": 3.1451859558986555,
+      "roughness_deg": 3.460958184010015,
+      "albedo": 0.1742,
+      "subsurf_water": -0.272,
+      "ti": 298.8
+    },
+    "n": {
+      "slope": 0.10483953186328851,
+      "roughness": 0.23073054560066766,
+      "thermal": 0.6363636363636364,
+      "albedo": 0.1742,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "meridiani_planum_ez",
+    "name": "Meridiani Planums",
+    "planet": "mars",
+    "type": "exploration_zone",
+    "lat": 0.2,
+    "lon": -2.5,
+    "radius_km": 25,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "basaltic",
+      "sulfate"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "To seach for geological evidence of past liquid water on mars",
+    "papers": [
+      "Meridiani Planum and the Search for Ice on Mars | Meridiani Planum and the Search for Ice on Mars | Radar sounder evidence of thick, porous sediments in Meridiani Planum and implications for ice-filled deposits on Mars"
+    ],
+    "coord_source": "https://airandspace.si.edu/stories/editorial/meridiani-planum-and-search-ice-mars | https://planetarynames.wr.usgs.gov/Feature/3854 | https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2017GL074431",
+    "notes": "The radius was calculated by putting the 77,000 into a cricle area",
+    "raw": {
+      "elevation_m": -1243,
+      "slope_deg": 1.9011320041531559,
+      "roughness_deg": 3.674788155582328,
+      "albedo": 0.1528,
+      "subsurf_water": 0.088,
+      "ti": 197.6
+    },
+    "n": {
+      "slope": 0.0633710668051052,
+      "roughness": 0.24498587703882185,
+      "thermal": 0.36363636363636365,
+      "albedo": 0.1528,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "home_plate",
+    "name": "Home Plate (Columbia Hills, Spirit)",
+    "planet": "mars",
+    "type": "landing",
+    "lat": -14.64,
+    "lon": 175.53,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "sedimentary",
+      "volcanic",
+      "sulfate"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "el_tatio_bm",
+    "use_case": "Identifier des roches qui peuvent contenir des traces d'une présence d'eau il y a plusieurs années",
+    "papers": [
+      "Silica deposits on Mars with features resembling hot spring biosignatures at El Tatio in Chile | 10.1038/ncomms13554",
+      "Rocks of the Columbia Hills | 10.1029/2005JE002562"
+    ],
+    "coord_source": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2005JE002562 | https://www-robotics.jpl.nasa.gov/media/documents/Data-driven%20surface%20traversability%20analysis%20for%20Mars%202020%20landing%20site%20selection.pdf | https://www.planetary.org/articles/1023-why-return-to-the-columbia-hills",
+    "notes": null,
+    "raw": {
+      "elevation_m": -1914,
+      "slope_deg": 0.40127550502915577,
+      "roughness_deg": 0.5839814894521375,
+      "albedo": 0.2395,
+      "subsurf_water": 0.093,
+      "ti": 256.9
+    },
+    "n": {
+      "slope": 0.013375850167638526,
+      "roughness": 0.038932099296809165,
+      "thermal": 0.45454545454545453,
+      "albedo": 0.2395,
+      "sun": 1.0
+    }
+  },
+  {
     "id": "arcadia_ez",
     "name": "Arcadia Planitia exploration zone",
     "planet": "mars",
     "type": "exploration_zone",
-    "lat": null,
-    "lon": null,
-    "radius_km": 25.0,
+    "lat": 46.581,
+    "lon": -165.15,
+    "radius_km": 25,
     "ice": "ground_ice",
-    "tags": [],
+    "tags": [
+      "periglacial"
+    ],
     "subsurface": null,
     "benchmark": false,
     "twin": null,
     "use_case": "Target site: candidate human base with buried ice",
     "papers": [
-      "SAMPLE: replace with a real paper (Title | DOI)"
+      "Widespread excess ice in Arcadia Planitia, Mars | 10.1002/2015GL064844"
     ],
     "coord_source": null,
     "notes": "SAMPLE row: take the centre lat/lon from the OpenPlanetary EZ table or the 2015 workshop abstract",
-    "raw": {},
+    "raw": {
+      "elevation_m": -3986,
+      "slope_deg": 0.23017789969877675,
+      "roughness_deg": 0.16724914536414692,
+      "albedo": 0.2435,
+      "subsurf_water": 0.578,
+      "ti": 195.1
+    },
     "n": {
-      "slope": null,
-      "roughness": null,
-      "thermal": null,
-      "albedo": null,
-      "sun": null
+      "slope": 0.007672596656625892,
+      "roughness": 0.011149943024276462,
+      "thermal": 0.2727272727272727,
+      "albedo": 0.2435,
+      "sun": 0.762
     }
   },
   {
-    "id": "example_benchmark",
-    "name": "EXAMPLE famous analog (replace)",
+    "id": "atacama_yungay_bm",
+    "name": "Yungay, Chile",
     "planet": "earth",
     "type": "analog",
-    "lat": null,
-    "lon": null,
-    "radius_km": 5.0,
+    "lat": -24.0884,
+    "lon": -69.9945,
+    "radius_km": 5,
     "ice": "none",
     "tags": [
+      "perchlorate",
+      "sedimentary",
+      "clay",
       "sulfate",
+      "evaporite"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "EXAMPLE: test rover instruments on Gale-like sediments",
+    "papers": [
+      "The Atacama Rover Astrobiology Drilling Studies (ARADS) Project | 10.1089/ast.2022.0126"
+    ],
+    "coord_source": "https://journals.sagepub.com/doi/10.1089/ast.2022.0126",
+    "notes": "SAMPLE row: benchmark = yes, twin = id of the Mars site it resembles",
+    "raw": {
+      "slope_deg": 3.64011249681979,
+      "roughness_deg": 2.5887522249343053,
+      "albedo": 0.24547024806296608,
+      "lst_day_k": 316.10651993746205,
+      "lst_night_k": 284.655626604903,
+      "dT_k": 31.450893332559076,
+      "apparent_ti": 0.02399072560383899,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.12133708322732634,
+      "roughness": 0.172583481662287,
+      "thermal": 0.0,
+      "albedo": 0.24547024806296608,
+      "sun": 0.992
+    }
+  },
+  {
+    "id": "antarctic_plateau_new_site",
+    "name": "High Antartic Polar Plateau",
+    "planet": "earth",
+    "type": "analog",
+    "lat": -75.1,
+    "lon": 123.39,
+    "radius_km": 5,
+    "ice": "glacier",
+    "tags": [
+      "glacial"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "EXAMPLE: drilling tests in ice-rich ground like Phoenix",
+    "papers": [
+      "‘White Mars’ – nearly two decades of biomedical research at the Antarctic Concordia station | 10.1113/ep088352"
+    ],
+    "coord_source": "https://calval.cr.usgs.gov/apps/dome-c",
+    "notes": "SAMPLE row: one exact point from the paper, not a whole region",
+    "raw": {
+      "slope_deg": 0.04995119895309931,
+      "roughness_deg": 0.04744352076957944,
+      "albedo": 0.8159662149219434,
+      "lst_day_k": 217.4718291891578,
+      "lst_night_k": 214.69167427815802,
+      "dT_k": 2.7801549109997836,
+      "apparent_ti": 0.06619551462759152,
+      "dem": "Copernicus GLO-30"
+    },
+    "n": {
+      "slope": 0.0016650399651033103,
+      "roughness": 0.003162901384638629,
+      "thermal": null,
+      "albedo": 0.8159662149219434,
+      "sun": 0.426
+    }
+  },
+  {
+    "id": "dallol_new_site",
+    "name": "Dallol, Danakil Depression",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 14.242,
+    "lon": 40.3,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "evaporite",
+      "sulfate",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": null,
+    "papers": [
+      "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth | 10.1089/ast.2018.1926"
+    ],
+    "coord_source": "https://volcano.si.edu/volcano.cfm?vn=221041",
+    "notes": null,
+    "raw": {
+      "slope_deg": 0.2539163680713531,
+      "roughness_deg": 0.4587632729232555,
+      "albedo": 0.2314789833290625,
+      "lst_day_k": 314.6107217323277,
+      "lst_night_k": 306.71297390425934,
+      "dT_k": 7.897747828068361,
+      "apparent_ti": 0.09730888265888114,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.00846387893571177,
+      "roughness": 0.030584218194883703,
+      "thermal": 0.8947368421052632,
+      "albedo": 0.2314789833290625,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "university_valley_bm",
+    "name": "University Valley, Antartica",
+    "planet": "earth",
+    "type": "analog",
+    "lat": -77.86,
+    "lon": 160.71,
+    "radius_km": 5,
+    "ice": "ground_ice",
+    "tags": [
+      "periglacial",
+      "glacial",
+      "sedimentary"
+    ],
+    "subsurface": null,
+    "benchmark": true,
+    "twin": "phoenix",
+    "use_case": "test for microorganisms (survivability, presence, detection, etc), test soil composition, water presence (or lack of thereof), subsurface sampling technique tests",
+    "papers": [
+      "X-RAY AMORPHOUS COMPONENTS OF ANTARCTICA DRY VALLEY SOILS: WEATHERING IMPLICATIONS FOR MARS | 20200001776",
+      "The high elevation Dry Valleys in Antarctica as analog sites for subsurface ice on Mars | 10.1016/j.pss.2013.05.019"
+    ],
+    "coord_source": "https://ntrs.nasa.gov/api/citations/20200001776/downloads/20200001776.pdf",
+    "notes": "radius was calculated with numbers given in paper",
+    "raw": {
+      "slope_deg": 14.718599635659036,
+      "roughness_deg": 10.807950181589273,
+      "albedo": 0.3297511748989359,
+      "lst_day_k": 243.53922301013557,
+      "lst_night_k": 242.43426019675613,
+      "dT_k": 1.1049628133794442,
+      "apparent_ti": 0.6065804359978046,
+      "dem": "Copernicus GLO-30"
+    },
+    "n": {
+      "slope": 0.4906199878553012,
+      "roughness": 0.7205300121059516,
+      "thermal": null,
+      "albedo": 0.3297511748989359,
+      "sun": 0.395
+    }
+  },
+  {
+    "id": "kilimanjaro_new_site",
+    "name": "Uhuru Peak, Mount Kilimanjaro",
+    "planet": "earth",
+    "type": "analog",
+    "lat": -3.0674,
+    "lon": 37.3556,
+    "radius_km": 5,
+    "ice": "glacier",
+    "tags": [
+      "periglacial",
+      "volcanic",
+      "glacial"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "considerably lower atmospheric pressure, strong UV radiation, investigating daily freeze-thaw cycles, microbial survival, volcanic geology and minerals",
+    "papers": [
+      "The disappearing periglacial ecosystem atop Mt. Kilimanjaro supports both cosmopolitan and endemic microbial communities | 10.1038/s41598-019-46521-0"
+    ],
+    "coord_source": null,
+    "notes": null,
+    "raw": {
+      "slope_deg": 18.877303978407685,
+      "roughness_deg": 8.117759881623254,
+      "albedo": 0.11412398041690183,
+      "lst_day_k": 291.27362744169164,
+      "lst_night_k": 269.23887028674335,
+      "dT_k": 22.034757154948295,
+      "apparent_ti": 0.04020357534932755,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.6292434659469228,
+      "roughness": 0.5411839921082169,
+      "thermal": 0.3684210526315789,
+      "albedo": 0.11412398041690183,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "kilauea_bm",
+    "name": "Kilauea Crater, Hawaii",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 19.421,
+    "lon": -155.287,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": true,
+    "twin": "olympus_mons",
+    "use_case": "mars surface exploration simulation, lava tubes and subsurface habitability research, basalt and volcanic ash, etc",
+    "papers": [
+      "Terrestrial analogs to the calderas of the Tharsis volcanoes on Mars | 10.1017/cbo9780511536014.004",
+      "Basaltic Terrains in Idaho and Hawai‘i as Planetary Analogs for Mars Geology and Astrobiology | 10.1089/ast.2018.1847"
+    ],
+    "coord_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018EA000375",
+    "notes": null,
+    "raw": {
+      "slope_deg": 2.7678371169856315,
+      "roughness_deg": 1.9682555312001835,
+      "albedo": 0.0991295553360465,
+      "lst_day_k": 302.87156628442534,
+      "lst_night_k": 287.87122333897725,
+      "dT_k": 15.000342945448097,
+      "apparent_ti": 0.06005665656713039,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.09226123723285438,
+      "roughness": 0.13121703541334556,
+      "thermal": 0.631578947368421,
+      "albedo": 0.0991295553360465,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "death_valley_bm",
+    "name": "Death Valley, California",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 35.72,
+    "lon": -116.38,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
       "sedimentary"
     ],
     "subsurface": null,
     "benchmark": true,
     "twin": "gale",
-    "use_case": "EXAMPLE: test rover instruments on Gale-like sediments",
+    "use_case": "wind/dust movement, erosion, LiDAR tech testing, rover mobility testing",
     "papers": [
-      "SAMPLE: replace with a real paper (Title | DOI)"
+      "The Ibex dune field of Death Valley National Park, California: Characterization and assessment for Use as a Martian analog | 10.1016/j.aeolia.2026.101032"
     ],
-    "coord_source": null,
-    "notes": "SAMPLE row: benchmark = yes, twin = id of the Mars site it resembles",
-    "raw": {},
+    "coord_source": "https://ntrs.nasa.gov/api/citations/20260000452/downloads/Bretzfelder_IbexDunes_finalsubmit_Jan142026.pdf",
+    "notes": "there are two coords in the source, the one written is the first",
+    "raw": {
+      "slope_deg": 5.573946573823734,
+      "roughness_deg": 3.8501138222736913,
+      "albedo": 0.21803013281889674,
+      "lst_day_k": 309.67278100702845,
+      "lst_night_k": 290.95083691067373,
+      "dT_k": 18.72194409635472,
+      "apparent_ti": 0.041767556999241215,
+      "dem": "NASADEM"
+    },
     "n": {
-      "slope": null,
-      "roughness": null,
-      "thermal": null,
-      "albedo": null,
-      "sun": null
+      "slope": 0.18579821912745778,
+      "roughness": 0.2566742548182461,
+      "thermal": 0.42105263157894735,
+      "albedo": 0.21803013281889674,
+      "sun": 0.863
     }
   },
   {
-    "id": "example_new_site",
-    "name": "EXAMPLE lesser-known site (replace)",
+    "id": "bodele_new_site",
+    "name": "Bodélé Depression, Chad",
     "planet": "earth",
     "type": "analog",
-    "lat": null,
-    "lon": null,
-    "radius_km": 5.0,
-    "ice": "permafrost",
+    "lat": 17.0,
+    "lon": 18.0,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "clay"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "martian dust behaviour, aeolian, sediment transport, ancient lakebed sediment research",
+    "papers": [
+      "Links between topography, wind, deflation, lakes and dust: The case of the Bodélé Depression, Chad | 10.1029/2006GL025827"
+    ],
+    "coord_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3603401/",
+    "notes": "the coords source presents many coordinates, so the final coordinate is an approx (+new site = no nasa coords)",
+    "raw": {
+      "slope_deg": 0.22434372656783305,
+      "roughness_deg": 0.19553614884889728,
+      "albedo": 0.38272491419331256,
+      "lst_day_k": 313.9714240903388,
+      "lst_night_k": 295.0493677377121,
+      "dT_k": 18.922056352626726,
+      "apparent_ti": 0.032621987499841604,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.007478124218927768,
+      "roughness": 0.013035743256593152,
+      "thermal": 0.2631578947368421,
+      "albedo": 0.38272491419331256,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "taklamakan_new_site",
+    "name": "Taklamakan Desert, Tarim basin",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 39.25,
+    "lon": 83.7,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "sedimentary"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "martian dust behaviour, aeolian, sediment transport, dune formation, dust storms, rover mobility",
+    "papers": [],
+    "coord_source": null,
+    "notes": null,
+    "raw": {
+      "slope_deg": 1.774828829867661,
+      "roughness_deg": 0.9744755409689796,
+      "albedo": 0.26605405871758986,
+      "lst_day_k": 304.2907842413193,
+      "lst_night_k": 279.01590478778974,
+      "dT_k": 25.274879453529536,
+      "apparent_ti": 0.029038553581703333,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.0591609609955887,
+      "roughness": 0.06496503606459864,
+      "thermal": 0.05263157894736842,
+      "albedo": 0.26605405871758986,
+      "sun": 0.824
+    }
+  },
+  {
+    "id": "loma_new_site",
+    "name": "Loma, Montana",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 47.9483,
+    "lon": -110.4972,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "clay",
+      "glacial",
+      "periglacial"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "jezero",
+    "use_case": "large temperature shift, rover mobility, steep canyon walls, freeze-thaw cycle tests, material expansion-contraction tests in outdoor environment, icy dusty grounds",
+    "papers": [],
+    "coord_source": null,
+    "notes": null,
+    "raw": {
+      "slope_deg": 2.065464186360141,
+      "roughness_deg": 1.223207842944546,
+      "albedo": 0.19973470016463715,
+      "lst_day_k": 291.4060726679189,
+      "lst_night_k": 276.12079460329005,
+      "dT_k": 15.28527806462887,
+      "apparent_ti": 0.052355298768638626,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.0688488062120047,
+      "roughness": 0.08154718952963641,
+      "thermal": 0.47368421052631576,
+      "albedo": 0.19973470016463715,
+      "sun": 0.727
+    }
+  },
+  {
+    "id": "deccan_traps_bm",
+    "name": "Deccan Traps",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 17.9211,
+    "lon": 73.675,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "To study rock chemestry, to learn how martian rocks form and their extraction",
+    "papers": [
+      "Is continental flood basalt a potential analog for Martian crust? : A geochemical analysis | https://www.hou.usra.edu/meetings/lpsc2022/pdf/1067.pdf"
+    ],
+    "coord_source": "https://iugs-geoheritage.org/geoheritage_sites/deccan-traps/ | https://whc.unesco.org/en/tentativelists/6890/ | https://www.researchgate.net/publication/368961626_The_Volcanic_Geoheritage_of_the_Ajanta_and_Ellora_Caves_Central_Deccan_Traps_India | https://science.nasa.gov/earth/earth-observatory/flood-basalts-on-mars-and-iceland-92858/ | https://www.hou.usra.edu/meetings/lpsc2022/pdf/1067.pdf",
+    "notes": null,
+    "raw": {
+      "slope_deg": 11.471434269847993,
+      "roughness_deg": 6.924316575088605,
+      "albedo": 0.12518279047073272,
+      "lst_day_k": 300.6010039093061,
+      "lst_night_k": 290.8568929372827,
+      "dT_k": 9.744110972023407,
+      "apparent_ti": 0.08977906881817949,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.3823811423282664,
+      "roughness": 0.46162110500590703,
+      "thermal": 0.7894736842105263,
+      "albedo": 0.12518279047073272,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "svalbard_bm",
+    "name": "Svalbard",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 78.1945,
+    "lon": 16.0919,
+    "radius_km": 5,
+    "ice": "ground_ice",
     "tags": [
       "periglacial"
     ],
-    "subsurface": "cave",
+    "subsurface": null,
+    "benchmark": true,
+    "twin": "utopia_ez",
+    "use_case": "It gives the possibility to detect biosignature signal form a cold and arctic environment",
+    "papers": [
+      "Polygon pattern geomorphometry on Svalbard (Norway) and western Utopia Planitia (Mars) using high-resolution stereo remote-sensing data | 10.1016/j.geomorph.2011.07.002"
+    ],
+    "coord_source": "https://doi.pangaea.de/10.1594/PANGAEA.921087",
+    "notes": "the lat and long were obtained by doing a average of the latitude",
+    "raw": {
+      "slope_deg": 11.053076355271312,
+      "roughness_deg": 9.072449291533827,
+      "albedo": 0.33671435337860167,
+      "lst_day_k": 266.2485172895599,
+      "lst_night_k": 264.1957929529925,
+      "dT_k": 2.052724336567394,
+      "apparent_ti": 0.32312455930178996,
+      "dem": "Copernicus GLO-30"
+    },
+    "n": {
+      "slope": 0.36843587850904375,
+      "roughness": 0.6048299527689218,
+      "thermal": null,
+      "albedo": 0.33671435337860167,
+      "sun": 0.391
+    }
+  },
+  {
+    "id": "karoo_new_site",
+    "name": "Karoo Flood Basalt Province",
+    "planet": "earth",
+    "type": "analog",
+    "lat": -30.5,
+    "lon": 28.5,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "EXAMPLE: drilling tests in ice-rich ground like Phoenix",
+    "use_case": "study flood basalt (the flow of lava over large surfaces), oxidizing of iron-bearing minerals (for the red/orange hues of mars), subsurface magma movements",
+    "papers": [],
+    "coord_source": null,
+    "notes": null,
+    "raw": {
+      "slope_deg": 3.5958785258060653,
+      "roughness_deg": 2.661976978831979,
+      "albedo": 0.15930403227523068,
+      "lst_day_k": 297.57377590098804,
+      "lst_night_k": 282.76423183534735,
+      "dT_k": 14.809544065640694,
+      "apparent_ti": 0.0567671741951361,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.11986261752686884,
+      "roughness": 0.17746513192213195,
+      "thermal": 0.5263157894736842,
+      "albedo": 0.15930403227523068,
+      "sun": 0.921
+    }
+  },
+  {
+    "id": "parana_traps_new_site",
+    "name": "Paraná Traps",
+    "planet": "earth",
+    "type": "analog",
+    "lat": -24.7,
+    "lon": -51.5,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "impact cratering in basalt areas, basalt flood, subsurface magma movements, subsurface hydrology (fractured basalt containing water)",
     "papers": [
-      "SAMPLE: replace with a real paper (Title | DOI)"
+      "The Paraná Magmatic Province: State-of-the-Art in the Geophysical and Geochemical Investigations | 10.22564/brjg.v40i6.2196",
+      "Volcanological aspects of the northwest region of Paraná continental flood basalts | 10.5194/se-6-227-2015"
     ],
     "coord_source": null,
-    "notes": "SAMPLE row: one exact point from the paper, not a whole region",
-    "raw": {},
+    "notes": null,
+    "raw": {
+      "slope_deg": 6.862625162722724,
+      "roughness_deg": 3.172670231917111,
+      "albedo": 0.15127961787046296,
+      "lst_day_k": 297.03409454368693,
+      "lst_night_k": 289.4396417321099,
+      "dT_k": 7.594452811577014,
+      "apparent_ti": 0.11175530392864438,
+      "dem": "NASADEM"
+    },
     "n": {
-      "slope": null,
-      "roughness": null,
-      "thermal": null,
-      "albedo": null,
-      "sun": null
+      "slope": 0.22875417209075746,
+      "roughness": 0.21151134879447406,
+      "thermal": 0.9473684210526315,
+      "albedo": 0.15127961787046296,
+      "sun": 0.986
+    }
+  },
+  {
+    "id": "chilcotin_group_new_site",
+    "name": "Chilcotin Group",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 51.1792,
+    "lon": -121.4375,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": null,
+    "papers": [
+      "DIsTRIBuTIoN OF THE CHILc0TIN GROUP BASALTS, BRITISH\nC |"
+    ],
+    "coord_source": "https://en.wikipedia.org/wiki/Chasm_Provincial_Park",
+    "notes": null,
+    "raw": {
+      "slope_deg": 6.645466446220364,
+      "roughness_deg": 5.871446689835997,
+      "albedo": 0.1572045547026819,
+      "lst_day_k": 284.8311117078465,
+      "lst_night_k": 274.77020273046395,
+      "dT_k": 10.060908977382553,
+      "apparent_ti": 0.08376931420331564,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.22151554820734545,
+      "roughness": 0.3914297793223998,
+      "thermal": 0.7368421052631579,
+      "albedo": 0.1572045547026819,
+      "sun": 0.691
+    }
+  },
+  {
+    "id": "qaidam_basin_bm",
+    "name": "Qaidam Basin (Dalangtan Playa, site X0)",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 38.396,
+    "lon": 91.523,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "clay",
+      "sulfate",
+      "evaporite",
+      "perchlorate"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "Study salt-related polygon formation and evaporite mineralogy to interpret ancient Martian lake-to-playa drying.",
+    "papers": [
+      "The Polygonal Surface Structures in the Dalangtan Playa, Qaidam Basin, NW China: Controlling Factors for Their Formation and Implications for Analogous Martian Landforms | 10.1029/2018JE005525",
+      "Dalangtan Saline Playa in a Hyperarid Region on Tibet Plateau: I. Evolution and Environments | 10.1089/ast.2018.1830",
+      "Dalangtan Saline Playa in a Hyperarid Region of Tibet Plateau: III. Correlated Multiscale Surface Mineralogy and Geochemistry Survey | 10.1089/ast.2017.1777"
+    ],
+    "coord_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JE005525",
+    "notes": "Point is sampling site X0, not the basin centroid (Dang et al., 2018, Table 1; source precision 0.001°). Radius 5 km is the sheet default. Ice, subsurface, and twin unverified; left blank.",
+    "raw": {
+      "slope_deg": 0.7853537432793515,
+      "roughness_deg": 1.3166408705952704,
+      "albedo": 0.2802132410023451,
+      "lst_day_k": 295.0635284450576,
+      "lst_night_k": 271.2448287488208,
+      "dT_k": 23.81869969623682,
+      "apparent_ti": 0.030219397707565702,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.026178458109311718,
+      "roughness": 0.08777605803968469,
+      "thermal": 0.15789473684210525,
+      "albedo": 0.2802132410023451,
+      "sun": 0.833
+    }
+  },
+  {
+    "id": "sambhar_salt_lake_new_site",
+    "name": "Sambhar Salt Lake (AK103T sampling site)",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 26.925333,
+    "lon": 75.197117,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "evaporite",
+      "clay"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "Study evaporite deposition and lake-to-playa evolution during wetting and drying cycles to interpret ancient Martian lake basins.",
+    "papers": [
+      "Morphological, hydrogeochemical and sedimentological analysis of hypersaline Sambhar Lake, India: An analog to understand evaporitic paleolake basins on Mars | 10.1016/j.pss.2024.105974",
+      "Purification, characterization and functional properties of exopolysaccharide from a novel halophilic Natronotalea sambharensis sp. nov. | 10.1016/j.ijbiomac.2019.06.080",
+      "Evaporite mineralogy and geochemical evolution of the Sambhar Salt Lake, Rajasthan, India | 10.1016/j.sedgeo.2003.11.021"
+    ],
+    "coord_source": "https://www.sciencedirect.com/science/article/abs/pii/S0141813019310426",
+    "notes": "Point is the published AK103T water-sampling site (2019), not a lake centroid. Geology and Mars analogy refer to the wider lake; core-specific clay/sulfate results were not assigned to this point. Radius 5 km is the sheet default. Ice and subsurface unverified.",
+    "raw": {
+      "slope_deg": 0.37054574385203815,
+      "roughness_deg": 0.3024573099832263,
+      "albedo": 0.18452109239853803,
+      "lst_day_k": 306.1168961264533,
+      "lst_night_k": 292.45599794863733,
+      "dT_k": 13.660898177815966,
+      "apparent_ti": 0.05969438443847888,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.012351524795067938,
+      "roughness": 0.020163820665548417,
+      "thermal": 0.5789473684210527,
+      "albedo": 0.18452109239853803,
+      "sun": 0.961
+    }
+  },
+  {
+    "id": "ladakh_new_site",
+    "name": "Ladakh (Tso Kar, Pin 2 permafrost mound)",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 33.301,
+    "lon": 78.003,
+    "radius_km": 5,
+    "ice": "ground_ice",
+    "tags": [
+      "sedimentary",
+      "clay",
+      "sulfate",
+      "evaporite",
+      "periglacial"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "Study biomarker preservation and test life-detection protocols in ice-rich lake sediments as analogues for cold Martian environments.",
+    "papers": [
+      "Ladakh: diverse, high-altitude extreme environments for off-earth analogue and astrobiology research | 10.1017/S1473550419000119",
+      "Observations on the relationship between lake formation, permafrost activity and lithalsa development during the last 20 000 years in the Tso Kar basin, Ladakh, India | 10.1002/ppp.631"
+    ],
+    "coord_source": "https://doi.org/10.1002/ppp.631",
+    "notes": "Point is the published Pin 2 mound; ice-rich clay, lake mud and thenardite crust were observed in 2005/2007. Source coordinates are given to 0.001°. Radius 5 km is the sheet default, not the measured permafrost extent. Subsurface cave/lava tube unverified.",
+    "raw": {
+      "slope_deg": 1.990101345550061,
+      "roughness_deg": 4.372319358131704,
+      "albedo": 0.260284435473083,
+      "lst_day_k": 288.37652463216335,
+      "lst_night_k": 263.87156165961227,
+      "dT_k": 24.504962972551084,
+      "apparent_ti": 0.03018635716183288,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.06633671151833537,
+      "roughness": 0.29148795720878024,
+      "thermal": 0.10526315789473684,
+      "albedo": 0.260284435473083,
+      "sun": 0.89
+    }
+  },
+  {
+    "id": "wells_new_site",
+    "name": "Wells Gray–Clearwater Volcanic Field (Second Canyon Creek)",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 51.769736,
+    "lon": -120.007803,
+    "radius_km": 5,
+    "ice": "glacier",
+    "tags": [
+      "basaltic",
+      "volcanic",
+      "glacial"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "Investigate alteration of basaltic volcanic glass and candidate microbial textures in glaciovolcanic tuffs to guide biosignature searches in comparable Martian rocks.",
+    "papers": [
+      "A global database of Mars-relevant hydrovolcanic environments on Earth with potential biosignature preservation | 10.1130/GES02712.1",
+      "Volcanism and glacial interaction in the Wells Gray–Clearwater volcanic field, east-central British Columbia | 10.1130/2014.0038(08)"
+    ],
+    "coord_source": "https://doi.org/10.1130/2014.0038(08)",
+    "notes": "Point is Second Canyon Creek, Stop 3 (Hickson and Vigouroux, 2014, p. 183). Glacial tag records ancient ice-contact volcanism. Candidate microbial textures are putative. Radius 5 km is the sheet default. Modern ice and subsurface unverified.",
+    "raw": {
+      "slope_deg": 13.668387440481917,
+      "roughness_deg": 7.276276229562444,
+      "albedo": 0.12124681481603192,
+      "lst_day_k": 281.83381256918005,
+      "lst_night_k": 275.40525257349105,
+      "dT_k": 6.428559995689,
+      "apparent_ti": 0.13669518302283265,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.4556129146827306,
+      "roughness": 0.4850850819708296,
+      "thermal": 1.0,
+      "albedo": 0.12124681481603192,
+      "sun": 0.685
+    }
+  },
+  {
+    "id": "tuya_new_site",
+    "name": "Tuya Volcanic Field (Mathews Tuya)",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 59.195,
+    "lon": -130.434,
+    "radius_km": 5,
+    "ice": "glacier",
+    "tags": [
+      "basaltic",
+      "volcanic",
+      "glacial"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "Study basaltic glaciovolcanic deposits and glass alteration as potential analogues for Martian hydrovolcanic environments and biosignature preservation.",
+    "papers": [
+      "A global database of Mars-relevant hydrovolcanic environments on Earth with potential biosignature preservation | 10.1130/GES02712.1",
+      "Volcanology and petrology of Mathews Tuya, northern British Columbia, Canada: glaciovolcanic constraints on interpretations of the 0.730 Ma Cordilleran paleoclimate | 10.1007/s00445-010-0418-z"
+    ],
+    "coord_source": "https://doi.org/10.1007/s00445-010-0418-z",
+    "notes": "Point is Mathews Tuya, not the field centroid; source precision 0.001°. Glacial tag records Pleistocene eruption conditions. Biosignatures are a research target, not confirmed here. Radius 5 km is the sheet default. Modern ice and subsurface unverified.",
+    "raw": {
+      "slope_deg": 9.051562321461057,
+      "roughness_deg": 6.441915393684797,
+      "albedo": 0.35639839177166155,
+      "lst_day_k": 272.8690644944114,
+      "lst_night_k": 266.14669898776447,
+      "dT_k": 6.722365506646952,
+      "apparent_ti": 0.0957403472917319,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.3017187440487019,
+      "roughness": 0.42946102624565313,
+      "thermal": 0.8421052631578947,
+      "albedo": 0.35639839177166155,
+      "sun": 0.602
+    }
+  },
+  {
+    "id": "karapinar_new_site",
+    "name": "Karapınar Volcanic Field (Meke Gölü maar)",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 37.686132,
+    "lon": 33.640597,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": null,
+    "use_case": "Investigate alteration of basaltic glass in hydrovolcanic deposits and evaluate possible biosignature preservation relevant to Mars.",
+    "papers": [
+      "A global database of Mars-relevant hydrovolcanic environments on Earth with potential biosignature preservation | 10.1130/GES02712.1",
+      "Quaternary maar volcanism near karapinar in central Anatolia | 10.1007/BF02599413"
+    ],
+    "coord_source": "https://doi.org/10.1130/GEOS.S.24808560",
+    "notes": "Point is the mapped Mekegolu maar/cinder cone in Ryan et al. (2024), File S3. Biosignature preservation is a proposed research target, not confirmed here. Radius 5 km is the sheet default. Ice and subsurface unverified.",
+    "raw": {
+      "slope_deg": 2.200546577024779,
+      "roughness_deg": 2.2798054103308667,
+      "albedo": 0.18753784412350932,
+      "lst_day_k": 301.49702299704506,
+      "lst_night_k": 280.87869671751787,
+      "dT_k": 20.618326279527196,
+      "apparent_ti": 0.039404854926717234,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.07335155256749264,
+      "roughness": 0.1519870273553911,
+      "thermal": 0.3157894736842105,
+      "albedo": 0.18753784412350932,
+      "sun": 0.841
+    }
+  },
+  {
+    "id": "olympus_mons",
+    "name": "Olympus Mons",
+    "planet": "mars",
+    "type": "exploration_zone",
+    "lat": 18.4,
+    "lon": -134.0,
+    "radius_km": 25,
+    "ice": "none",
+    "tags": [
+      "basaltic",
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "kilauea_bm",
+    "use_case": "Caldera and lava-plain target for Hawaiian caldera analogs",
+    "papers": [
+      "Terrestrial analogs to the calderas of the Tharsis volcanoes on Mars | 10.1017/cbo9780511536014.004"
+    ],
+    "coord_source": "https://planetarynames.wr.usgs.gov/Feature/4453",
+    "notes": null,
+    "raw": {
+      "elevation_m": 20266,
+      "slope_deg": 4.362964945585654,
+      "roughness_deg": 6.274354218468679,
+      "albedo": 0.3078,
+      "subsurf_water": -0.29,
+      "ti": 113.1
+    },
+    "n": {
+      "slope": 0.14543216485285512,
+      "roughness": 0.4182902812312453,
+      "thermal": 0.09090909090909091,
+      "albedo": 0.3078,
+      "sun": 1.0
+    }
+  },
+  {
+    "id": "utopia_ez",
+    "name": "Western Utopia Planitia (Ulrich et al. 2011 study area)",
+    "planet": "mars",
+    "type": "exploration_zone",
+    "lat": 46.07,
+    "lon": 92.12,
+    "radius_km": 25,
+    "ice": "ground_ice",
+    "tags": [
+      "periglacial"
+    ],
+    "subsurface": null,
+    "benchmark": false,
+    "twin": "svalbard_bm",
+    "use_case": "Ice-wedge-like polygon terrain, ground-ice resources",
+    "papers": [
+      "Polygon pattern geomorphometry on Svalbard (Norway) and western Utopia Planitia (Mars) using high-resolution stereo remote-sensing data | 10.1016/j.geomorph.2011.07.002"
+    ],
+    "coord_source": "https://www.uahirise.org/PSP_001938_2265",
+    "notes": null,
+    "raw": {
+      "elevation_m": -4579,
+      "slope_deg": 0.6027510745674282,
+      "roughness_deg": 0.43213524329626646,
+      "albedo": 0.1161,
+      "subsurf_water": -0.365,
+      "ti": 319.9
+    },
+    "n": {
+      "slope": 0.02009170248558094,
+      "roughness": 0.028809016219751096,
+      "thermal": 0.9090909090909091,
+      "albedo": 0.1161,
+      "sun": 0.768
+    }
+  },
+  {
+    "id": "rio_tinto_bm",
+    "name": "Río Tinto (Peña de Hierro), Spain",
+    "planet": "earth",
+    "type": "analog",
+    "lat": 37.7219,
+    "lon": -6.5592,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "sedimentary",
+      "sulfate"
+    ],
+    "subsurface": null,
+    "benchmark": true,
+    "twin": "meridiani",
+    "use_case": "Acidic iron-sulfate sediments like Meridiani outcrops; astrobiology drilling (MARTE)",
+    "papers": [
+      "The Río Tinto Basin, Spain: Mineralogy, sedimentary geobiology, and implications for interpretation of outcrop rocks at Meridiani Planum, Mars | 10.1016/j.epsl.2005.09.043"
+    ],
+    "coord_source": "https://msaweb.org/MSA/AmMin/products/AmMin/AM099P1199.pdf",
+    "notes": null,
+    "raw": {
+      "slope_deg": 4.2114045770340995,
+      "roughness_deg": 2.757400828581555,
+      "albedo": 0.12745792493798105,
+      "lst_day_k": 300.0992224283388,
+      "lst_night_k": 287.2399770348711,
+      "dT_k": 12.859245393467688,
+      "apparent_ti": 0.06785328752690713,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.1403801525678033,
+      "roughness": 0.183826721905437,
+      "thermal": 0.6842105263157895,
+      "albedo": 0.12745792493798105,
+      "sun": 0.841
+    }
+  },
+  {
+    "id": "el_tatio_bm",
+    "name": "El Tatio geyser field, Chile",
+    "planet": "earth",
+    "type": "analog",
+    "lat": -22.3314,
+    "lon": -68.0103,
+    "radius_km": 5,
+    "ice": "none",
+    "tags": [
+      "volcanic"
+    ],
+    "subsurface": null,
+    "benchmark": true,
+    "twin": "home_plate",
+    "use_case": "Opaline silica sinter like Home Plate silica; biosignature search",
+    "papers": [
+      "Silica deposits on Mars with features resembling hot spring biosignatures at El Tatio in Chile | 10.1038/ncomms13554"
+    ],
+    "coord_source": "https://en.wikipedia.org/wiki/El_Tatio",
+    "notes": null,
+    "raw": {
+      "slope_deg": 9.035959928011312,
+      "roughness_deg": 5.603224745784287,
+      "albedo": 0.16167149725978533,
+      "lst_day_k": 297.3424118232957,
+      "lst_night_k": 269.88141040127067,
+      "dT_k": 27.46100142202505,
+      "apparent_ti": 0.030527965453868506,
+      "dem": "NASADEM"
+    },
+    "n": {
+      "slope": 0.3011986642670437,
+      "roughness": 0.37354831638561914,
+      "thermal": 0.21052631578947367,
+      "albedo": 0.16167149725978533,
+      "sun": 1.0
     }
   }
 ]

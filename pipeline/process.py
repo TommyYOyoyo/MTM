@@ -55,6 +55,8 @@ def main():
         site["raw"] = rawBySite.get(site["id"], {})
         site["n"] = normalizedBySite[site["id"]]
         site["benchmark"] = site.get("benchmark") == "yes"
+        if site.get("ice") == "permafrost":
+            site["ice"] = "ground_ice"
         site["papers"] = splitList(site.get("papers"), ";")
         
     with open(OUT_JSON, "w", encoding="utf-8") as outFile:
