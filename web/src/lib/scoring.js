@@ -1,11 +1,8 @@
-const NUMERIC_FACTORS = ["slope", "albedo", "thermal", "sun", "roughness", ];
-
-const FACTORS = [
-    ...NUMERIC_FACTORS,
-    "ice",
-    "geology",
-    "subsurface"
-];
+import {
+    NUMERIC_FACTORS,
+    FACTORS,
+    DEFAULT_WEIGHTS
+} from "./constants.js"
 
 function compareFactor(a, b, factor) {
     // Numerical factors scoring: between 0-1
@@ -61,15 +58,7 @@ function compareFactor(a, b, factor) {
 
 }
 
-const DEFAULT_WEIGHTS = {
-  slope: 1,
-  albedo: 1,
-  thermal: 1,
-  sun: 1,
-  ice: 1,
-  geology: 1,
-  subsurface: 0,
-};
+
 
 export function overallScore(target, candidate, weights = DEFAULT_WEIGHTS) {
     let totalWeight = 0;
