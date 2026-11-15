@@ -1,4 +1,6 @@
-/data/raw/phoenix_met
+data/raw/phoenix_met
+data/raw/MOLA_463m.tif
+data/raw/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif
 
 # Vercel CLI folder (created if anyone runs `vercel` locally)
 .vercel/
