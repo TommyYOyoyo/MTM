@@ -56,8 +56,8 @@ export default function ComparisonControls({
               const value = Number(weights[factor.key]) || 0
               return (
                 <div className="comparison-weight" key={factor.key}>
-                  <div className="comparison-weight-label"><label htmlFor={`${id}-${factor.key}`}>{factor.label}</label><output htmlFor={`${id}-${factor.key}`}>{Number(value.toFixed(1))}%</output></div>
-                  <input id={`${id}-${factor.key}`} type="range" min="0" max="100" step="1" value={value} aria-label={`${factor.label} weight`} aria-valuetext={`${value} percent`} onChange={(event) => onWeightsChange?.(setFactorWeight(weights, factor.key, Number(event.target.value)))} />
+                  <div className="comparison-weight-label"><label htmlFor={`${id}-${factor.key}`}>{factor.label}</label><output htmlFor={`${id}-${factor.key}`}>{factor.pending ? 'No data yet' : `${Number(value.toFixed(1))}%`}</output></div>
+                  <input id={`${id}-${factor.key}`} type="range" disabled={factor.pending} title={factor.pending ? factor.description : undefined} min="0" max="100" step="1" value={value} aria-label={`${factor.label} weight`} aria-valuetext={`${value} percent`} onChange={(event) => onWeightsChange?.(setFactorWeight(weights, factor.key, Number(event.target.value)))} />
                 </div>
               )
             })}

@@ -4,11 +4,12 @@ import json
 import numpy as np
 import validate
 
-SITES_JSON = "web/public/sites.json" # run from inside pipeline/
+SITES_JSON = "web/public/sites.json" # run from the repo root
 RUNS = 1000
 TOP_K = 5
 
-# similarity of 1 mars site vs 1 earth site for all 8 factors, missing --> nan
+# similarity of 1 mars site vs 1 earth site for 7 factors, missing --> nan
+# subsurface left out: no verified data yet, same as the app
 def factorSimilarities(marsSite, earthSite):
     similarities = []
 
@@ -18,6 +19,8 @@ def factorSimilarities(marsSite, earthSite):
     similarities.append(validate.geologySimilarity(marsSite, earthSite))
 
     for factor in validate.CATEGORY:
+        if factor == "subsurface":
+            continue
         similarities.append(validate.categorySimilarity(marsSite, earthSite, factor))
 
     return np.array([np.nan if s is None else s for s in similarities])
@@ -41,7 +44,7 @@ def main():
 
     # random weights that always add up to 1 (dirichlet)
     rng = np.random.default_rng(0)
-    allWeights = rng.dirichlet(np.ones(8), size=RUNS)
+    allWeights = rng.dirichlet(np.ones(7), size=RUNS)
 
     hitsPerRun = np.zeros(RUNS)
 

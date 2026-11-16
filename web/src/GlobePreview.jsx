@@ -8,12 +8,13 @@ import DualComparison from './components/DualComparison.jsx'
 import Credits from './components/Credits.jsx'
 import ResearchTools from './components/ResearchTools.jsx'
 import PanelResizeHandle from './components/PanelResizeHandle.jsx'
+import PlanetLogo from './components/PlanetLogo.jsx'
 import { KnownTag } from './components/MatchInsights.jsx'
 import { beatsBaseline, knownAnalogs, nearestKnown, nullBaseline } from './lib/insights.js'
 import { matchesGeoJson, matchesKml, readShared, shareUrl } from './lib/share.js'
 import useResizableDrawer from './hooks/useResizableDrawer.js'
 import { DEFAULT_WEIGHTS } from './lib/constants.js'
-import { adaptSites, compareSites, evidenceLevel, missionBriefHtml, normalizeWeights, rankComparisons, RELIABLE_MATCH, reliableMatch, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
+import { adaptSites, compareSites, evidenceLevel, normalizeWeights, rankComparisons, RELIABLE_MATCH, reliableMatch, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
 import './globe-preview.css'
 import './comparison-ui.css'
 import './mobile-location.css'
@@ -544,20 +545,6 @@ export default function GlobePreview() {
     } catch { window.prompt('Copy this link', url) }
   }
 
-  function openMissionBrief() {
-    if (!target) return
-    const presetLabel = WEIGHT_PRESETS.find((preset) => preset.id === presetId)?.label || 'Custom'
-    const url = URL.createObjectURL(new Blob([missionBriefHtml(target, visibleResults, weights, presetLabel)], { type: 'text/html;charset=utf-8' }))
-    const opened = window.open(url, '_blank', 'noopener')
-    if (!opened) {
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `space-out-${target.id}-mission-brief.html`
-      link.click()
-    }
-    setTimeout(() => URL.revokeObjectURL(url), 60000)
-  }
-
   async function selectResult(id) {
     if (transitioningRef.current) return
     if (planet !== candidatePlanet || solarVisibleRef.current) await selectPlanet(candidatePlanet)
@@ -616,7 +603,7 @@ export default function GlobePreview() {
         {error && <p className="preview-message preview-error" role="alert">Unable to load locations: {error}</p>}
         {spaceError && <p className="preview-message preview-error" role="status">Solar system view unavailable.</p>}
       </main>
-      <footer className="preview-beta"><span>Alpha</span><button ref={creditsTriggerRef} className="preview-credits-link" type="button" onClick={openCredits} aria-label="Space Out 2026 credits and sources">© Space Out 2026</button></footer>
+      <footer className="preview-beta"><span>Alpha</span><button ref={creditsTriggerRef} className="preview-credits-link" type="button" onClick={openCredits} aria-label="Space Out 2026 credits and sources"><PlanetLogo size={18} />© Space Out 2026</button></footer>
       <div className={`preview-chrome${searchTerm ? ' is-searching' : ''}${solarVisible ? ' is-space' : ''}`} inert={mobileComparison} aria-hidden={mobileComparison}>
         {!solarVisible && !loading && !error && (
           <div className="preview-search">
@@ -654,7 +641,7 @@ export default function GlobePreview() {
               <div className="comparison-list-tabs" role="group" aria-label="Location list view">{[['browse', 'Locations'], ['matches', 'Matches'], ...(discovery.length ? [['discovery', 'Discovery']] : []), ['checks', 'Checks']].map(([value, label]) => <button key={value} type="button" aria-pressed={listView === value} onClick={() => setListView(value)}>{label}</button>)}</div>
               {listView === 'checks' ? <ResearchTools report={benchmarkReport} families={families} sites={sites} /> : listView !== 'browse' ? <>
                 <div className="comparison-list-context"><p>{target ? <>Target: <strong>{target.name}</strong></> : 'Choose a target in Compare.'}</p>{target && <p className="comparison-muted">{sampleData ? 'Example ranking · sample data' : 'Weighted resemblance'}{listView === 'discovery' ? ' · partial, unreviewed' : ''}</p>}</div>
-                {target && <div className="comparison-result-tools"><label>Coverage <select aria-label="Minimum data coverage" value={minCoverage} onChange={(event) => setMinCoverage(Number(event.target.value))}><option value="0">Any</option><option value="50">50%+</option><option value="75">75%+</option><option value="100">100%</option></select></label>{candidatePlanet === 'earth' && listView === 'matches' && <label><input type="checkbox" checked={benchmarkOnly} onChange={(event) => { setBenchmarkOnly(event.target.checked); if (event.target.checked) setHideFamous(false) }} /> Benchmarks</label>}{candidatePlanet === 'earth' && listView === 'matches' && <label title="Hide well-known literature analogs to surface less-studied sites"><input type="checkbox" checked={hideFamous} onChange={(event) => { setHideFamous(event.target.checked); if (event.target.checked) setBenchmarkOnly(false) }} /> Hide famous analogs</label>}<span className="comparison-export-group" role="group" aria-label="Export the visible matches"><span>Export</span><button type="button" onClick={exportResults} disabled={!visibleResults.length}>CSV</button><button type="button" onClick={() => exportMap('geojson')} disabled={!visibleResults.length} title="For QGIS, ArcGIS or geojson.io">GeoJSON</button><button type="button" onClick={() => exportMap('kml')} disabled={!visibleResults.length} title={candidatePlanet === 'mars' ? 'Opens on Mars in Google Earth Pro' : 'For Google Earth'}>KML</button></span><button type="button" onClick={openMissionBrief} disabled={!visibleResults.length}>Mission brief</button><button type="button" className={linkCopied ? 'is-done' : ''} onClick={copyShareLink} aria-live="polite">{linkCopied ? 'Link copied' : 'Copy link'}</button></div>}
+                {target && <div className="comparison-result-tools"><label>Coverage <select aria-label="Minimum data coverage" value={minCoverage} onChange={(event) => setMinCoverage(Number(event.target.value))}><option value="0">Any</option><option value="50">50%+</option><option value="75">75%+</option><option value="100">100%</option></select></label>{candidatePlanet === 'earth' && listView === 'matches' && <label><input type="checkbox" checked={benchmarkOnly} onChange={(event) => { setBenchmarkOnly(event.target.checked); if (event.target.checked) setHideFamous(false) }} /> Benchmarks</label>}{candidatePlanet === 'earth' && listView === 'matches' && <label title="Hide well-known literature analogs to surface less-studied sites"><input type="checkbox" checked={hideFamous} onChange={(event) => { setHideFamous(event.target.checked); if (event.target.checked) setBenchmarkOnly(false) }} /> Hide famous analogs</label>}<span className="comparison-export-group" role="group" aria-label="Export the visible matches"><span>Export</span><button type="button" onClick={exportResults} disabled={!visibleResults.length}>CSV</button><button type="button" onClick={() => exportMap('geojson')} disabled={!visibleResults.length} title="For QGIS, ArcGIS or geojson.io">GeoJSON</button><button type="button" onClick={() => exportMap('kml')} disabled={!visibleResults.length} title={candidatePlanet === 'mars' ? 'Opens on Mars in Google Earth Pro' : 'For Google Earth'}>KML</button></span><button type="button" className={linkCopied ? 'is-done' : ''} onClick={copyShareLink} aria-live="polite">{linkCopied ? 'Link copied' : 'Copy link'}</button></div>}
                 {target && visibleResults.length > 0 && !reliableMatch(visibleResults[0]) && <p className="comparison-reliability" role="status">No reliable analog with these settings: the best match scores {visibleResults[0].score === null ? '—' : `${visibleResults[0].score.toFixed(1)}%`} with {Math.round(visibleResults[0].coverage)}% data coverage (needs {RELIABLE_MATCH.minScore}%+ and {RELIABLE_MATCH.minCoverage}%+ coverage). Treat these as leads, not analogs.</p>}
                 {listView === 'discovery' && target?.planet !== 'mars' ? <p className="comparison-empty">Choose a Mars target for discovery.</p> : visibleResults.length ? <ol className="preview-site-list">{visibleResults.map((result, index) => <li key={result.site.id}><button type="button" className="preview-site-button comparison-result" aria-pressed={selectedId === result.site.id} onClick={() => selectResult(result.site.id)} disabled={transitioning}><span className="preview-site-number">{String(index + 1).padStart(2, '0')}</span><span className="preview-site-name">{result.site.name}<small>{result.site.benchmark ? 'Benchmark · ' : ''}<span className="comparison-evidence" data-level={evidenceLevel(result)?.level}>{evidenceLevel(result)?.label}</span>{result.site.hotspot ? ` · ${String(result.site.hotspot).split(' · ')[0]}` : ''} · {Math.round(result.coverage)}% data coverage{result.site.planet === 'earth' && !result.site.benchmark && <> · <KnownTag known={knownFor(result.site)} compact /></>}</small></span><span className="comparison-result-score">{result.score === null ? '—' : `${result.score.toFixed(1)}%`}</span></button></li>)}</ol> : <p className="comparison-empty">{!target ? 'Select a target to see ranked analogs.' : listView === 'discovery' && !discovery.length ? 'Global scan not connected. Discovery candidates will appear here.' : 'No sites match these filters.'}</p>}
               </> : planetSites.length ? (

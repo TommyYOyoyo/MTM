@@ -28,3 +28,4 @@
 @media (prefers-reduced-transparency: reduce) { .credits-dialog::backdrop { background: #050608ed; backdrop-filter: none; -webkit-backdrop-filter: none; } }
 @media (prefers-contrast: more) { .credits-dialog, .credits-header, .credits-section { border-color: #ffffff90; } .credits-content p, .credits-header-label { color: #fff; } }
 @supports (corner-shape: squircle) { .credits-dialog, .credits-close, .credits-back { corner-shape: squircle; } }
+.credits-header h1 { display: inline-flex; align-items: center; gap: .5rem; }

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { collectCredits, TEAM } from '../lib/credits.js'
+import PlanetLogo from './PlanetLogo.jsx'
 import './credits.css'
 
 function Sources({ title, items }) {
@@ -26,7 +27,7 @@ export default function Credits({ sites = [], isMobile = false, onClose }) {
   const content = <>
     <header className="credits-header">
       {isMobile && <button ref={closeRef} className="credits-back" type="button" aria-label="Back to map" onClick={onClose}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7" /></svg><span>Back</span></button>}
-      <h1 id="credits-title">Space Out</h1>
+      <h1 id="credits-title"><PlanetLogo size={26} />Space Out</h1>
       <span className="credits-header-label">Credits</span>
       {!isMobile && <button ref={closeRef} className="credits-close" type="button" aria-label="Close credits" onClick={onClose}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>}
     </header>

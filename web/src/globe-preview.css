@@ -209,3 +209,10 @@
 .globe-cursor-readout { position: absolute; z-index: 2; left: 50%; bottom: 1.25rem; transform: translateX(-50%); padding: .3rem .65rem; border: 1px solid var(--line); border-radius: .55rem; background: rgba(22, 24, 27, .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #d8d8d5; font-size: .6875rem; font-variant-numeric: tabular-nums; letter-spacing: .02em; white-space: pre; pointer-events: none; }
 .globe-cursor-readout[hidden] { display: none; }
 @media (hover: none), (max-width: 35rem) { .globe-cursor-readout { display: none; } }
+
+/* planet logo next to the name */
+.planet-logo { display: block; flex: none; overflow: visible; }
+.preview-credits-link { display: inline-flex; align-items: center; gap: .4rem; }
+.preview-credits-link .planet-logo { transition: transform 300ms ease; }
+.preview-credits-link:hover .planet-logo { transform: rotate(-12deg) scale(1.08); }
+@media (prefers-reduced-motion: reduce) { .preview-credits-link .planet-logo { transition: none; } }

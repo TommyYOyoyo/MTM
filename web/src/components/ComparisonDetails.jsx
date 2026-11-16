@@ -166,7 +166,7 @@ function dataGroups(site, { elevation, radius, sampling, swim, dayC, nightC, day
   if (mars) measured.push(['SWIM ice consistency · not scored', Number.isFinite(swim) ? `${swim > 0 ? '+' : ''}${number(swim)} (${swim >= 0.5 ? 'consistent with buried ice' : swim > 0 ? 'weakly consistent' : swim > -0.5 ? 'weakly inconsistent' : 'inconsistent with ice'})` : 'Outside coverage', MARS_SOURCES.swim])
   if (!mars && (Number.isFinite(dayC) || Number.isFinite(nightC))) measured.push(['Day surface temperature', number(dayC, '°C'), 'MODIS MOD11A2 · 1 km'], ['Night surface temperature', number(nightC, '°C'), 'MODIS MOD11A2 · 1 km'], ['Day − night difference', number(dayNightDifference, 'K')])
   const scored = ['slope', 'roughness', 'thermal', 'albedo', 'sun'].map((factor) => [FACTOR_NAMES[factor], Number.isFinite(site.n?.[factor]) ? `${number(site.n[factor], '', 3)} / 1` : 'Missing', factor === 'thermal' ? 'rank within planet' : factor === 'sun' ? 'latitude + axial tilt' : null])
-  scored.push(['Ice', factorValue(site, 'ice')], ['Geology', factorValue(site, 'geology')], ['Subsurface', factorValue(site, 'subsurface')])
+  scored.push(['Ice', factorValue(site, 'ice')], ['Geology', factorValue(site, 'geology')], ['Subsurface', site.subsurface ? factorValue(site, 'subsurface') : 'Not scored', site.subsurface ? null : 'no source-verified cave or lava tube data yet'])
   const samplingRows = []
   if (sampling && Number.isFinite(sampling.radius_km)) samplingRows.push(['Measurement radius', number(sampling.radius_km, 'km')])
   if (sampling && Number.isFinite(sampling.terrain_scale_m)) samplingRows.push(['Terrain sampling scale', number(sampling.terrain_scale_m, 'm')])

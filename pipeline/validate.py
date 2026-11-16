@@ -55,6 +55,8 @@ def gowerScore(marsSite, earthSite):
     similarities.append(geologySimilarity(marsSite, earthSite))
     
     for factor in CATEGORY:
+        if factor == "subsurface":
+            continue # team weights: no verified subsurface data yet, same as the app
         similarities.append(categorySimilarity(marsSite, earthSite, factor))
     
     usable = [similarity for similarity in similarities if similarity is not None]

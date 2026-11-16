@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- space out icon: mars with a small earth on its orbit -->
+  <defs>
+    <radialGradient id="mars" cx="38%" cy="34%" r="70%">
+      <stop offset="0" stop-color="#f6d2b4"/>
+      <stop offset=".45" stop-color="#d9784c"/>
+      <stop offset="1" stop-color="#7c3220"/>
+    </radialGradient>
+    <radialGradient id="earth" cx="35%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#cfe8fb"/>
+      <stop offset="1" stop-color="#3f8fd0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#090b0e"/>
+  <ellipse cx="32" cy="33" rx="27" ry="10" fill="none" stroke="#efbf9d" stroke-opacity=".45" stroke-width="2" transform="rotate(-24 32 33)"/>
+  <circle cx="31" cy="33" r="16" fill="url(#mars)"/>
+  <path d="M19 30c5 2 9 1 13-1s9-2 13 1" fill="none" stroke="#7c3220" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="52.5" cy="20.5" r="5.5" fill="url(#earth)" stroke="#090b0e" stroke-width="1.5"/>
+</svg>

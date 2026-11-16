@@ -827,7 +827,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "test rover instruments on Gale-like sediments",
+    "use_case": "The Atacama desert is one of the few places on earth that combine hyperaridity, high solar UV flux, sedimentary plains, and soil chemistry similar to Mars’. It is amongst the most important benchmark sites when it comes to Mars research.",
     "papers": [
       "The Atacama Rover Astrobiology Drilling Studies (ARADS) Project | 10.1089/ast.2022.0126"
     ],
@@ -896,7 +896,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "drilling tests in ice-rich ground like Phoenix",
+    "use_case": "The temperatures in the Antarctic offer the closest comparison to Mars’ ambient temperatures. The Antarctic, due to its isolated nature, is also an ideal site to test crew mentality when facing the isolation on Mars beforehand.",
     "papers": [
       "‘White Mars’ – nearly two decades of biomedical research at the Antarctic Concordia station | 10.1113/ep088352"
     ],
@@ -967,7 +967,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": null,
+    "use_case": "Dallol is an extremely hostile environment with multiple lethal conditions, making it interesting to test survivability. It is also a site used to fine tune biosignature identification equipment to avoid false positive tests on Mars.",
     "papers": [
       "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth | 10.1089/ast.2018.1926"
     ],
