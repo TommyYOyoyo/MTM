@@ -237,7 +237,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": "rio_tinto_bm",
-    "use_case": "Target site: analyze clues of water on mars in the pass",
+    "use_case": "Target site: analyze clues of water on Mars in the past",
     "papers": [
       "The Opportunity Rover's Athena Science Investigation at Meridiani Planum, Mars | 10.1126/science.1106171"
     ],
@@ -310,7 +310,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Investigae the past history of water on mars",
+    "use_case": "Investigate the past history of water on Mars",
     "papers": [
       "Exploring Gusev Crater with Spirit: Review of science objectives and testable hypotheses | 10.1029/2002JE002026"
     ],
@@ -456,7 +456,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": "Oman Ophiolites",
-    "use_case": "Look for the high diviserity of minerals that could be hints of hte presence of water in the past",
+    "use_case": "Look for the high diversity of minerals that could be hints of the presence of water in the past",
     "papers": [
       "The geological history of Northeast Syrtis Major, Mars | 10.1016/j.icarus.2017.03.030"
     ],
@@ -603,7 +603,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "To seach for geological evidence of past liquid water on mars",
+    "use_case": "To search for geological evidence of past liquid water on Mars",
     "papers": [
       "Meridiani Planum and the Search for Ice on Mars | Meridiani Planum and the Search for Ice on Mars | Radar sounder evidence of thick, porous sediments in Meridiani Planum and implications for ice-filled deposits on Mars"
     ],
@@ -827,7 +827,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "The Atacama desert is one of the few places on earth that combine hyperaridity, high solar UV flux, sedimentary plains, and soil chemistry similar to Mars’. It is amongst the most important benchmark sites when it comes to Mars research.",
+    "use_case": "The Atacama desert is one of the few places on Earth that combine hyperaridity, high solar UV flux, sedimentary plains, and soil chemistry similar to Mars’. It is amongst the most important benchmark sites when it comes to Mars research.",
     "papers": [
       "The Atacama Rover Astrobiology Drilling Studies (ARADS) Project | 10.1089/ast.2022.0126"
     ],
@@ -896,7 +896,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "The temperatures in the Antarctic offer the closest comparison to Mars’ ambient temperatures. The Antarctic, due to its isolated nature, is also an ideal site to test crew mentality when facing the isolation on Mars beforehand.",
+    "use_case": "The temperatures in the Antarctic offer the closest comparison to Mars’ ambient temperatures. The Antarctic, due to its isolated nature, is also an ideal site to test crew mentality when facing the isolation on Mars beforehand. This site is useful for testing subsurface life-detection instruments and habitat power and heating systems under extreme cold.",
     "papers": [
       "‘White Mars’ – nearly two decades of biomedical research at the Antarctic Concordia station | 10.1113/ep088352"
     ],
@@ -967,7 +967,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Dallol is an extremely hostile environment with multiple lethal conditions, making it interesting to test survivability. It is also a site used to fine tune biosignature identification equipment to avoid false positive tests on Mars.",
+    "use_case": "Dallol is an extremely hostile environment with multiple lethal conditions, making it interesting to test survivability and habitability. It also has the potential to become a site for biosignature identification equipment fine tuning to avoid false positive tests on Mars. This site could be useful for chemical-resistant equipment testing.",
     "papers": [
       "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth | 10.1089/ast.2018.1926"
     ],
@@ -1038,7 +1038,7 @@
     "subsurface": null,
     "benchmark": true,
     "twin": "phoenix",
-    "use_case": "test for microorganisms (survivability, presence, detection, etc), test soil composition, water presence (or lack of thereof), subsurface sampling technique tests",
+    "use_case": "University Valley is a site permanently below freezing point and is home to dry permafrost. Its icy structures make it the ideal and most faithful analog site to Mars’ polar points, where extremely cold temperatures create similar conditions to the ones found in University Valley. The site is extremely useful for subsurface permafrost drill testing.",
     "papers": [
       "X-RAY AMORPHOUS COMPONENTS OF ANTARCTICA DRY VALLEY SOILS: WEATHERING IMPLICATIONS FOR MARS | 20200001776",
       "The high elevation Dry Valleys in Antarctica as analog sites for subsurface ice on Mars | 10.1016/j.pss.2013.05.019"
@@ -1110,7 +1110,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "considerably lower atmospheric pressure, strong UV radiation, investigating daily freeze-thaw cycles, microbial survival, volcanic geology and minerals",
+    "use_case": "This high altitude, low atmospheric pressure, and high UV radiation site provides atmospheric conditions that are closest to Mars’. Composed of volcanic basalt and glacial ice, Mount Kilimanjaro proves to be an interesting research site when it comes to the movement of volcanic basalt on Mars. Microbial survival in this barren site could also be explored.",
     "papers": [
       "The disappearing periglacial ecosystem atop Mt. Kilimanjaro supports both cosmopolitan and endemic microbial communities | 10.1038/s41598-019-46521-0"
     ],
@@ -1180,7 +1180,7 @@
     "subsurface": null,
     "benchmark": true,
     "twin": "olympus_mons",
-    "use_case": "mars surface exploration simulation, lava tubes and subsurface habitability research, basalt and volcanic ash, etc",
+    "use_case": "The basaltic lava tubes in the subsurface of the Kilauea Crater make this site a close analog to the Martian shield volcanoes and basaltic plains. These lava tubes are studied to further understand Mars’ volcanology and subsurface structure. The Kilauea Crater is also used for subsurface cave exploration robotics.",
     "papers": [
       "Terrestrial analogs to the calderas of the Tharsis volcanoes on Mars | 10.1017/cbo9780511536014.004",
       "Basaltic Terrains in Idaho and Hawai‘i as Planetary Analogs for Mars Geology and Astrobiology | 10.1089/ast.2018.1847"
@@ -1250,7 +1250,7 @@
     "subsurface": null,
     "benchmark": true,
     "twin": "gale",
-    "use_case": "wind/dust movement, erosion, LiDAR tech testing, rover mobility testing",
+    "use_case": "Death Valley’s sand dunes and dried lakebeds rich in evaporites/sulfates make the site a very close analog to Mars’ ancient lakebeds and dusty surface. It is a useful site when analyzing how wind affects dust movement and erosion. Since the surface of Death Valley is extremely similar to Mars’, it is a favoured research site when it comes to testing rover mobility and other equipment.",
     "papers": [
       "The Ibex dune field of Death Valley National Park, California: Characterization and assessment for Use as a Martian analog | 10.1016/j.aeolia.2026.101032"
     ],
@@ -1320,7 +1320,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "martian dust behaviour, aeolian, sediment transport, ancient lakebed sediment research",
+    "use_case": "The dust and dried lakebeds in the Bodélé Depression make the site an interesting analog to Mars’ ancient lakebeds and dusty surfaces. The Bodélé Depression could be studied for wind and dust dynamics, erosion, and lakebed sediments. This site is the largest and most active source of atmospheric dust on Earth, replicating the intense atmospheric conditions on Mars.",
     "papers": [
       "Links between topography, wind, deflation, lakes and dust: The case of the Bodélé Depression, Chad | 10.1029/2006GL025827"
     ],
@@ -1389,7 +1389,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "martian dust behaviour, aeolian, sediment transport, dune formation, dust storms, rover mobility",
+    "use_case": "The Taklamakan Desert is an ideal research site when it comes to studying Martian dust and sediment behaviour. In fact, dust in the Taklamakan Desert is extremely small and has a longer suspension time, conditions that are by far the closest to the ones found on Mars. The site’s shifting sand dunes are also interesting to consider since their formations and shifts closely mimic the dynamics found on Mars. It is essential to test equipment in dusty environments.",
     "papers": [],
     "coord_source": null,
     "notes": null,
@@ -1459,7 +1459,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": "jezero",
-    "use_case": "large temperature shift, rover mobility, steep canyon walls, freeze-thaw cycle tests, material expansion-contraction tests in outdoor environment, icy dusty grounds",
+    "use_case": "Loma’s most appealing point is its daily temperature shift. Being the location with the largest temperature swing on Earth, it could be an interesting site for research on equipment behaviour outdoors when exposed to varying temperatures. It is essential to understand how equipment will expand and contract during the extreme daily temperature shifts on Mars.",
     "papers": [],
     "coord_source": null,
     "notes": null,
@@ -1527,7 +1527,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "To study rock chemestry, to learn how martian rocks form and their extraction",
+    "use_case": "The Deccan Traps are well-known for their basaltic grounds. As a primary analog site for Mars research, it allows studies on rock chemistry, their formation, and their potential extraction on Mars.",
     "papers": [
       "Is continental flood basalt a potential analog for Martian crust? : A geochemical analysis | https://www.hou.usra.edu/meetings/lpsc2022/pdf/1067.pdf"
     ],
@@ -1596,7 +1596,7 @@
     "subsurface": null,
     "benchmark": true,
     "twin": "utopia_ez",
-    "use_case": "It gives the possibility to detect biosignature signal form a cold and arctic environment",
+    "use_case": "Svalbard, Norway, is a well-known benchmark when it comes to studies on Mars analogs. Its basaltic grounds and cold climate make it an ideal site to test rover mobility and sample acquisition for the icy basaltic regolith on Mars.",
     "papers": [
       "Polygon pattern geomorphometry on Svalbard (Norway) and western Utopia Planitia (Mars) using high-resolution stereo remote-sensing data | 10.1016/j.geomorph.2011.07.002"
     ],
@@ -1666,7 +1666,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "study flood basalt (the flow of lava over large surfaces), oxidizing of iron-bearing minerals (for the red/orange hues of mars), subsurface magma movements",
+    "use_case": "As one of the largest flood basalt provinces, the Karoo Flood Basalt Province offers a potential site for research on flood basalt (the flow of lava over large surfaces), the oxidizing of iron-bearing minerals similar to the ones found on Mars, and subsurface magma movements.",
     "papers": [],
     "coord_source": null,
     "notes": null,
@@ -1734,7 +1734,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "impact cratering in basalt areas, basalt flood, subsurface magma movements, subsurface hydrology (fractured basalt containing water)",
+    "use_case": "The Paraná Traps is a rare site that combines impact cratering and basaltic grounds. As such, it is a valuable site for research on how impact cratering affects basalt areas, both of which are extremely present on Mars. Furthermore, subsurface hydrology (the presence of water in fractured basalt), could also be an interesting subject to study for future Mars explorations.",
     "papers": [
       "The Paraná Magmatic Province: State-of-the-Art in the Geophysical and Geochemical Investigations | 10.22564/brjg.v40i6.2196",
       "Volcanological aspects of the northwest region of Paraná continental flood basalts | 10.5194/se-6-227-2015"
@@ -1805,7 +1805,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": null,
+    "use_case": "The basaltic terrain and the volcanic plains make the Chilcotin Group a promising candidate in Mars analog research. Lava flow, mineralogy, and interactions between volcanic terrain and glacial processes could be studied to further understand the processes found on Mars.",
     "papers": [
       "DIsTRIBuTIoN OF THE CHILc0TIN GROUP BASALTS, BRITISH\nC |"
     ],
@@ -1878,7 +1878,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Study salt-related polygon formation and evaporite mineralogy to interpret ancient Martian lake-to-playa drying.",
+    "use_case": "The Qaidam Basin is an established analog site to Mars. Evaporite precipitation mineralogy is studied to interpret the drying of ancient Martian lakebeds.",
     "papers": [
       "The Polygonal Surface Structures in the Dalangtan Playa, Qaidam Basin, NW China: Controlling Factors for Their Formation and Implications for Analogous Martian Landforms | 10.1029/2018JE005525",
       "Dalangtan Saline Playa in a Hyperarid Region on Tibet Plateau: I. Evolution and Environments | 10.1089/ast.2018.1830",
@@ -1952,7 +1952,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Study evaporite deposition and lake-to-playa evolution during wetting and drying cycles to interpret ancient Martian lake basins.",
+    "use_case": "The Sambhar Salt Lake, similarly to the Qaidam Basin, could have their evaporite precipitation studied to further understand the ancient Martian lakes and basins.",
     "papers": [
       "Morphological, hydrogeochemical and sedimentological analysis of hypersaline Sambhar Lake, India: An analog to understand evaporitic paleolake basins on Mars | 10.1016/j.pss.2024.105974",
       "Purification, characterization and functional properties of exopolysaccharide from a novel halophilic Natronotalea sambharensis sp. nov. | 10.1016/j.ijbiomac.2019.06.080",
@@ -2028,7 +2028,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Study biomarker preservation and test life-detection protocols in ice-rich lake sediments as analogues for cold Martian environments.",
+    "use_case": "Ladakh’s permafrost makes the site interesting for research on microbial survival and preservation under permanently freezing conditions. The site could be used to test life-detection equipment in ice-rich lake sediments.",
     "papers": [
       "Ladakh: diverse, high-altitude extreme environments for off-earth analogue and astrobiology research | 10.1017/S1473550419000119",
       "Observations on the relationship between lake formation, permafrost activity and lithalsa development during the last 20 000 years in the Tso Kar basin, Ladakh, India | 10.1002/ppp.631"
@@ -2100,7 +2100,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Investigate alteration of basaltic volcanic glass and candidate microbial textures in glaciovolcanic tuffs to guide biosignature searches in comparable Martian rocks.",
+    "use_case": "The alteration of basaltic volcanic glass and candidate microbial textures in glaciovolcanic tuffs of the Wells Gray–Clearwater Volcanic Field could be investigated to guide biosignature searches in comparable Martian rocks.",
     "papers": [
       "A global database of Mars-relevant hydrovolcanic environments on Earth with potential biosignature preservation | 10.1130/GES02712.1",
       "Volcanism and glacial interaction in the Wells Gray–Clearwater volcanic field, east-central British Columbia | 10.1130/2014.0038(08)"
@@ -2173,7 +2173,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Study basaltic glaciovolcanic deposits and glass alteration as potential analogues for Martian hydrovolcanic environments and biosignature preservation.",
+    "use_case": "The basaltic glaciovolcanic deposits and glass alteration of the Tuya Volcanic Field could be studied as potential analogues for Martian hydrovolcanic environments and biosignature preservation.",
     "papers": [
       "A global database of Mars-relevant hydrovolcanic environments on Earth with potential biosignature preservation | 10.1130/GES02712.1",
       "Volcanology and petrology of Mathews Tuya, northern British Columbia, Canada: glaciovolcanic constraints on interpretations of the 0.730 Ma Cordilleran paleoclimate | 10.1007/s00445-010-0418-z"
@@ -2245,7 +2245,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": null,
-    "use_case": "Investigate alteration of basaltic glass in hydrovolcanic deposits and evaluate possible biosignature preservation relevant to Mars.",
+    "use_case": "The alteration of basaltic glass in hydrovolcanic deposits of the Karapınar Volcanic Field could be studied to evaluate possible biosignature preservation relevant to Mars.",
     "papers": [
       "A global database of Mars-relevant hydrovolcanic environments on Earth with potential biosignature preservation | 10.1130/GES02712.1",
       "Quaternary maar volcanism near karapinar in central Anatolia | 10.1007/BF02599413"
@@ -2462,7 +2462,7 @@
     "subsurface": null,
     "benchmark": true,
     "twin": "meridiani",
-    "use_case": "Acidic iron-sulfate sediments like Meridiani outcrops; astrobiology drilling (MARTE)",
+    "use_case": "Rio Tinto is one of the more well-known benchmarks when it comes to Mars analog sites research. It serves as a location of interest for studies on iron-oxide precipitation similar to the kind found on Mars.",
     "papers": [
       "The Río Tinto Basin, Spain: Mineralogy, sedimentary geobiology, and implications for interpretation of outcrop rocks at Meridiani Planum, Mars | 10.1016/j.epsl.2005.09.043"
     ],
@@ -2531,7 +2531,7 @@
     "subsurface": null,
     "benchmark": true,
     "twin": "home_plate",
-    "use_case": "Opaline silica sinter like Home Plate silica; biosignature search",
+    "use_case": "El Tatio is a site frequently used to test biosignatures preservation. The extremely arid and saline environment makes it an ideal analog site for Mars.",
     "papers": [
       "Silica deposits on Mars with features resembling hot spring biosignatures at El Tatio in Chile | 10.1038/ncomms13554"
     ],
