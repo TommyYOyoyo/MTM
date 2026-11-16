@@ -9,6 +9,7 @@ import Credits from './components/Credits.jsx'
 import ResearchTools from './components/ResearchTools.jsx'
 import PanelResizeHandle from './components/PanelResizeHandle.jsx'
 import PlanetLogo from './components/PlanetLogo.jsx'
+import AiNote from './components/AiNote.jsx'
 import { KnownTag } from './components/MatchInsights.jsx'
 import { beatsBaseline, knownAnalogs, nearestKnown, nullBaseline } from './lib/insights.js'
 import { matchesGeoJson, matchesKml, readShared, shareUrl } from './lib/share.js'
@@ -603,7 +604,7 @@ export default function GlobePreview() {
         {error && <p className="preview-message preview-error" role="alert">Unable to load locations: {error}</p>}
         {spaceError && <p className="preview-message preview-error" role="status">Solar system view unavailable.</p>}
       </main>
-      <footer className="preview-beta"><span>Alpha</span><button ref={creditsTriggerRef} className="preview-credits-link" type="button" onClick={openCredits} aria-label="Space Out 2026 credits and sources"><PlanetLogo size={18} />© Space Out 2026</button></footer>
+      <footer className="preview-beta"><span>Alpha</span><AiNote /><button ref={creditsTriggerRef} className="preview-credits-link" type="button" onClick={openCredits} aria-label="Space Out 2026 credits and sources"><PlanetLogo size={18} />© Space Out 2026</button></footer>
       <div className={`preview-chrome${searchTerm ? ' is-searching' : ''}${solarVisible ? ' is-space' : ''}`} inert={mobileComparison} aria-hidden={mobileComparison}>
         {!solarVisible && !loading && !error && (
           <div className="preview-search">

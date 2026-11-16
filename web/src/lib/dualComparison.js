@@ -1,4 +1,4 @@
-/** Only coordinate-backed Earth or Mars locations can enter a dual view. */
+// only earth / mars sites with real coordinates can go in the dual view
 export function validDualSites(sites = [], planet) {
   if (!['earth', 'mars'].includes(planet) || !Array.isArray(sites)) return []
   const seen = new Set()
@@ -12,7 +12,7 @@ export function validDualSites(sites = [], planet) {
   })
 }
 
-/** Prefer the current location and choose a different site for the other half. */
+// start with the current site, pick a different one for the other half
 export function chooseDualPair(sites = [], planet, preferredId) {
   const available = validDualSites(sites, planet)
   const left = available.find((site) => site.id === preferredId) || available[0]

@@ -61,7 +61,7 @@ class GlobeErrorBoundary extends Component {
   }
 }
 
-/** Planet visualization. The parent owns target selection and planet changes. */
+// the globe itself. target + planet changes are handled by the parent
 const Globe = forwardRef(function Globe({ sites = [], planet = 'mars', selectedId = null, highlightIds = EMPTY_IDS, onSelect, onSpace, showSiteList = true, fill = false, initialAltitude }, ref) {
   const globe = useRef(null)
   const readout = useRef(null)

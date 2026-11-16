@@ -8,7 +8,7 @@ function sourceUrl(value) {
   } catch { return null }
 }
 
-/** Bind an elevation grid to the selected location before displaying its mesh. */
+// match the elevation grid to the selected site before drawing the 3d terrain
 export function validateTerrain(data, site) {
   if (!data || typeof data !== 'object' || data.version !== 1) throw new Error('Unsupported terrain file.')
   if (!site || typeof site.id !== 'string' || data.siteId !== site.id || data.planet !== site.planet
@@ -56,7 +56,7 @@ export function terrainAssetPath(site) {
   return `terrain/${encodeURIComponent(site.id)}.json`
 }
 
-/** North-to-south rows become increasing Z; each triangle preserves NoData holes. */
+// rows go north --> south (z goes up), triangles skip nodata holes
 export function terrainGrid(data, exaggeration = 1) {
   if (!positive(exaggeration)) throw new Error('Terrain exaggeration must be a positive number.')
   const { width, height, sizeXM, sizeYM, elevations } = data

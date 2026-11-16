@@ -29,17 +29,14 @@ function eclipticPosition(body, date) {
   return { x: vector.x, y: vector.y, z: vector.z }
 }
 
-/** Sun-centred J2000 ecliptic positions in AU at the supplied device time. */
+// planet positions around the sun (AU, J2000 ecliptic) at the device time
 export function planetPositions(date = new Date()) {
   dateValue(date)
   return PLANETS.map(({ body, ...planet }) => ({ ...planet, ...eclipticPosition(body, date) }))
 }
 
-/**
- * Sample one approximate sidereal period of modelled heliocentric positions.
- * This is a time-sampled trajectory, not an exact static osculating ellipse;
- * perturbations may leave a small gap where its endpoints meet.
- */
+// orbit line = positions sampled over about one orbit (not a perfect ellipse)
+// --> the two ends can leave a tiny gap where they meet
 export function orbitPath(id, date = new Date(), segments = 180) {
   const planet = PLANETS.find((item) => item.id === id)
   if (!planet) throw new RangeError(`Unknown planet: ${id}`)

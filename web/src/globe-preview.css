@@ -216,3 +216,12 @@
 .preview-credits-link .planet-logo { transition: transform 300ms ease; }
 .preview-credits-link:hover .planet-logo { transform: rotate(-12deg) scale(1.08); }
 @media (prefers-reduced-motion: reduce) { .preview-credits-link .planet-logo { transition: none; } }
+
+/* ai disclosure: tiny pill in the footer + small card above it */
+.ai-note { position: relative; display: inline-flex; pointer-events: auto; }
+.ai-note-button { min-height: 1.125rem; padding: 0 .3rem; border: 1px solid #ffffff40; border-radius: .3rem; color: #d8d8d5; background: #ffffff0d; font: inherit; font-size: .5625rem; font-weight: 600; letter-spacing: .04em; line-height: 1; cursor: pointer; transition: background-color 160ms ease, border-color 160ms ease; }
+.ai-note-button:hover, .ai-note-button[aria-expanded="true"] { border-color: #ffffff80; background: #ffffff1f; }
+.ai-note-button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.ai-note-card { position: absolute; right: -4rem; bottom: calc(100% + .5rem); width: min(17rem, calc(100vw - 2rem)); padding: .625rem .75rem; border: 1px solid var(--line); border-radius: .625rem; background: rgba(22, 24, 27, .96); box-shadow: 0 .75rem 2rem #0009; color: #e5e5e1; font-size: .6875rem; font-weight: 400; line-height: 1.5; animation: ai-note-in 140ms ease-out; }
+@keyframes ai-note-in { from { opacity: 0; transform: translateY(.25rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ai-note-card { animation: none; } }

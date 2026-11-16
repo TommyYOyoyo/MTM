@@ -138,6 +138,9 @@ Christopher Ezael, Hila Geris.
 
 Internal NAS setup scripts are in [scripts/nas-connect](scripts/nas-connect/README.md).
 
+## AI Disclosure
+AI tools (Anthropic Claude, OpenAI ChatGPT, and Google Gemini) were used to assist in the code creation, debugging, and research-phase of this project. All results were reviewed and cross-referenced by the team.
+
 ## License
 
 MIT, see [LICENSE](LICENSE).

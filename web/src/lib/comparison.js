@@ -32,7 +32,7 @@ const isTrue = (value) => value === true || value === 1 || typeof value === 'str
 const placeholderSite = (site) => isTrue(site?.placeholder) || /\b(fake|sample|example|placeholder)\b/i.test([site?.name, site?.notes, site?.data_status, site?.status].filter(Boolean).join(' '))
 const benchmarkTargetsFor = (site) => words([...words(site.expectedMarsIds), ...words(site.benchmarkTargets), ...words(site.twin)])
 
-/** Largest-remainder allocation keeps sliders at exactly 100 integer percent. */
+// round the weights so the sliders always add up to exactly 100%
 function allocate(values, total, keys = FACTORS) {
   const denominator = keys.reduce((sum, key) => sum + nonnegative(values[key]), 0)
   const raw = keys.map((key) => ({ key, value: denominator ? nonnegative(values[key]) / denominator * total : total / keys.length }))
@@ -148,7 +148,7 @@ function sanitizeScoringSite(site = {}) {
   return { ...site, n, discovery, tags: discovery ? [] : words(site.tags), research_ice: researchIce, ice: discovery ? null : researchIce === 'permafrost' ? 'ground_ice' : researchIce, subsurface: discovery ? null : category(site.subsurface), placeholder: placeholderSite(site) }
 }
 
-/** Accept the handoff JSON contract plus harmless CSV-export aliases. Never invent n values. */
+// read sites.json (+ csv-style field names). missing n values stay missing
 export function adaptSites(data, { discovery = false } = {}) {
   const rows = Array.isArray(data) ? data : Array.isArray(data?.sites) ? data.sites : []
   const placeholderDataset = !Array.isArray(data) && /\b(fake|sample|example|placeholder)\b/i.test([data?.metadata?.status, data?.metadata?.data_status].filter(Boolean).join(' '))
@@ -225,7 +225,7 @@ export function compareSites(target, candidate, weights = WEIGHT_PRESETS[0].weig
   return decorateComparison(cleanTarget, cleanCandidate, overallScore(cleanTarget, cleanCandidate, weights), weights)
 }
 
-/** Elevation filters only Mars sites; it never contributes to the resemblance score. */
+// elevation limit only filters mars sites, it never changes the score
 export function rankComparisons(target, candidates = [], weights = WEIGHT_PRESETS[0].weights, options = {}) {
   if (!target || !['earth', 'mars'].includes(target.planet)) return []
   const query = String(options.query || '').trim().toLowerCase()
@@ -243,7 +243,7 @@ export function rankComparisons(target, candidates = [], weights = WEIGHT_PRESET
   return rankSites(cleanTarget, available, weights).map((result) => decorateComparison(cleanTarget, result.site, result, weights)).filter((result) => result.coverage >= minCoverage)
 }
 
-/** A benchmark needs a researcher-supplied Earth-to-Mars pairing, never an inferred one. */
+// benchmark = pairing our researchers gave (earth site --> mars site), never guessed
 export function validateBenchmarks(sites = [], weights = WEIGHT_PRESETS[0].weights) {
   const earthSites = sites.filter((site) => site.planet === 'earth' && !site.discovery)
   const marsSites = sites.filter((site) => site.planet === 'mars')
