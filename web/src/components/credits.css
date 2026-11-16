@@ -29,3 +29,4 @@
 @media (prefers-contrast: more) { .credits-dialog, .credits-header, .credits-section { border-color: #ffffff90; } .credits-content p, .credits-header-label { color: #fff; } }
 @supports (corner-shape: squircle) { .credits-dialog, .credits-close, .credits-back { corner-shape: squircle; } }
 .credits-header h1 { display: inline-flex; align-items: center; gap: .5rem; }
+.credits-ai .credits-note { margin-top: .5rem; line-height: 1.55; }

@@ -39,7 +39,7 @@ export default function Credits({ sites = [], isMobile = false, onClose }) {
       <Sources title="Partner data" items={sources.partnerData} />
       <Sources title="Additional credits" items={sources.otherCredits} />
       <p className="credits-note">Location-specific research papers and coordinate sources are listed in each location’s details. Imagery is for visualization; it is not a scientific measurement.</p>
-      <p className="credits-note">AI assistance: code, interface development and editing.</p>
+      <section className="credits-section credits-ai"><h2>AI use</h2><p className="credits-note">AI tools (Anthropic Claude, OpenAI ChatGPT, and Google Gemini) were used to assist in the code creation, debugging, and research-phase of this project. All results were reviewed and cross-referenced by the team.</p></section>
     </div>
   </>
 
