@@ -10,7 +10,171 @@
    "MODIS/061/MOD11A2",
    "MODIS/061/MOD13A2",
    "JRC/GSW1_4/GlobalSurfaceWater"
-  ]
+  ],
+  "hotspots": [
+   {
+    "id": "hotspot_1",
+    "label": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E",
+    "lat": 44.322,
+    "lon": 67.129,
+    "count": 24
+   },
+   {
+    "id": "hotspot_2",
+    "label": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W",
+    "lat": 30.284,
+    "lon": -1.854,
+    "count": 21
+   },
+   {
+    "id": "hotspot_3",
+    "label": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W",
+    "lat": 22.123,
+    "lon": -8.651,
+    "count": 16
+   },
+   {
+    "id": "hotspot_4",
+    "label": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E",
+    "lat": 34.356,
+    "lon": 54.864,
+    "count": 11
+   },
+   {
+    "id": "hotspot_5",
+    "label": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E",
+    "lat": 33.022,
+    "lon": 40.125,
+    "count": 11
+   },
+   {
+    "id": "hotspot_6",
+    "label": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E",
+    "lat": 17.758,
+    "lon": 10.023,
+    "count": 10
+   },
+   {
+    "id": "hotspot_7",
+    "label": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E",
+    "lat": 44.93,
+    "lon": 96.907,
+    "count": 10
+   },
+   {
+    "id": "hotspot_8",
+    "label": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E",
+    "lat": 42.712,
+    "lon": 55.502,
+    "count": 9
+   },
+   {
+    "id": "hotspot_9",
+    "label": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E",
+    "lat": 44.211,
+    "lon": 108.584,
+    "count": 8
+   },
+   {
+    "id": "hotspot_10",
+    "label": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W",
+    "lat": 22.111,
+    "lon": -15.526,
+    "count": 7
+   },
+   {
+    "id": "hotspot_11",
+    "label": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E",
+    "lat": 30.389,
+    "lon": 61.125,
+    "count": 7
+   },
+   {
+    "id": "hotspot_12",
+    "label": "Hotspot 12 \u00b7 16.7\u00b0N, 34.9\u00b0E",
+    "lat": 16.722,
+    "lon": 34.892,
+    "count": 6
+   },
+   {
+    "id": "hotspot_13",
+    "label": "Hotspot 13 \u00b7 37.8\u00b0N, 91.5\u00b0E",
+    "lat": 37.831,
+    "lon": 91.545,
+    "count": 5
+   },
+   {
+    "id": "hotspot_14",
+    "label": "Hotspot 14 \u00b7 24.3\u00b0N, 30.1\u00b0E",
+    "lat": 24.279,
+    "lon": 30.06,
+    "count": 4
+   },
+   {
+    "id": "hotspot_15",
+    "label": "Hotspot 15 \u00b7 14.8\u00b0N, 17.7\u00b0E",
+    "lat": 14.831,
+    "lon": 17.699,
+    "count": 4
+   },
+   {
+    "id": "hotspot_16",
+    "label": "Hotspot 16 \u00b7 15.6\u00b0N, 49.3\u00b0E",
+    "lat": 15.599,
+    "lon": 49.311,
+    "count": 4
+   },
+   {
+    "id": "hotspot_17",
+    "label": "Hotspot 17 \u00b7 27.9\u00b0N, 71.1\u00b0E",
+    "lat": 27.904,
+    "lon": 71.057,
+    "count": 4
+   },
+   {
+    "id": "hotspot_18",
+    "label": "Hotspot 18 \u00b7 26.2\u00b0N, 40.1\u00b0E",
+    "lat": 26.159,
+    "lon": 40.11,
+    "count": 4
+   },
+   {
+    "id": "hotspot_19",
+    "label": "Hotspot 19 \u00b7 28.7\u00b0N, 27.3\u00b0E",
+    "lat": 28.717,
+    "lon": 27.316,
+    "count": 4
+   },
+   {
+    "id": "hotspot_20",
+    "label": "Hotspot 20 \u00b7 20.2\u00b0N, 43.1\u00b0E",
+    "lat": 20.241,
+    "lon": 43.054,
+    "count": 4
+   },
+   {
+    "id": "hotspot_21",
+    "label": "Hotspot 21 \u00b7 18.4\u00b0N, 23.4\u00b0E",
+    "lat": 18.411,
+    "lon": 23.381,
+    "count": 4
+   },
+   {
+    "id": "hotspot_22",
+    "label": "Hotspot 22 \u00b7 49.4\u00b0N, 76.6\u00b0E",
+    "lat": 49.389,
+    "lon": 76.557,
+    "count": 4
+   },
+   {
+    "id": "hotspot_23",
+    "label": "Hotspot 23 \u00b7 39.1\u00b0N, 61.9\u00b0E",
+    "lat": 39.066,
+    "lon": 61.94,
+    "count": 3
+   }
+  ],
+  "hotspot_method": "DBSCAN (haversine), max gap 250 km, at least 4 candidates"
  },
  "sites": [
   {
@@ -43,7 +207,8 @@
     "albedo": 0.3742099447513812,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0001",
@@ -75,7 +240,8 @@
     "albedo": 0.13303591160220996,
     "sun": 0.983
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0002",
@@ -107,7 +273,8 @@
     "albedo": 0.25186263736263736,
     "sun": 0.977
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0003",
@@ -139,7 +306,8 @@
     "albedo": 0.13415315315315315,
     "sun": 0.712
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0004",
@@ -171,7 +339,8 @@
     "albedo": 0.34593093922651935,
     "sun": 0.941
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0005",
@@ -203,7 +372,8 @@
     "albedo": 0.47239502762430935,
     "sun": 0.956
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0006",
@@ -235,7 +405,8 @@
     "albedo": 0.4015414364640884,
     "sun": 0.918
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0007",
@@ -267,7 +438,8 @@
     "albedo": 0.3203269230769231,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0008",
@@ -299,7 +471,8 @@
     "albedo": 0.31069780219780224,
     "sun": 0.955
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0009",
@@ -331,7 +504,8 @@
     "albedo": 0.2028044077134986,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 12 \u00b7 16.7\u00b0N, 34.9\u00b0E"
   },
   {
    "id": "scan_0010",
@@ -363,7 +537,8 @@
     "albedo": 0.24573002754820936,
     "sun": 0.773
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0011",
@@ -395,7 +570,8 @@
     "albedo": 0.352623595505618,
     "sun": 0.746
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0012",
@@ -427,7 +603,8 @@
     "albedo": 0.28169060773480664,
     "sun": 0.769
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0013",
@@ -459,7 +636,8 @@
     "albedo": 0.26240607734806626,
     "sun": 0.955
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0014",
@@ -491,7 +669,8 @@
     "albedo": 0.39192328767123286,
     "sun": 0.986
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 14 \u00b7 24.3\u00b0N, 30.1\u00b0E"
   },
   {
    "id": "scan_0015",
@@ -523,7 +702,8 @@
     "albedo": 0.3228732782369146,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 15 \u00b7 14.8\u00b0N, 17.7\u00b0E"
   },
   {
    "id": "scan_0016",
@@ -555,7 +735,8 @@
     "albedo": 0.23073424657534247,
     "sun": 0.875
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0017",
@@ -587,7 +768,8 @@
     "albedo": 0.25896438356164386,
     "sun": 0.91
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0018",
@@ -619,7 +801,8 @@
     "albedo": 0.18367768595041323,
     "sun": 0.919
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0019",
@@ -651,7 +834,8 @@
     "albedo": 0.2735236593059937,
     "sun": 0.639
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0020",
@@ -683,7 +867,8 @@
     "albedo": 0.3202692307692308,
     "sun": 0.952
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0021",
@@ -715,7 +900,8 @@
     "albedo": 0.33945303867403315,
     "sun": 0.9
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0022",
@@ -747,7 +933,8 @@
     "albedo": 0.43408516483516485,
     "sun": 0.948
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0023",
@@ -779,7 +966,8 @@
     "albedo": 0.2615759312320917,
     "sun": 0.98
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0024",
@@ -811,7 +999,8 @@
     "albedo": 0.4918986301369863,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0025",
@@ -843,7 +1032,8 @@
     "albedo": 0.36422651933701655,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0026",
@@ -875,7 +1065,8 @@
     "albedo": 0.3113241758241758,
     "sun": 0.777
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0027",
@@ -907,7 +1098,8 @@
     "albedo": 0.2410027397260274,
     "sun": 0.824
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0028",
@@ -939,7 +1131,8 @@
     "albedo": 0.287030303030303,
     "sun": 0.784
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0029",
@@ -971,7 +1164,8 @@
     "albedo": 0.3069010989010989,
     "sun": 0.718
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0030",
@@ -1003,7 +1197,8 @@
     "albedo": 0.2717403314917127,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 16 \u00b7 15.6\u00b0N, 49.3\u00b0E"
   },
   {
    "id": "scan_0031",
@@ -1035,7 +1230,8 @@
     "albedo": 0.24476044568245126,
     "sun": 0.953
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0032",
@@ -1067,7 +1263,8 @@
     "albedo": 0.24967582417582418,
     "sun": 0.802
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0033",
@@ -1099,7 +1296,8 @@
     "albedo": 0.3806426592797784,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W"
   },
   {
    "id": "scan_0034",
@@ -1131,7 +1329,8 @@
     "albedo": 0.3941652892561983,
     "sun": 0.71
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0035",
@@ -1163,7 +1362,8 @@
     "albedo": 0.20370247933884297,
     "sun": 0.924
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E"
   },
   {
    "id": "scan_0036",
@@ -1195,7 +1395,8 @@
     "albedo": 0.2381888888888889,
     "sun": 0.765
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0037",
@@ -1227,7 +1428,8 @@
     "albedo": 0.2338922651933702,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0038",
@@ -1259,7 +1461,8 @@
     "albedo": 0.292825,
     "sun": 0.783
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0039",
@@ -1291,7 +1494,8 @@
     "albedo": 0.19145205479452054,
     "sun": 0.891
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0040",
@@ -1323,7 +1527,8 @@
     "albedo": 0.21717592592592594,
     "sun": 0.763
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0041",
@@ -1355,7 +1560,8 @@
     "albedo": 0.16506060606060607,
     "sun": 0.951
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0042",
@@ -1387,7 +1593,8 @@
     "albedo": 0.261068493150685,
     "sun": 0.827
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0043",
@@ -1419,7 +1626,8 @@
     "albedo": 0.24710714285714286,
     "sun": 0.902
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0044",
@@ -1451,7 +1659,8 @@
     "albedo": 0.2311381215469613,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 21 \u00b7 18.4\u00b0N, 23.4\u00b0E"
   },
   {
    "id": "scan_0045",
@@ -1483,7 +1692,8 @@
     "albedo": 0.16656438356164385,
     "sun": 0.862
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0046",
@@ -1515,7 +1725,8 @@
     "albedo": 0.21102681992337166,
     "sun": 0.699
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0047",
@@ -1547,7 +1758,8 @@
     "albedo": 0.3150831024930748,
     "sun": 0.986
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0048",
@@ -1579,7 +1791,8 @@
     "albedo": 0.25176098901098903,
     "sun": 0.964
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0049",
@@ -1611,7 +1824,8 @@
     "albedo": 0.3245674931129477,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 15 \u00b7 14.8\u00b0N, 17.7\u00b0E"
   },
   {
    "id": "scan_0050",
@@ -1643,7 +1857,8 @@
     "albedo": 0.4403370165745856,
     "sun": 0.891
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0051",
@@ -1675,7 +1890,8 @@
     "albedo": 0.31188219178082194,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0052",
@@ -1707,7 +1923,8 @@
     "albedo": 0.20102739726027397,
     "sun": 0.894
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0053",
@@ -1739,7 +1956,8 @@
     "albedo": 0.32790858725761773,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0054",
@@ -1771,7 +1989,8 @@
     "albedo": 0.3892265193370166,
     "sun": 0.897
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0055",
@@ -1803,7 +2022,8 @@
     "albedo": 0.37309392265193375,
     "sun": 0.969
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0056",
@@ -1835,7 +2055,8 @@
     "albedo": 0.4218958904109589,
     "sun": 0.952
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 19 \u00b7 28.7\u00b0N, 27.3\u00b0E"
   },
   {
    "id": "scan_0057",
@@ -1867,7 +2088,8 @@
     "albedo": 0.38933701657458564,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0058",
@@ -1899,7 +2121,8 @@
     "albedo": 0.1263563535911602,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0059",
@@ -1931,7 +2154,8 @@
     "albedo": 0.49077134986225895,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0060",
@@ -1963,7 +2187,8 @@
     "albedo": 0.12530747922437674,
     "sun": 0.789
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0061",
@@ -1995,7 +2220,8 @@
     "albedo": 0.3844027397260274,
     "sun": 0.944
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0062",
@@ -2027,7 +2253,8 @@
     "albedo": 0.2459795918367347,
     "sun": 0.743
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0063",
@@ -2059,7 +2286,8 @@
     "albedo": 0.1998543956043956,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0064",
@@ -2091,7 +2319,8 @@
     "albedo": 0.3579335180055402,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0065",
@@ -2123,7 +2352,8 @@
     "albedo": 0.47307438016528924,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0066",
@@ -2155,7 +2385,8 @@
     "albedo": 0.2149944903581267,
     "sun": 0.897
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E"
   },
   {
    "id": "scan_0067",
@@ -2187,7 +2418,8 @@
     "albedo": 0.26466575342465753,
     "sun": 0.843
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 23 \u00b7 39.1\u00b0N, 61.9\u00b0E"
   },
   {
    "id": "scan_0068",
@@ -2219,7 +2451,8 @@
     "albedo": 0.21738842975206613,
     "sun": 0.789
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0069",
@@ -2251,7 +2484,8 @@
     "albedo": 0.28606424581005585,
     "sun": 0.776
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0070",
@@ -2283,7 +2517,8 @@
     "albedo": 0.3174305949008499,
     "sun": 0.774
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0071",
@@ -2315,7 +2550,8 @@
     "albedo": 0.18206666666666665,
     "sun": 0.96
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0072",
@@ -2347,7 +2583,8 @@
     "albedo": 0.5141129476584022,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0073",
@@ -2379,7 +2616,8 @@
     "albedo": 0.21906611570247936,
     "sun": 0.84
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 13 \u00b7 37.8\u00b0N, 91.5\u00b0E"
   },
   {
    "id": "scan_0074",
@@ -2411,7 +2649,8 @@
     "albedo": 0.43108839779005526,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0075",
@@ -2443,7 +2682,8 @@
     "albedo": 0.2373370786516854,
     "sun": 0.814
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0076",
@@ -2475,7 +2715,8 @@
     "albedo": 0.38821606648199447,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W"
   },
   {
    "id": "scan_0077",
@@ -2507,7 +2748,8 @@
     "albedo": 0.31844505494505493,
     "sun": 0.878
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0078",
@@ -2539,7 +2781,8 @@
     "albedo": 0.19802247191011235,
     "sun": 0.941
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 17 \u00b7 27.9\u00b0N, 71.1\u00b0E"
   },
   {
    "id": "scan_0079",
@@ -2571,7 +2814,8 @@
     "albedo": 0.35262430939226524,
     "sun": 0.873
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0080",
@@ -2603,7 +2847,8 @@
     "albedo": 0.33665840220385673,
     "sun": 0.886
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0081",
@@ -2635,7 +2880,8 @@
     "albedo": 0.35312947658402205,
     "sun": 0.788
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0082",
@@ -2667,7 +2913,8 @@
     "albedo": 0.19471349862258952,
     "sun": 0.877
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0083",
@@ -2699,7 +2946,8 @@
     "albedo": 0.2640386740331492,
     "sun": 0.979
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0084",
@@ -2731,7 +2979,8 @@
     "albedo": 0.35118508287292816,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0085",
@@ -2763,7 +3012,8 @@
     "albedo": 0.23020408163265307,
     "sun": 0.739
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0086",
@@ -2795,7 +3045,8 @@
     "albedo": 0.17022865013774105,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 12 \u00b7 16.7\u00b0N, 34.9\u00b0E"
   },
   {
    "id": "scan_0087",
@@ -2827,7 +3078,8 @@
     "albedo": 0.21436639118457299,
     "sun": 0.984
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0088",
@@ -2859,7 +3111,8 @@
     "albedo": 0.44797802197802195,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0089",
@@ -2891,7 +3144,8 @@
     "albedo": 0.154,
     "sun": 0.988
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 18 \u00b7 26.2\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0090",
@@ -2923,7 +3177,8 @@
     "albedo": 0.2014022038567493,
     "sun": 0.985
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0091",
@@ -2955,7 +3210,8 @@
     "albedo": 0.1187513812154696,
     "sun": 0.764
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0092",
@@ -2987,7 +3243,8 @@
     "albedo": 0.313121546961326,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0093",
@@ -3019,7 +3276,8 @@
     "albedo": 0.18269780219780218,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0094",
@@ -3051,7 +3309,8 @@
     "albedo": 0.3998516483516484,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0095",
@@ -3083,7 +3342,8 @@
     "albedo": 0.2371013698630137,
     "sun": 0.82
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0096",
@@ -3115,7 +3375,8 @@
     "albedo": 0.41328219178082193,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0097",
@@ -3147,7 +3408,8 @@
     "albedo": 0.16666022099447514,
     "sun": 0.898
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0098",
@@ -3179,7 +3441,8 @@
     "albedo": 0.22180219780219781,
     "sun": 0.801
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0099",
@@ -3211,7 +3474,8 @@
     "albedo": 0.1401041095890411,
     "sun": 0.979
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0100",
@@ -3243,7 +3507,8 @@
     "albedo": 0.3414736842105263,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0101",
@@ -3275,7 +3540,8 @@
     "albedo": 0.3227348066298343,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0102",
@@ -3307,7 +3573,8 @@
     "albedo": 0.4516620879120879,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0103",
@@ -3339,7 +3606,8 @@
     "albedo": 0.21737260273972603,
     "sun": 0.977
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0104",
@@ -3371,7 +3639,8 @@
     "albedo": 0.38409315068493155,
     "sun": 0.941
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 19 \u00b7 28.7\u00b0N, 27.3\u00b0E"
   },
   {
    "id": "scan_0105",
@@ -3403,7 +3672,8 @@
     "albedo": 0.2321728045325779,
     "sun": 0.773
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0106",
@@ -3435,7 +3705,8 @@
     "albedo": 0.2685939226519337,
     "sun": 0.798
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0107",
@@ -3467,7 +3738,8 @@
     "albedo": 0.3346851311953353,
     "sun": 0.688
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0108",
@@ -3499,7 +3771,8 @@
     "albedo": 0.2516280991735537,
     "sun": 0.761
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0109",
@@ -3531,7 +3804,8 @@
     "albedo": 0.36080609418282544,
     "sun": 0.882
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0110",
@@ -3563,7 +3837,8 @@
     "albedo": 0.16403296703296705,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 20 \u00b7 20.2\u00b0N, 43.1\u00b0E"
   },
   {
    "id": "scan_0111",
@@ -3595,7 +3870,8 @@
     "albedo": 0.21256473829201103,
     "sun": 0.767
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0112",
@@ -3627,7 +3903,8 @@
     "albedo": 0.47288121546961326,
     "sun": 0.976
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0113",
@@ -3659,7 +3936,8 @@
     "albedo": 0.47326170798898076,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0114",
@@ -3691,7 +3969,8 @@
     "albedo": 0.3784423076923077,
     "sun": 0.908
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0115",
@@ -3723,7 +4002,8 @@
     "albedo": 0.3972082191780822,
     "sun": 0.979
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 14 \u00b7 24.3\u00b0N, 30.1\u00b0E"
   },
   {
    "id": "scan_0116",
@@ -3755,7 +4035,8 @@
     "albedo": 0.284677304964539,
     "sun": 0.718
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0117",
@@ -3787,7 +4068,8 @@
     "albedo": 0.24958126721763085,
     "sun": 0.852
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0118",
@@ -3819,7 +4101,8 @@
     "albedo": 0.25577197802197804,
     "sun": 0.805
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0119",
@@ -3851,7 +4134,8 @@
     "albedo": 0.20541935483870968,
     "sun": 0.812
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0120",
@@ -3883,7 +4167,8 @@
     "albedo": 0.3187287671232877,
     "sun": 0.927
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0121",
@@ -3915,7 +4200,8 @@
     "albedo": 0.3035626740947075,
     "sun": 0.996
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0122",
@@ -3947,7 +4233,8 @@
     "albedo": 0.38055524861878454,
     "sun": 0.984
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0123",
@@ -3979,7 +4266,8 @@
     "albedo": 0.4114246575342466,
     "sun": 0.932
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0124",
@@ -4011,7 +4299,8 @@
     "albedo": 0.45018630136986304,
     "sun": 0.987
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0125",
@@ -4043,7 +4332,8 @@
     "albedo": 0.2354574898785425,
     "sun": 0.906
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0126",
@@ -4075,7 +4365,8 @@
     "albedo": 0.29844972067039105,
     "sun": 0.824
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 23 \u00b7 39.1\u00b0N, 61.9\u00b0E"
   },
   {
    "id": "scan_0127",
@@ -4107,7 +4398,8 @@
     "albedo": 0.18375824175824176,
     "sun": 0.985
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0128",
@@ -4139,7 +4431,8 @@
     "albedo": 0.3447554945054945,
     "sun": 0.897
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0129",
@@ -4171,7 +4464,8 @@
     "albedo": 0.3222049861495845,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0130",
@@ -4203,7 +4497,8 @@
     "albedo": 0.3377728531855956,
     "sun": 0.994
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W"
   },
   {
    "id": "scan_0131",
@@ -4235,7 +4530,8 @@
     "albedo": 0.1408598901098901,
     "sun": 0.943
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0132",
@@ -4267,7 +4563,8 @@
     "albedo": 0.309,
     "sun": 0.954
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0133",
@@ -4299,7 +4596,8 @@
     "albedo": 0.3953462603878116,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0134",
@@ -4331,7 +4629,8 @@
     "albedo": 0.1710868263473054,
     "sun": 0.957
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0135",
@@ -4363,7 +4662,8 @@
     "albedo": 0.21860881542699725,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 12 \u00b7 16.7\u00b0N, 34.9\u00b0E"
   },
   {
    "id": "scan_0136",
@@ -4395,7 +4695,8 @@
     "albedo": 0.28554972375690607,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0137",
@@ -4427,7 +4728,8 @@
     "albedo": 0.2223922651933702,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0138",
@@ -4459,7 +4761,8 @@
     "albedo": 0.26922028985507246,
     "sun": 0.84
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0139",
@@ -4491,7 +4794,8 @@
     "albedo": 0.28958839779005524,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 16 \u00b7 15.6\u00b0N, 49.3\u00b0E"
   },
   {
    "id": "scan_0140",
@@ -4523,7 +4827,8 @@
     "albedo": 0.32715934065934066,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0141",
@@ -4555,7 +4860,8 @@
     "albedo": 0.2172912087912088,
     "sun": 0.918
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0142",
@@ -4587,7 +4893,8 @@
     "albedo": 0.2697713498622589,
     "sun": 0.844
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 13 \u00b7 37.8\u00b0N, 91.5\u00b0E"
   },
   {
    "id": "scan_0143",
@@ -4619,7 +4926,8 @@
     "albedo": 0.259912676056338,
     "sun": 0.744
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0144",
@@ -4651,7 +4959,8 @@
     "albedo": 0.20276584022038568,
     "sun": 0.93
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0145",
@@ -4683,7 +4992,8 @@
     "albedo": 0.3422817679558011,
     "sun": 0.885
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0146",
@@ -4715,7 +5025,8 @@
     "albedo": 0.3679313186813187,
     "sun": 0.934
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0147",
@@ -4747,7 +5058,8 @@
     "albedo": 0.18544751381215469,
     "sun": 0.783
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0148",
@@ -4779,7 +5091,8 @@
     "albedo": 0.2585302197802198,
     "sun": 0.941
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0149",
@@ -4811,7 +5124,8 @@
     "albedo": 0.28164044943820227,
     "sun": 0.768
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0150",
@@ -4843,7 +5157,8 @@
     "albedo": 0.20187414965986394,
     "sun": 0.748
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0151",
@@ -4875,7 +5190,8 @@
     "albedo": 0.3031331444759207,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0152",
@@ -4907,7 +5223,8 @@
     "albedo": 0.3008011049723757,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0153",
@@ -4939,7 +5256,8 @@
     "albedo": 0.3166164383561644,
     "sun": 0.964
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0154",
@@ -4971,7 +5289,8 @@
     "albedo": 0.34101739130434783,
     "sun": 0.706
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0155",
@@ -5003,7 +5322,8 @@
     "albedo": 0.3253232876712329,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 21 \u00b7 18.4\u00b0N, 23.4\u00b0E"
   },
   {
    "id": "scan_0156",
@@ -5035,7 +5355,8 @@
     "albedo": 0.33499175824175825,
     "sun": 0.944
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0157",
@@ -5067,7 +5388,8 @@
     "albedo": 0.4351515151515151,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 15 \u00b7 14.8\u00b0N, 17.7\u00b0E"
   },
   {
    "id": "scan_0158",
@@ -5099,7 +5421,8 @@
     "albedo": 0.193,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0159",
@@ -5131,7 +5454,8 @@
     "albedo": 0.3326703296703297,
     "sun": 0.995
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0160",
@@ -5163,7 +5487,8 @@
     "albedo": 0.22541988950276243,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0161",
@@ -5195,7 +5520,8 @@
     "albedo": 0.20125824175824175,
     "sun": 0.969
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 18 \u00b7 26.2\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0162",
@@ -5227,7 +5553,8 @@
     "albedo": 0.36362603878116345,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0163",
@@ -5259,7 +5586,8 @@
     "albedo": 0.4314258241758242,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0164",
@@ -5291,7 +5619,8 @@
     "albedo": 0.16706128133704734,
     "sun": 0.967
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0165",
@@ -5323,7 +5652,8 @@
     "albedo": 0.24495342465753425,
     "sun": 0.861
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0166",
@@ -5355,7 +5685,8 @@
     "albedo": 0.3418374655647383,
     "sun": 0.739
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0167",
@@ -5387,7 +5718,8 @@
     "albedo": 0.20812983425414364,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0168",
@@ -5419,7 +5751,8 @@
     "albedo": 0.1979228650137741,
     "sun": 0.943
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0169",
@@ -5451,7 +5784,8 @@
     "albedo": 0.19190934065934068,
     "sun": 0.992
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0170",
@@ -5483,7 +5817,8 @@
     "albedo": 0.21281267217630856,
     "sun": 0.996
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0171",
@@ -5515,7 +5850,8 @@
     "albedo": 0.25602472527472525,
     "sun": 0.805
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0172",
@@ -5547,7 +5883,8 @@
     "albedo": 0.28287570621468927,
     "sun": 0.727
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0173",
@@ -5579,7 +5916,8 @@
     "albedo": 0.32938504155124654,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W"
   },
   {
    "id": "scan_0174",
@@ -5611,7 +5949,8 @@
     "albedo": 0.3099120879120879,
     "sun": 0.88
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0175",
@@ -5643,7 +5982,8 @@
     "albedo": 0.2520027624309392,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 16 \u00b7 15.6\u00b0N, 49.3\u00b0E"
   },
   {
    "id": "scan_0176",
@@ -5675,7 +6015,8 @@
     "albedo": 0.3082765363128491,
     "sun": 0.755
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0177",
@@ -5707,7 +6048,8 @@
     "albedo": 0.24208563535911604,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 6 \u00b7 17.8\u00b0N, 10.0\u00b0E"
   },
   {
    "id": "scan_0178",
@@ -5739,7 +6081,8 @@
     "albedo": 0.2729439775910364,
     "sun": 0.732
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0179",
@@ -5771,7 +6114,8 @@
     "albedo": 0.43198618784530385,
     "sun": 0.894
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0180",
@@ -5803,7 +6147,8 @@
     "albedo": 0.33044636678200695,
     "sun": 0.906
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0181",
@@ -5835,7 +6180,8 @@
     "albedo": 0.18872451790633607,
     "sun": 0.91
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E"
   },
   {
    "id": "scan_0182",
@@ -5867,7 +6213,8 @@
     "albedo": 0.36566301369863013,
     "sun": 0.943
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0183",
@@ -5899,7 +6246,8 @@
     "albedo": 0.3160521978021978,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0184",
@@ -5931,7 +6279,8 @@
     "albedo": 0.32790027700831026,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0185",
@@ -5963,7 +6312,8 @@
     "albedo": 0.32396153846153847,
     "sun": 0.891
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0186",
@@ -5995,7 +6345,8 @@
     "albedo": 0.31158839779005526,
     "sun": 0.752
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0187",
@@ -6027,7 +6378,8 @@
     "albedo": 0.23968435754189943,
     "sun": 0.863
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0188",
@@ -6059,7 +6411,8 @@
     "albedo": 0.30077747252747256,
     "sun": 0.935
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0189",
@@ -6091,7 +6444,8 @@
     "albedo": 0.3777673130193906,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W"
   },
   {
    "id": "scan_0190",
@@ -6123,7 +6477,8 @@
     "albedo": 0.39209615384615387,
     "sun": 0.918
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0191",
@@ -6155,7 +6510,8 @@
     "albedo": 0.3249093406593407,
     "sun": 0.901
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0192",
@@ -6187,7 +6543,8 @@
     "albedo": 0.14901917808219178,
     "sun": 0.853
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0193",
@@ -6219,7 +6576,8 @@
     "albedo": 0.21749846153846153,
     "sun": 0.739
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0194",
@@ -6251,7 +6609,8 @@
     "albedo": 0.35456786703601106,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W"
   },
   {
    "id": "scan_0195",
@@ -6283,7 +6642,8 @@
     "albedo": 0.3667252747252748,
     "sun": 0.991
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0196",
@@ -6315,7 +6675,8 @@
     "albedo": 0.4079150684931507,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0197",
@@ -6347,7 +6708,8 @@
     "albedo": 0.41299725274725274,
     "sun": 0.963
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0198",
@@ -6379,7 +6741,8 @@
     "albedo": 0.2860769230769231,
     "sun": 0.962
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0199",
@@ -6411,7 +6774,8 @@
     "albedo": 0.3329025069637883,
     "sun": 0.794
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0200",
@@ -6443,7 +6807,8 @@
     "albedo": 0.1549667590027701,
     "sun": 0.908
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0201",
@@ -6475,7 +6840,8 @@
     "albedo": 0.31449725274725276,
     "sun": 0.874
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0202",
@@ -6507,7 +6873,8 @@
     "albedo": 0.2766849315068493,
     "sun": 0.938
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0203",
@@ -6539,7 +6906,8 @@
     "albedo": 0.30690384615384614,
     "sun": 0.738
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0204",
@@ -6571,7 +6939,8 @@
     "albedo": 0.41360280373831776,
     "sun": 0.928
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0205",
@@ -6603,7 +6972,8 @@
     "albedo": 0.15453481894150417,
     "sun": 0.962
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E"
   },
   {
    "id": "scan_0206",
@@ -6635,7 +7005,8 @@
     "albedo": 0.22062430939226518,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0207",
@@ -6667,7 +7038,8 @@
     "albedo": 0.19178512396694214,
     "sun": 0.913
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0208",
@@ -6699,7 +7071,8 @@
     "albedo": 0.20504972375690608,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0209",
@@ -6731,7 +7104,8 @@
     "albedo": 0.4490246575342466,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0210",
@@ -6763,7 +7137,8 @@
     "albedo": 0.16327401129943503,
     "sun": 0.743
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0211",
@@ -6795,7 +7170,8 @@
     "albedo": 0.38529395604395605,
     "sun": 0.897
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0212",
@@ -6827,7 +7203,8 @@
     "albedo": 0.3466,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 14 \u00b7 24.3\u00b0N, 30.1\u00b0E"
   },
   {
    "id": "scan_0213",
@@ -6859,7 +7236,8 @@
     "albedo": 0.16132872928176795,
     "sun": 0.947
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0214",
@@ -6891,7 +7269,8 @@
     "albedo": 0.27523268698060943,
     "sun": 0.757
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0215",
@@ -6923,7 +7302,8 @@
     "albedo": 0.40745580110497237,
     "sun": 0.914
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0216",
@@ -6955,7 +7335,8 @@
     "albedo": 0.2472486187845304,
     "sun": 0.96
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 17 \u00b7 27.9\u00b0N, 71.1\u00b0E"
   },
   {
    "id": "scan_0217",
@@ -6987,7 +7368,8 @@
     "albedo": 0.271372602739726,
     "sun": 0.869
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0218",
@@ -7019,7 +7401,8 @@
     "albedo": 0.3825911602209945,
     "sun": 0.901
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0219",
@@ -7051,7 +7434,8 @@
     "albedo": 0.18340495867768597,
     "sun": 0.89
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0220",
@@ -7083,7 +7467,8 @@
     "albedo": 0.23206629834254144,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0221",
@@ -7115,7 +7500,8 @@
     "albedo": 0.18611602209944753,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0222",
@@ -7147,7 +7533,8 @@
     "albedo": 0.29325688073394496,
     "sun": 0.774
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0223",
@@ -7179,7 +7566,8 @@
     "albedo": 0.4005945205479452,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0224",
@@ -7211,7 +7599,8 @@
     "albedo": 0.38995068493150686,
     "sun": 0.932
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 19 \u00b7 28.7\u00b0N, 27.3\u00b0E"
   },
   {
    "id": "scan_0225",
@@ -7243,7 +7632,8 @@
     "albedo": 0.2763314917127072,
     "sun": 0.951
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 17 \u00b7 27.9\u00b0N, 71.1\u00b0E"
   },
   {
    "id": "scan_0226",
@@ -7275,7 +7665,8 @@
     "albedo": 0.2989721448467967,
     "sun": 0.726
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 22 \u00b7 49.4\u00b0N, 76.6\u00b0E"
   },
   {
    "id": "scan_0227",
@@ -7307,7 +7698,8 @@
     "albedo": 0.3246208791208791,
     "sun": 0.935
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0228",
@@ -7339,7 +7731,8 @@
     "albedo": 0.1965261707988981,
     "sun": 0.826
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 13 \u00b7 37.8\u00b0N, 91.5\u00b0E"
   },
   {
    "id": "scan_0229",
@@ -7371,7 +7764,8 @@
     "albedo": 0.3706575342465753,
     "sun": 0.947
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0230",
@@ -7403,7 +7797,8 @@
     "albedo": 0.4275137362637363,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0231",
@@ -7435,7 +7830,8 @@
     "albedo": 0.21548767123287674,
     "sun": 0.881
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0232",
@@ -7467,7 +7863,8 @@
     "albedo": 0.19999450549450548,
     "sun": 0.937
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0233",
@@ -7499,7 +7896,8 @@
     "albedo": 0.39442582417582417,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0234",
@@ -7531,7 +7929,8 @@
     "albedo": 0.21843370165745857,
     "sun": 0.948
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 17 \u00b7 27.9\u00b0N, 71.1\u00b0E"
   },
   {
    "id": "scan_0235",
@@ -7563,7 +7962,8 @@
     "albedo": 0.2861510989010989,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 20 \u00b7 20.2\u00b0N, 43.1\u00b0E"
   },
   {
    "id": "scan_0236",
@@ -7595,7 +7995,8 @@
     "albedo": 0.26626608187134504,
     "sun": 0.758
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0237",
@@ -7627,7 +8028,8 @@
     "albedo": 0.20074655647382922,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 12 \u00b7 16.7\u00b0N, 34.9\u00b0E"
   },
   {
    "id": "scan_0238",
@@ -7659,7 +8061,8 @@
     "albedo": 0.2734530386740332,
     "sun": 0.838
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0239",
@@ -7691,7 +8094,8 @@
     "albedo": 0.2570275482093664,
     "sun": 0.857
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0240",
@@ -7723,7 +8127,8 @@
     "albedo": 0.23017534246575344,
     "sun": 0.88
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0241",
@@ -7755,7 +8160,8 @@
     "albedo": 0.6050205479452055,
     "sun": 0.864
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0242",
@@ -7787,7 +8193,8 @@
     "albedo": 0.1899034090909091,
     "sun": 0.767
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0243",
@@ -7819,7 +8226,8 @@
     "albedo": 0.35637142857142856,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 15 \u00b7 14.8\u00b0N, 17.7\u00b0E"
   },
   {
    "id": "scan_0244",
@@ -7851,7 +8259,8 @@
     "albedo": 0.3126304985337243,
     "sun": 0.748
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0245",
@@ -7883,7 +8292,8 @@
     "albedo": 0.3365591715976331,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0246",
@@ -7915,7 +8325,8 @@
     "albedo": 0.2832326869806094,
     "sun": 0.746
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0247",
@@ -7947,7 +8358,8 @@
     "albedo": 0.5206867469879518,
     "sun": 0.721
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0248",
@@ -7979,7 +8391,8 @@
     "albedo": 0.402967032967033,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0249",
@@ -8011,7 +8424,8 @@
     "albedo": 0.32491988950276246,
     "sun": 0.893
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0250",
@@ -8043,7 +8457,8 @@
     "albedo": 0.3733149171270719,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0251",
@@ -8075,7 +8490,8 @@
     "albedo": 0.18283149171270718,
     "sun": 0.985
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0252",
@@ -8107,7 +8523,8 @@
     "albedo": 0.16855922865013775,
     "sun": 0.963
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0253",
@@ -8139,7 +8556,8 @@
     "albedo": 0.2677386363636364,
     "sun": 0.708
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 22 \u00b7 49.4\u00b0N, 76.6\u00b0E"
   },
   {
    "id": "scan_0254",
@@ -8171,7 +8589,8 @@
     "albedo": 0.25939944134078213,
     "sun": 0.761
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0255",
@@ -8203,7 +8622,8 @@
     "albedo": 0.22771625344352617,
     "sun": 0.749
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0256",
@@ -8235,7 +8655,8 @@
     "albedo": 0.13910526315789473,
     "sun": 0.922
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0257",
@@ -8267,7 +8688,8 @@
     "albedo": 0.28763128491620116,
     "sun": 0.761
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0258",
@@ -8299,7 +8721,8 @@
     "albedo": 0.3864093406593407,
     "sun": 0.942
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0259",
@@ -8331,7 +8754,8 @@
     "albedo": 0.3325534246575343,
     "sun": 0.946
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0260",
@@ -8363,7 +8787,8 @@
     "albedo": 0.26450276243093923,
     "sun": 0.87
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0261",
@@ -8395,7 +8820,8 @@
     "albedo": 0.4394904109589041,
     "sun": 0.988
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 14 \u00b7 24.3\u00b0N, 30.1\u00b0E"
   },
   {
    "id": "scan_0262",
@@ -8427,7 +8853,8 @@
     "albedo": 0.3148361111111111,
     "sun": 0.753
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0263",
@@ -8459,7 +8886,8 @@
     "albedo": 0.3715316804407714,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0264",
@@ -8491,7 +8919,8 @@
     "albedo": 0.2125412087912088,
     "sun": 0.891
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0265",
@@ -8523,7 +8952,8 @@
     "albedo": 0.41015068493150686,
     "sun": 0.943
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0266",
@@ -8555,7 +8985,8 @@
     "albedo": 0.1682900552486188,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 20 \u00b7 20.2\u00b0N, 43.1\u00b0E"
   },
   {
    "id": "scan_0267",
@@ -8587,7 +9018,8 @@
     "albedo": 0.35136164383561647,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0268",
@@ -8619,7 +9051,8 @@
     "albedo": 0.3459148351648352,
     "sun": 0.994
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0269",
@@ -8651,7 +9084,8 @@
     "albedo": 0.4399337016574586,
     "sun": 0.896
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0270",
@@ -8683,7 +9117,8 @@
     "albedo": 0.38968870523415977,
     "sun": 0.913
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0271",
@@ -8715,7 +9150,8 @@
     "albedo": 0.3283066298342541,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0272",
@@ -8747,7 +9183,8 @@
     "albedo": 0.2078463687150838,
     "sun": 0.796
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0273",
@@ -8779,7 +9216,8 @@
     "albedo": 0.2904450867052023,
     "sun": 0.696
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 22 \u00b7 49.4\u00b0N, 76.6\u00b0E"
   },
   {
    "id": "scan_0274",
@@ -8811,7 +9249,8 @@
     "albedo": 0.4163453038674033,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0275",
@@ -8843,7 +9282,8 @@
     "albedo": 0.25464705882352945,
     "sun": 0.739
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0276",
@@ -8875,7 +9315,8 @@
     "albedo": 0.27644166666666664,
     "sun": 0.831
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 13 \u00b7 37.8\u00b0N, 91.5\u00b0E"
   },
   {
    "id": "scan_0277",
@@ -8907,7 +9348,8 @@
     "albedo": 0.3172005730659026,
     "sun": 0.779
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 8 \u00b7 42.7\u00b0N, 55.5\u00b0E"
   },
   {
    "id": "scan_0278",
@@ -8939,7 +9381,8 @@
     "albedo": 0.11654317548746518,
     "sun": 0.935
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0279",
@@ -8971,7 +9414,8 @@
     "albedo": 0.19466208791208792,
     "sun": 0.939
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0280",
@@ -9003,7 +9447,8 @@
     "albedo": 0.2414945054945055,
     "sun": 0.984
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0281",
@@ -9035,7 +9480,8 @@
     "albedo": 0.1996831955922865,
     "sun": 0.869
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0282",
@@ -9067,7 +9513,8 @@
     "albedo": 0.22406043956043956,
     "sun": 0.783
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0283",
@@ -9099,7 +9546,8 @@
     "albedo": 0.14714600550964188,
     "sun": 0.778
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 7 \u00b7 44.9\u00b0N, 96.9\u00b0E"
   },
   {
    "id": "scan_0284",
@@ -9131,7 +9579,8 @@
     "albedo": 0.33426923076923076,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 20 \u00b7 20.2\u00b0N, 43.1\u00b0E"
   },
   {
    "id": "scan_0285",
@@ -9163,7 +9612,8 @@
     "albedo": 0.23146027397260274,
     "sun": 0.891
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E"
   },
   {
    "id": "scan_0286",
@@ -9195,7 +9645,8 @@
     "albedo": 0.43979178082191783,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0287",
@@ -9227,7 +9678,8 @@
     "albedo": 0.4304806629834254,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 21 \u00b7 18.4\u00b0N, 23.4\u00b0E"
   },
   {
    "id": "scan_0288",
@@ -9259,7 +9711,8 @@
     "albedo": 0.31142857142857144,
     "sun": 0.755
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0289",
@@ -9291,7 +9744,8 @@
     "albedo": 0.261883008356546,
     "sun": 0.929
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E"
   },
   {
    "id": "scan_0290",
@@ -9323,7 +9777,8 @@
     "albedo": 0.23807967032967034,
     "sun": 0.784
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0291",
@@ -9355,7 +9810,8 @@
     "albedo": 0.3910082417582418,
     "sun": 0.996
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0292",
@@ -9387,7 +9843,8 @@
     "albedo": 0.2866977401129943,
     "sun": 0.827
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0293",
@@ -9419,7 +9876,8 @@
     "albedo": 0.3920137362637363,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0294",
@@ -9451,7 +9909,8 @@
     "albedo": 0.2363159420289855,
     "sun": 0.731
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0295",
@@ -9483,7 +9942,8 @@
     "albedo": 0.3554958448753463,
     "sun": 0.95
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0296",
@@ -9515,7 +9975,8 @@
     "albedo": 0.46610164835164836,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0297",
@@ -9547,7 +10008,8 @@
     "albedo": 0.43477624309392265,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0298",
@@ -9579,7 +10041,8 @@
     "albedo": 0.1834848484848485,
     "sun": 0.941
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0299",
@@ -9611,7 +10074,8 @@
     "albedo": 0.2762931034482759,
     "sun": 0.835
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0300",
@@ -9643,7 +10107,8 @@
     "albedo": 0.34939285714285717,
     "sun": 0.935
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0301",
@@ -9675,7 +10140,8 @@
     "albedo": 0.22019444444444447,
     "sun": 0.776
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0302",
@@ -9707,7 +10173,8 @@
     "albedo": 0.16285479452054796,
     "sun": 0.874
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 4 \u00b7 34.4\u00b0N, 54.9\u00b0E"
   },
   {
    "id": "scan_0303",
@@ -9739,7 +10206,8 @@
     "albedo": 0.23410743801652895,
     "sun": 0.777
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0304",
@@ -9771,7 +10239,8 @@
     "albedo": 0.3439639889196676,
     "sun": 0.876
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0305",
@@ -9803,7 +10272,8 @@
     "albedo": 0.2537465564738292,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 12 \u00b7 16.7\u00b0N, 34.9\u00b0E"
   },
   {
    "id": "scan_0306",
@@ -9835,7 +10305,8 @@
     "albedo": 0.24582644628099176,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0307",
@@ -9867,7 +10338,8 @@
     "albedo": 0.3731685082872928,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0308",
@@ -9899,7 +10371,8 @@
     "albedo": 0.47344109589041095,
     "sun": 0.939
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 19 \u00b7 28.7\u00b0N, 27.3\u00b0E"
   },
   {
    "id": "scan_0309",
@@ -9931,7 +10404,8 @@
     "albedo": 0.3537756410256411,
     "sun": 0.793
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0310",
@@ -9963,7 +10437,8 @@
     "albedo": 0.33305801104972377,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0311",
@@ -9995,7 +10470,8 @@
     "albedo": 0.4607802197802198,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0312",
@@ -10027,7 +10503,8 @@
     "albedo": 0.40357458563535914,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 21 \u00b7 18.4\u00b0N, 23.4\u00b0E"
   },
   {
    "id": "scan_0313",
@@ -10059,7 +10536,8 @@
     "albedo": 0.23078296703296705,
     "sun": 0.95
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0314",
@@ -10091,7 +10569,8 @@
     "albedo": 0.21427624309392265,
     "sun": 0.858
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 13 \u00b7 37.8\u00b0N, 91.5\u00b0E"
   },
   {
    "id": "scan_0315",
@@ -10123,7 +10602,8 @@
     "albedo": 0.25874931129476586,
     "sun": 0.917
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 2 \u00b7 30.3\u00b0N, 1.9\u00b0W"
   },
   {
    "id": "scan_0316",
@@ -10155,7 +10635,8 @@
     "albedo": 0.26631593406593407,
     "sun": 0.961
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 18 \u00b7 26.2\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0317",
@@ -10187,7 +10668,8 @@
     "albedo": 0.19178846153846155,
     "sun": 0.929
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0318",
@@ -10219,7 +10701,8 @@
     "albedo": 0.3802624309392265,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0319",
@@ -10251,7 +10734,8 @@
     "albedo": 0.20079665738161562,
     "sun": 0.943
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 11 \u00b7 30.4\u00b0N, 61.1\u00b0E"
   },
   {
    "id": "scan_0320",
@@ -10283,7 +10767,8 @@
     "albedo": 0.26488145896656534,
     "sun": 0.715
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 22 \u00b7 49.4\u00b0N, 76.6\u00b0E"
   },
   {
    "id": "scan_0321",
@@ -10315,7 +10800,8 @@
     "albedo": 0.3477637362637363,
     "sun": 0.997
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 3 \u00b7 22.1\u00b0N, 8.7\u00b0W"
   },
   {
    "id": "scan_0322",
@@ -10347,7 +10833,8 @@
     "albedo": 0.2788050139275766,
     "sun": 0.811
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 23 \u00b7 39.1\u00b0N, 61.9\u00b0E"
   },
   {
    "id": "scan_0323",
@@ -10379,7 +10866,8 @@
     "albedo": 0.3424587912087912,
     "sun": 0.913
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 5 \u00b7 33.0\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0324",
@@ -10411,7 +10899,8 @@
     "albedo": 0.2544435261707989,
     "sun": 0.807
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0325",
@@ -10443,7 +10932,8 @@
     "albedo": 0.22875414364640884,
     "sun": 0.848
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0326",
@@ -10475,7 +10965,8 @@
     "albedo": 0.2754419889502763,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 16 \u00b7 15.6\u00b0N, 49.3\u00b0E"
   },
   {
    "id": "scan_0327",
@@ -10507,7 +10998,8 @@
     "albedo": 0.3486268221574344,
     "sun": 0.744
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0328",
@@ -10539,7 +11031,8 @@
     "albedo": 0.25515877437325907,
     "sun": 0.765
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 1 \u00b7 44.3\u00b0N, 67.1\u00b0E"
   },
   {
    "id": "scan_0329",
@@ -10571,7 +11064,8 @@
     "albedo": 0.34614772727272725,
     "sun": 0.757
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0330",
@@ -10603,7 +11097,8 @@
     "albedo": 0.17930362116991644,
     "sun": 0.996
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0331",
@@ -10635,7 +11130,8 @@
     "albedo": 0.33003055555555555,
     "sun": 0.791
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0332",
@@ -10667,7 +11163,8 @@
     "albedo": 0.349797783933518,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 10 \u00b7 22.1\u00b0N, 15.5\u00b0W"
   },
   {
    "id": "scan_0333",
@@ -10699,7 +11196,8 @@
     "albedo": 0.19306336088154272,
     "sun": 0.766
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 9 \u00b7 44.2\u00b0N, 108.6\u00b0E"
   },
   {
    "id": "scan_0334",
@@ -10731,7 +11229,8 @@
     "albedo": 0.21500275482093664,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 12 \u00b7 16.7\u00b0N, 34.9\u00b0E"
   },
   {
    "id": "scan_0335",
@@ -10763,7 +11262,8 @@
     "albedo": 0.27628846153846154,
     "sun": 0.959
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": "Hotspot 18 \u00b7 26.2\u00b0N, 40.1\u00b0E"
   },
   {
    "id": "scan_0336",
@@ -10795,7 +11295,8 @@
     "albedo": 0.16071346704871062,
     "sun": 0.829
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0337",
@@ -10827,7 +11328,8 @@
     "albedo": 0.3067225274725275,
     "sun": 0.967
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0338",
@@ -10859,7 +11361,8 @@
     "albedo": 0.15063812154696132,
     "sun": 1.0
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   },
   {
    "id": "scan_0339",
@@ -10891,7 +11394,8 @@
     "albedo": 0.2866253443526171,
     "sun": 0.842
    },
-   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked."
+   "notes": "Unreviewed scan candidate: terrain/thermal/albedo only, geology and ice not checked.",
+   "hotspot": null
   }
  ]
 }

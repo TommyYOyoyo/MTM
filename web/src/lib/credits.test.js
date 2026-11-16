@@ -4,8 +4,8 @@ import { readFileSync } from 'node:fs'
 import { collectCredits, TEAM } from './credits.js'
 import { adaptSites } from './comparison.js'
 
-test('creators follow the official Da Bricks member order and spelling', () => {
-  assert.equal(TEAM.name, 'Da Bricks')
+test('creators follow the official Space Out member order and spelling', () => {
+  assert.equal(TEAM.name, 'Space Out')
   assert.deepEqual(TEAM.members, ['Lauredant Erving', 'Perline Shen', 'Honglue Zheng', 'Yuecheng Ma', 'Christopher Ezael', 'Hila Geris'])
   assert.ok(TEAM.url.endsWith('/da-bricks/?tab=members'))
 })

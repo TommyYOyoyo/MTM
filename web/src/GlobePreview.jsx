@@ -7,9 +7,13 @@ import ComparisonDetails from './components/ComparisonDetails.jsx'
 import DualComparison from './components/DualComparison.jsx'
 import Credits from './components/Credits.jsx'
 import ResearchTools from './components/ResearchTools.jsx'
+import PanelResizeHandle from './components/PanelResizeHandle.jsx'
+import { KnownTag } from './components/MatchInsights.jsx'
+import { beatsBaseline, knownAnalogs, nearestKnown, nullBaseline } from './lib/insights.js'
+import { matchesGeoJson, matchesKml, readShared, shareUrl } from './lib/share.js'
 import useResizableDrawer from './hooks/useResizableDrawer.js'
 import { DEFAULT_WEIGHTS } from './lib/constants.js'
-import { adaptSites, compareSites, normalizeWeights, rankComparisons, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
+import { adaptSites, compareSites, evidenceLevel, missionBriefHtml, normalizeWeights, rankComparisons, RELIABLE_MATCH, reliableMatch, resultsToCsv, validateBenchmarks, WEIGHT_PRESETS } from './lib/comparison.js'
 import './globe-preview.css'
 import './comparison-ui.css'
 import './mobile-location.css'
@@ -63,9 +67,12 @@ export default function GlobePreview() {
   const [listView, setListView] = useState('browse')
   const [minCoverage, setMinCoverage] = useState(0)
   const [benchmarkOnly, setBenchmarkOnly] = useState(false)
+  const [hideFamous, setHideFamous] = useState(false)
   const [elevationLimit, setElevationLimit] = useState(null)
   const [discovery, setDiscovery] = useState([])
   const [families, setFamilies] = useState(null)
+  const [partnerObservations, setPartnerObservations] = useState({})
+  const [linkCopied, setLinkCopied] = useState(false)
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 35rem)').matches)
   const [dualAvailable, setDualAvailable] = useState(() => window.matchMedia('(min-width: 48rem) and (hover: hover) and (pointer: fine)').matches)
   const [locationPageId, setLocationPageId] = useState(locationRoute)
@@ -169,6 +176,21 @@ export default function GlobePreview() {
           setPlanet(routedSite.planet)
           setGlobePlanets([routedSite.planet])
         }
+        // shared link --> open the same target, weights and site
+        const shared = readShared()
+        const sharedTarget = !routedSite && adapted.find((site) => site.id === shared.targetId)
+        if (sharedTarget) {
+          const nextPlanet = sharedTarget.planet === 'mars' ? 'earth' : 'mars'
+          const preset = WEIGHT_PRESETS.find((item) => item.id === shared.presetId)
+          if (preset) { setWeights(normalizeWeights(preset.weights)); setPresetId(preset.id) }
+          else if (shared.weights) { setWeights(normalizeWeights(shared.weights)); setPresetId('custom') }
+          setTargetId(sharedTarget.id)
+          setListView(shared.view)
+          setListCollapsed(false)
+          setPlanet(nextPlanet)
+          setGlobePlanets([nextPlanet])
+          if (shared.selectedId) setSelectedId(shared.selectedId)
+        }
       })
       .catch((problem) => {
         if (problem.name !== 'AbortError') setError(problem.message)
@@ -192,6 +214,9 @@ export default function GlobePreview() {
     })
     optionalData('families.json').then((data) => {
       if (!controller.signal.aborted) setFamilies(data)
+    })
+    optionalData('partner-observations.json').then((data) => {
+      if (!controller.signal.aborted && data?.sites && typeof data.sites === 'object') setPartnerObservations(data.sites)
     })
     return () => controller.abort()
   }, [])
@@ -220,7 +245,7 @@ export default function GlobePreview() {
   const planetSites = sites.filter((site) => validSite(site, planet))
   const sampleData = sites.some((site) => site.placeholder)
   const candidates = sites.filter((site) => validSite(site, candidatePlanet))
-  const rankingOptions = { minCoverage, benchmarkOnly, ...(candidatePlanet === 'mars' && elevationLimit !== null ? { maxElevation: elevationLimit } : {}) }
+  const rankingOptions = { minCoverage, benchmarkOnly, hideBenchmarks: hideFamous, ...(candidatePlanet === 'mars' && elevationLimit !== null ? { maxElevation: elevationLimit } : {}) }
   const ranked = target ? rankComparisons(target, candidates, weights, rankingOptions) : []
   const discoveryCandidates = discovery.filter((site) => validSite(site, 'earth') && (!site.targetId || site.targetId === targetId))
   const discovered = target?.planet === 'mars' ? rankComparisons(target, discoveryCandidates, weights, { minCoverage }) : []
@@ -236,6 +261,11 @@ export default function GlobePreview() {
   const mobileDetail = isMobile && Boolean(locationPageId && selected) && !solarVisible
   const mobileComparison = isMobile && comparisonPage
   const benchmarkReport = validateBenchmarks(sites)
+  // random places baseline + "new ground" tag (340 scores, ~1 ms so no memo needed)
+  const baseline = nullBaseline(target, discovery, weights)
+  const known = knownAnalogs(sites)
+  const selectedBaseline = selected && target && baseline ? (() => { const beat = beatsBaseline(baseline, target, selected); return beat && { ...beat, scores: baseline.scores } })() : null
+  const knownFor = (site) => nearestKnown(site, known)
   const drawer = useResizableDrawer({
     drawerRef: listRef,
     controlsRef: comparisonControlsRef,
@@ -491,6 +521,43 @@ export default function GlobePreview() {
     setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
 
+  function download(text, type, name) {
+    const url = URL.createObjectURL(new Blob([text], { type }))
+    const link = document.createElement('a')
+    link.href = url
+    link.download = name
+    link.click()
+    setTimeout(() => URL.revokeObjectURL(url), 1000)
+  }
+
+  function exportMap(format) {
+    if (!target) return
+    const name = `space-out-${target.id}-${listView === 'discovery' ? 'discovery' : 'matches'}`
+    if (format === 'kml') download(matchesKml(target, visibleResults), 'application/vnd.google-earth.kml+xml', `${name}.kml`)
+    else download(matchesGeoJson(target, visibleResults), 'application/geo+json', `${name}.geojson`)
+  }
+
+  function copyShareLink() {
+    const url = shareUrl({ targetId: target?.id, presetId, weights, selectedId: selected?.id, view: listView })
+    try {
+      navigator.clipboard.writeText(url).then(() => { setLinkCopied(true); setTimeout(() => setLinkCopied(false), 1600) }, () => window.prompt('Copy this link', url))
+    } catch { window.prompt('Copy this link', url) }
+  }
+
+  function openMissionBrief() {
+    if (!target) return
+    const presetLabel = WEIGHT_PRESETS.find((preset) => preset.id === presetId)?.label || 'Custom'
+    const url = URL.createObjectURL(new Blob([missionBriefHtml(target, visibleResults, weights, presetLabel)], { type: 'text/html;charset=utf-8' }))
+    const opened = window.open(url, '_blank', 'noopener')
+    if (!opened) {
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `space-out-${target.id}-mission-brief.html`
+      link.click()
+    }
+    setTimeout(() => URL.revokeObjectURL(url), 60000)
+  }
+
   async function selectResult(id) {
     if (transitioningRef.current) return
     if (planet !== candidatePlanet || solarVisibleRef.current) await selectPlanet(candidatePlanet)
@@ -577,6 +644,7 @@ export default function GlobePreview() {
         {!solarVisible && !loading && !error && (
           <>
             <aside ref={listRef} className={`preview-list${listCollapsed ? ' is-collapsed' : ''}${listView === 'checks' ? ' is-research' : ''}${drawer.isDragging ? ' is-dragging' : ''}`} style={drawer.style} aria-label="Available locations" hidden={Boolean(searchTerm)}>
+              {!isMobile && <PanelResizeHandle widthVar="--preview-bar-width" storageKey="space-out-list-size" corner="top-right" label="Resize locations panel" />}
               <button className="preview-drawer-handle" data-drawer-handle type="button" aria-label={listCollapsed ? 'Expand locations' : 'Collapse locations'} aria-expanded={!listCollapsed} aria-controls="preview-list-content" onPointerDown={drawer.onPointerDown} onPointerMove={drawer.onPointerMove} onPointerUp={drawer.onPointerUp} onPointerCancel={drawer.onPointerCancel} onClick={drawer.onClick} onKeyDown={drawer.onKeyDown}>
                 <span className="preview-drawer-grip" aria-hidden="true" />
                 <span className="preview-panel-title">{listView === 'browse' ? 'Available locations' : listView === 'checks' ? 'Research checks' : 'Analog matches'}<svg className="preview-location-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2.25" /></svg></span>
@@ -586,8 +654,9 @@ export default function GlobePreview() {
               <div className="comparison-list-tabs" role="group" aria-label="Location list view">{[['browse', 'Locations'], ['matches', 'Matches'], ...(discovery.length ? [['discovery', 'Discovery']] : []), ['checks', 'Checks']].map(([value, label]) => <button key={value} type="button" aria-pressed={listView === value} onClick={() => setListView(value)}>{label}</button>)}</div>
               {listView === 'checks' ? <ResearchTools report={benchmarkReport} families={families} sites={sites} /> : listView !== 'browse' ? <>
                 <div className="comparison-list-context"><p>{target ? <>Target: <strong>{target.name}</strong></> : 'Choose a target in Compare.'}</p>{target && <p className="comparison-muted">{sampleData ? 'Example ranking · sample data' : 'Weighted resemblance'}{listView === 'discovery' ? ' · partial, unreviewed' : ''}</p>}</div>
-                {target && <div className="comparison-result-tools"><label>Coverage <select aria-label="Minimum data coverage" value={minCoverage} onChange={(event) => setMinCoverage(Number(event.target.value))}><option value="0">Any</option><option value="50">50%+</option><option value="75">75%+</option><option value="100">100%</option></select></label>{candidatePlanet === 'earth' && listView === 'matches' && <label><input type="checkbox" checked={benchmarkOnly} onChange={(event) => setBenchmarkOnly(event.target.checked)} /> Benchmarks</label>}<button type="button" onClick={exportResults} disabled={!visibleResults.length}>Export CSV</button></div>}
-                {listView === 'discovery' && target?.planet !== 'mars' ? <p className="comparison-empty">Choose a Mars target for discovery.</p> : visibleResults.length ? <ol className="preview-site-list">{visibleResults.map((result, index) => <li key={result.site.id}><button type="button" className="preview-site-button comparison-result" aria-pressed={selectedId === result.site.id} onClick={() => selectResult(result.site.id)} disabled={transitioning}><span className="preview-site-number">{String(index + 1).padStart(2, '0')}</span><span className="preview-site-name">{result.site.name}<small>{result.site.benchmark ? 'Benchmark · ' : ''}{Math.round(result.coverage)}% data coverage</small></span><span className="comparison-result-score">{result.score === null ? '—' : `${result.score.toFixed(1)}%`}</span></button></li>)}</ol> : <p className="comparison-empty">{!target ? 'Select a target to see ranked analogs.' : listView === 'discovery' && !discovery.length ? 'Global scan not connected. Discovery candidates will appear here.' : 'No sites match these filters.'}</p>}
+                {target && <div className="comparison-result-tools"><label>Coverage <select aria-label="Minimum data coverage" value={minCoverage} onChange={(event) => setMinCoverage(Number(event.target.value))}><option value="0">Any</option><option value="50">50%+</option><option value="75">75%+</option><option value="100">100%</option></select></label>{candidatePlanet === 'earth' && listView === 'matches' && <label><input type="checkbox" checked={benchmarkOnly} onChange={(event) => { setBenchmarkOnly(event.target.checked); if (event.target.checked) setHideFamous(false) }} /> Benchmarks</label>}{candidatePlanet === 'earth' && listView === 'matches' && <label title="Hide well-known literature analogs to surface less-studied sites"><input type="checkbox" checked={hideFamous} onChange={(event) => { setHideFamous(event.target.checked); if (event.target.checked) setBenchmarkOnly(false) }} /> Hide famous analogs</label>}<span className="comparison-export-group" role="group" aria-label="Export the visible matches"><span>Export</span><button type="button" onClick={exportResults} disabled={!visibleResults.length}>CSV</button><button type="button" onClick={() => exportMap('geojson')} disabled={!visibleResults.length} title="For QGIS, ArcGIS or geojson.io">GeoJSON</button><button type="button" onClick={() => exportMap('kml')} disabled={!visibleResults.length} title={candidatePlanet === 'mars' ? 'Opens on Mars in Google Earth Pro' : 'For Google Earth'}>KML</button></span><button type="button" onClick={openMissionBrief} disabled={!visibleResults.length}>Mission brief</button><button type="button" className={linkCopied ? 'is-done' : ''} onClick={copyShareLink} aria-live="polite">{linkCopied ? 'Link copied' : 'Copy link'}</button></div>}
+                {target && visibleResults.length > 0 && !reliableMatch(visibleResults[0]) && <p className="comparison-reliability" role="status">No reliable analog with these settings: the best match scores {visibleResults[0].score === null ? '—' : `${visibleResults[0].score.toFixed(1)}%`} with {Math.round(visibleResults[0].coverage)}% data coverage (needs {RELIABLE_MATCH.minScore}%+ and {RELIABLE_MATCH.minCoverage}%+ coverage). Treat these as leads, not analogs.</p>}
+                {listView === 'discovery' && target?.planet !== 'mars' ? <p className="comparison-empty">Choose a Mars target for discovery.</p> : visibleResults.length ? <ol className="preview-site-list">{visibleResults.map((result, index) => <li key={result.site.id}><button type="button" className="preview-site-button comparison-result" aria-pressed={selectedId === result.site.id} onClick={() => selectResult(result.site.id)} disabled={transitioning}><span className="preview-site-number">{String(index + 1).padStart(2, '0')}</span><span className="preview-site-name">{result.site.name}<small>{result.site.benchmark ? 'Benchmark · ' : ''}<span className="comparison-evidence" data-level={evidenceLevel(result)?.level}>{evidenceLevel(result)?.label}</span>{result.site.hotspot ? ` · ${String(result.site.hotspot).split(' · ')[0]}` : ''} · {Math.round(result.coverage)}% data coverage{result.site.planet === 'earth' && !result.site.benchmark && <> · <KnownTag known={knownFor(result.site)} compact /></>}</small></span><span className="comparison-result-score">{result.score === null ? '—' : `${result.score.toFixed(1)}%`}</span></button></li>)}</ol> : <p className="comparison-empty">{!target ? 'Select a target to see ranked analogs.' : listView === 'discovery' && !discovery.length ? 'Global scan not connected. Discovery candidates will appear here.' : 'No sites match these filters.'}</p>}
               </> : planetSites.length ? (
                 <ol className="preview-site-list">
                   {planetSites.map((site, index) => (
@@ -604,6 +673,7 @@ export default function GlobePreview() {
               </div>
             </aside>
             {selected && <aside className="preview-sidebar" aria-label="Selected location">
+              {!isMobile && <PanelResizeHandle widthVar="--sidebar-width" heightVar="--sidebar-height" storageKey="space-out-details-size" corner="bottom-left" maxWidthVw={0.55} label="Resize details panel" />}
               <div className="preview-panel-heading">
                 <span className="preview-panel-title">LOCATION</span>
                 <button className="preview-panel-toggle" type="button" aria-label="Close location details" onClick={closeDetails}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8" /></svg></button>
@@ -611,7 +681,7 @@ export default function GlobePreview() {
               <div id="preview-details-content">
                 <div aria-live="polite">
                   <button className="comparison-primary-action" type="button" disabled={transitioning || selected.discovery} onClick={() => beginComparison(selected.id)}>{selected.planet === 'mars' ? 'Find Earth analogs' : 'Find Mars analogs'}</button>
-                  <ComparisonDetails key={selected.id} site={selected} target={selectedResult ? target : null} result={selectedResult} isPlaceholder={selected.placeholder || Boolean(selectedResult?.placeholder)} earthData={earthData} earthSources={earthSources} families={families} />
+                  <ComparisonDetails key={selected.id} site={Array.isArray(partnerObservations[selected.id]) ? { ...selected, partner_observations: partnerObservations[selected.id] } : selected} target={selectedResult ? target : null} result={selectedResult} isPlaceholder={selected.placeholder || Boolean(selectedResult?.placeholder)} earthData={earthData} earthSources={earthSources} families={families} baseline={selectedBaseline} known={knownFor(selected)} twins={(selected.benchmarkTargets || []).map((id) => sites.find((site) => site.id === id)).filter(Boolean)} onCompareWith={transitioning ? null : beginComparison} />
                 </div>
               </div>
             </aside>}

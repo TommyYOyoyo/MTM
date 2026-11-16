@@ -15,7 +15,7 @@ export const FACTORS = [
 
 export const DEFAULT_WEIGHTS = {
   slope: 1,
-  roughness: 1,
+  roughness: 0, // off by default, validation uses these same weights
   albedo: 1,
   thermal: 1,
   sun: 1,

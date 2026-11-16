@@ -64,6 +64,8 @@ class GlobeErrorBoundary extends Component {
 /** Planet visualization. The parent owns target selection and planet changes. */
 const Globe = forwardRef(function Globe({ sites = [], planet = 'mars', selectedId = null, highlightIds = EMPTY_IDS, onSelect, onSpace, showSiteList = true, fill = false, initialAltitude }, ref) {
   const globe = useRef(null)
+  const readout = useRef(null)
+  const readoutFrame = useRef(0)
   const previousAltitude = useRef(null)
   const globeReady = useRef(false)
   const [container, setContainer] = useState(null)
@@ -232,19 +234,31 @@ const Globe = forwardRef(function Globe({ sites = [], planet = 'mars', selectedI
     const hitMesh = new Mesh(new CircleGeometry(radius, 48), hitMaterial)
     const group = new Group()
     group.add(mesh, hitMesh)
+    // real size of the measured area (5 km / 25 km) around the selected site
+    let trueMesh = null
+    const planetRadiusKm = site.planet === 'earth' ? 6371 : 3389.5
+    if (isSelected && !fill && Number.isFinite(site.radius_km) && site.radius_km > 0) {
+      const trueRadius = site.radius_km / planetRadiusKm * GLOBE_RADIUS
+      const trueMaterial = new MeshBasicMaterial({ color: `rgb(${COLORS.selected})`, transparent: true, opacity: 0, depthWrite: false, side: DoubleSide })
+      trueMesh = new Mesh(new RingGeometry(trueRadius * 0.9, trueRadius, 64), trueMaterial)
+      group.add(trueMesh)
+    }
     group.visible = false
-    return { ...site, outlineGroup: group, outlineMesh: mesh, outlineHit: hitMesh, outlineAltitude: 0.0001 }
+    return { ...site, outlineGroup: group, outlineMesh: mesh, outlineHit: hitMesh, outlineTrue: trueMesh, outlineAltitude: 0.0001 }
   }), [points, selectedId, selectedIds, fill])
 
   useEffect(() => {
-    outlineObjects.forEach(({ outlineGroup, outlineMesh }) => {
+    outlineObjects.forEach(({ outlineGroup, outlineMesh, outlineTrue }) => {
       outlineMesh.material.opacity = outlineOpacity
+      if (outlineTrue) outlineTrue.material.opacity = outlineOpacity * 0.85
       outlineGroup.visible = outlineOpacity > 0
     })
   }, [outlineObjects, outlineOpacity])
 
   useEffect(() => () => {
-    outlineObjects.forEach(({ outlineMesh, outlineHit }) => {
+    outlineObjects.forEach(({ outlineMesh, outlineHit, outlineTrue }) => {
+      outlineTrue?.geometry.dispose()
+      outlineTrue?.material.dispose()
       outlineMesh.geometry.dispose()
       outlineMesh.material.dispose()
       outlineHit.geometry.dispose()
@@ -267,9 +281,29 @@ const Globe = forwardRef(function Globe({ sites = [], planet = 'mars', selectedI
     </div>
   )
 
+  // cursor lat / lon under the mouse, written straight to the dom so the globe doesn't re-render
+  function trackCursor(event) {
+    if (!fill || !readout.current || !globe.current) return
+    const box = event.currentTarget.getBoundingClientRect()
+    const x = event.clientX - box.left
+    const y = event.clientY - box.top
+    cancelAnimationFrame(readoutFrame.current)
+    readoutFrame.current = requestAnimationFrame(() => {
+      const spot = globe.current?.toGlobeCoords(x, y)
+      if (!readout.current) return
+      readout.current.hidden = !spot
+      if (spot) readout.current.textContent = `${Math.abs(spot.lat).toFixed(2)}° ${spot.lat >= 0 ? 'N' : 'S'}  ${Math.abs(spot.lng).toFixed(2)}° ${spot.lng >= 0 ? 'E' : 'W'}`
+    })
+  }
+  function hideCursor() {
+    cancelAnimationFrame(readoutFrame.current)
+    if (readout.current) readout.current.hidden = true
+  }
+
   return (
     <section aria-label={`${currentPlanet === 'mars' ? 'Mars' : 'Earth'} site globe`} className={fill ? 'globe-fullscreen w-full min-w-0 h-full' : 'w-full min-w-0'}>
-      <div ref={setContainer} className={fill ? 'globe-backdrop relative w-full h-full overflow-hidden bg-[#090b0e]' : 'globe-backdrop relative w-full overflow-hidden rounded-2xl bg-[#090b0e]'}>
+      <div ref={setContainer} className={fill ? 'globe-backdrop relative w-full h-full overflow-hidden bg-[#090b0e]' : 'globe-backdrop relative w-full overflow-hidden rounded-2xl bg-[#090b0e]'} onPointerMove={fill ? trackCursor : undefined} onPointerLeave={fill ? hideCursor : undefined}>
+        {fill && <div ref={readout} className="globe-cursor-readout" aria-hidden="true" hidden />}
         {webglAvailable && !canvasFailed ? (
           <GlobeErrorBoundary key={`${currentPlanet}-${tileLevel ?? 'image'}`} fallback={fallback} onFailure={() => setCanvasFailed(true)}>
             <div className="globe-transition">

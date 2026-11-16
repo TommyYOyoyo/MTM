@@ -319,3 +319,83 @@
 @media (prefers-reduced-motion: reduce) {
   .research-section > summary::after { transition: none; }
 }
+
+.research-stats {
+  margin: 0 0 .75rem;
+  padding: .625rem .75rem;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--corner-inner, .875rem);
+  background: rgba(255, 255, 255, .035);
+}
+
+.research-stats p {
+  margin: 0;
+  color: rgba(255, 255, 255, .78);
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+.research-stats p + p {
+  margin-top: .375rem;
+  font-size: .6875rem;
+}
+
+.research-stats strong {
+  color: rgba(255, 255, 255, .95);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.research-tools .benchmark-stability {
+  grid-column: 1 / -1;
+  color: rgba(255, 255, 255, .5);
+  font-size: .6875rem;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.research-tools .research-family-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .375rem .875rem;
+  margin: 0 0 .75rem;
+  padding: 0;
+  list-style: none;
+  color: rgba(255, 255, 255, .6);
+  font-size: .6875rem;
+}
+
+.research-family-legend li,
+.research-family-list li > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+}
+
+.research-family-legend i,
+.research-family-list i {
+  display: inline-block;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+}
+
+.research-family-legend i.is-mars,
+.research-family-legend i.is-earth {
+  background: rgba(255, 255, 255, .55);
+}
+
+.research-family-legend i.is-earth,
+.research-family-list i.is-earth {
+  border-radius: .125rem;
+}
+
+/* rank stability bar */
+.research-tools .benchmark-stability { display: grid; gap: .2rem; }
+.research-tools .stability-track { position: relative; height: .45rem; margin-top: .2rem; border-radius: 1rem; background: rgba(255, 255, 255, .07); }
+.research-tools .stability-top { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 1rem 0 0 1rem; background: rgba(139, 187, 166, .22); }
+.research-tools .stability-range { position: absolute; top: 0; bottom: 0; min-width: .45rem; border-radius: 1rem; background: rgba(239, 191, 157, .5); }
+.research-tools .stability-rank { position: absolute; top: 50%; width: .6rem; height: .6rem; transform: translate(-50%, -50%); border: 2px solid #15171a; border-radius: 50%; background: #fff; }
+.research-tools .stability-axis { position: relative; display: flex; justify-content: space-between; color: rgba(255, 255, 255, .38); font-size: .5625rem; }
+.research-tools .stability-axis-top { position: absolute; left: 0; text-align: center; color: rgba(139, 187, 166, .8); }
+.research-tools .stability-axis { min-height: .8rem; } .research-tools .stability-axis-end { margin-left: auto; }

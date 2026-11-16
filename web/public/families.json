@@ -1,10 +1,10 @@
 {
  "metadata": {
   "status": "connected",
-  "method": "PCA (2 components) + k-means (k=5, silhouette)",
+  "method": "PCA (2 components) + k-means (k=4, silhouette); 3-nearest neighbours on the other planet; isolation forest (10% flagged)",
   "explained_variance": [
-   0.462,
-   0.305
+   0.459,
+   0.302
   ]
  },
  "points": [
@@ -12,316 +12,901 @@
    "id": "gale",
    "name": "Gale crater (Curiosity, Bradbury Landing)",
    "planet": "mars",
-   "pc1": 0.4069,
-   "pc2": -0.3332,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.4315,
+   "pc2": -0.3026,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "dallol_new_site",
+     "distance": 0.158
+    },
+    {
+     "id": "parana_traps_new_site",
+     "distance": 0.212
+    },
+    {
+     "id": "rio_tinto_bm",
+     "distance": 0.381
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.463
   },
   {
    "id": "jezero",
    "name": "Jezero crater (Perseverance, Octavia E. Butler Landing)",
    "planet": "mars",
-   "pc1": 0.225,
-   "pc2": -0.3234,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.264,
+   "pc2": -0.3103,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "dallol_new_site",
+     "distance": 0.105
+    },
+    {
+     "id": "kilauea_bm",
+     "distance": 0.226
+    },
+    {
+     "id": "parana_traps_new_site",
+     "distance": 0.256
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.451
   },
   {
    "id": "phoenix",
    "name": "Phoenix site (Vastitas Borealis)",
    "planet": "mars",
-   "pc1": -0.5222,
-   "pc2": 0.1485,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.5483,
+   "pc2": 0.1168,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "taklamakan_new_site",
+     "distance": 0.317
+    },
+    {
+     "id": "qaidam_basin_bm",
+     "distance": 0.362
+    },
+    {
+     "id": "karapinar_new_site",
+     "distance": 0.469
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.521
   },
   {
    "id": "meridiani",
    "name": "Eagle crater (Opportunity, Challenger Memorial Station)",
    "planet": "mars",
-   "pc1": -0.3853,
-   "pc2": -0.1683,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.302,
+   "pc2": -0.2162,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "karapinar_new_site",
+     "distance": 0.242
+    },
+    {
+     "id": "bodele_new_site",
+     "distance": 0.255
+    },
+    {
+     "id": "qaidam_basin_bm",
+     "distance": 0.258
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.458
   },
   {
    "id": "gusev",
    "name": "Gusev crater (Spirit, Columbia Memorial Station)",
    "planet": "mars",
-   "pc1": -0.0521,
-   "pc2": -0.2681,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.0058,
+   "pc2": -0.2821,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "sambhar_salt_lake_new_site",
+     "distance": 0.055
+    },
+    {
+     "id": "kilauea_bm",
+     "distance": 0.187
+    },
+    {
+     "id": "karoo_new_site",
+     "distance": 0.218
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.406
   },
   {
    "id": "gale_ez",
    "name": "Aeolis Palus",
    "planet": "mars",
-   "pc1": 0.2559,
-   "pc2": -0.024,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.2899,
+   "pc2": -0.0153,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "deccan_traps_bm",
+     "distance": 0.236
+    },
+    {
+     "id": "parana_traps_new_site",
+     "distance": 0.264
+    },
+    {
+     "id": "rio_tinto_bm",
+     "distance": 0.276
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.457
   },
   {
    "id": "ne_syrtis_ez",
    "name": "Northeast Syrtis",
    "planet": "mars",
-   "pc1": 0.116,
-   "pc2": -0.1299,
+   "pc1": 0.1618,
+   "pc2": -0.1318,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "kilauea_bm",
+     "distance": 0.13
+    },
+    {
+     "id": "karoo_new_site",
+     "distance": 0.171
+    },
+    {
+     "id": "rio_tinto_bm",
+     "distance": 0.177
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.421
+  },
+  {
+   "id": "green_valley_ez",
+   "name": "Green Valley",
+   "planet": "mars",
+   "pc1": -0.3829,
+   "pc2": 0.0957,
    "cluster": 2,
-   "family": "Family 3: high thermal"
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "qaidam_basin_bm",
+     "distance": 0.32
+    },
+    {
+     "id": "taklamakan_new_site",
+     "distance": 0.33
+    },
+    {
+     "id": "karapinar_new_site",
+     "distance": 0.366
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.484
   },
   {
    "id": "meridiani_planum_ez",
    "name": "Meridiani Planums",
    "planet": "mars",
-   "pc1": -0.1395,
-   "pc2": -0.0482,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.0753,
+   "pc2": -0.0761,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "karoo_new_site",
+     "distance": 0.161
+    },
+    {
+     "id": "death_valley_bm",
+     "distance": 0.195
+    },
+    {
+     "id": "karapinar_new_site",
+     "distance": 0.213
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.424
   },
   {
    "id": "home_plate",
    "name": "Home Plate (Columbia Hills, Spirit)",
    "planet": "mars",
-   "pc1": -0.1338,
-   "pc2": -0.2268,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.0704,
+   "pc2": -0.2494,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "sambhar_salt_lake_new_site",
+     "distance": 0.105
+    },
+    {
+     "id": "karoo_new_site",
+     "distance": 0.21
+    },
+    {
+     "id": "kilauea_bm",
+     "distance": 0.228
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.41
   },
   {
    "id": "arcadia_ez",
    "name": "Arcadia Planitia exploration zone",
    "planet": "mars",
-   "pc1": -0.2969,
-   "pc2": -0.072,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.2418,
+   "pc2": -0.1068,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "loma_new_site",
+     "distance": 0.178
+    },
+    {
+     "id": "karapinar_new_site",
+     "distance": 0.184
+    },
+    {
+     "id": "qaidam_basin_bm",
+     "distance": 0.208
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.443
   },
   {
    "id": "atacama_yungay_bm",
    "name": "Yungay, Chile",
    "planet": "earth",
-   "pc1": -0.4866,
-   "pc2": 0.0739,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.4775,
+   "pc2": 0.034,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "olympus_mons",
+     "distance": 0.268
+    },
+    {
+     "id": "meridiani",
+     "distance": 0.342
+    },
+    {
+     "id": "meridiani_planum_ez",
+     "distance": 0.437
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.477
   },
   {
    "id": "antarctic_plateau_new_site",
    "name": "High Antartic Polar Plateau",
    "planet": "earth",
-   "pc1": -0.1232,
-   "pc2": 0.063,
-   "cluster": 4,
-   "family": "Family 5: high albedo"
+   "pc1": -0.1575,
+   "pc2": 0.0639,
+   "cluster": 0,
+   "family": "Family 1: high albedo",
+   "neighbours": [
+    {
+     "id": "arcadia_ez",
+     "distance": 0.684
+    },
+    {
+     "id": "green_valley_ez",
+     "distance": 0.707
+    },
+    {
+     "id": "phoenix",
+     "distance": 0.797
+    }
+   ],
+   "outlier": true,
+   "outlier_score": 0.645
   },
   {
    "id": "dallol_new_site",
    "name": "Dallol, Danakil Depression",
    "planet": "earth",
-   "pc1": 0.268,
-   "pc2": -0.3886,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.2949,
+   "pc2": -0.3673,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "jezero",
+     "distance": 0.105
+    },
+    {
+     "id": "gale",
+     "distance": 0.158
+    },
+    {
+     "id": "utopia_ez",
+     "distance": 0.26
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.459
   },
   {
    "id": "university_valley_bm",
    "name": "University Valley, Antartica",
    "planet": "earth",
-   "pc1": 0.2471,
-   "pc2": 0.7199,
-   "cluster": 3,
-   "family": "Family 4: low sun"
+   "pc1": 0.1883,
+   "pc2": 0.7386,
+   "cluster": 1,
+   "family": "Family 2: high roughness",
+   "neighbours": [
+    {
+     "id": "gale_ez",
+     "distance": 0.806
+    },
+    {
+     "id": "olympus_mons",
+     "distance": 0.866
+    },
+    {
+     "id": "green_valley_ez",
+     "distance": 0.89
+    }
+   ],
+   "outlier": true,
+   "outlier_score": 0.642
   },
   {
    "id": "kilimanjaro_new_site",
    "name": "Uhuru Peak, Mount Kilimanjaro",
    "planet": "earth",
-   "pc1": 0.0969,
-   "pc2": 0.4088,
-   "cluster": 0,
-   "family": "Family 1: high slope"
+   "pc1": 0.0936,
+   "pc2": 0.4063,
+   "cluster": 1,
+   "family": "Family 2: high roughness",
+   "neighbours": [
+    {
+     "id": "olympus_mons",
+     "distance": 0.607
+    },
+    {
+     "id": "gale_ez",
+     "distance": 0.613
+    },
+    {
+     "id": "meridiani_planum_ez",
+     "distance": 0.642
+    }
+   ],
+   "outlier": true,
+   "outlier_score": 0.611
   },
   {
    "id": "kilauea_bm",
    "name": "Kilauea Crater, Hawaii",
    "planet": "earth",
-   "pc1": 0.0874,
-   "pc2": -0.2068,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.1084,
+   "pc2": -0.2012,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.13
+    },
+    {
+     "id": "gusev",
+     "distance": 0.187
+    },
+    {
+     "id": "jezero",
+     "distance": 0.226
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.449
   },
   {
    "id": "death_valley_bm",
    "name": "Death Valley, California",
    "planet": "earth",
    "pc1": -0.0498,
-   "pc2": 0.0699,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc2": 0.065,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "meridiani_planum_ez",
+     "distance": 0.195
+    },
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.297
+    },
+    {
+     "id": "home_plate",
+     "distance": 0.32
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.442
   },
   {
    "id": "bodele_new_site",
    "name": "Bodélé Depression, Chad",
    "planet": "earth",
-   "pc1": -0.331,
-   "pc2": -0.1635,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.3133,
+   "pc2": -0.1888,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "meridiani",
+     "distance": 0.255
+    },
+    {
+     "id": "home_plate",
+     "distance": 0.278
+    },
+    {
+     "id": "arcadia_ez",
+     "distance": 0.285
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.465
   },
   {
    "id": "taklamakan_new_site",
    "name": "Taklamakan Desert, Tarim basin",
    "planet": "earth",
-   "pc1": -0.4765,
-   "pc2": 0.0375,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.4778,
+   "pc2": 0.0032,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "arcadia_ez",
+     "distance": 0.298
+    },
+    {
+     "id": "meridiani",
+     "distance": 0.308
+    },
+    {
+     "id": "phoenix",
+     "distance": 0.317
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.451
   },
   {
    "id": "loma_new_site",
    "name": "Loma, Montana",
    "planet": "earth",
-   "pc1": -0.071,
-   "pc2": -0.0556,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.0753,
+   "pc2": -0.0568,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "arcadia_ez",
+     "distance": 0.178
+    },
+    {
+     "id": "home_plate",
+     "distance": 0.286
+    },
+    {
+     "id": "gusev",
+     "distance": 0.305
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.439
   },
   {
    "id": "deccan_traps_bm",
    "name": "Deccan Traps",
    "planet": "earth",
-   "pc1": 0.397,
-   "pc2": 0.0935,
-   "cluster": 0,
-   "family": "Family 1: high slope"
+   "pc1": 0.4057,
+   "pc2": 0.1171,
+   "cluster": 1,
+   "family": "Family 2: high roughness",
+   "neighbours": [
+    {
+     "id": "gale_ez",
+     "distance": 0.236
+    },
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.384
+    },
+    {
+     "id": "gale",
+     "distance": 0.517
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.513
   },
   {
    "id": "svalbard_bm",
    "name": "Svalbard",
    "planet": "earth",
-   "pc1": 0.183,
-   "pc2": 0.5893,
-   "cluster": 3,
-   "family": "Family 4: low sun"
+   "pc1": 0.129,
+   "pc2": 0.6053,
+   "cluster": 1,
+   "family": "Family 2: high roughness",
+   "neighbours": [
+    {
+     "id": "gale_ez",
+     "distance": 0.729
+    },
+    {
+     "id": "green_valley_ez",
+     "distance": 0.746
+    },
+    {
+     "id": "olympus_mons",
+     "distance": 0.794
+    }
+   ],
+   "outlier": true,
+   "outlier_score": 0.599
   },
   {
    "id": "karoo_new_site",
    "name": "Karoo Flood Basalt Province",
    "planet": "earth",
-   "pc1": 0.0098,
-   "pc2": -0.0833,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.0202,
+   "pc2": -0.0831,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "meridiani_planum_ez",
+     "distance": 0.161
+    },
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.171
+    },
+    {
+     "id": "home_plate",
+     "distance": 0.21
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.424
   },
   {
    "id": "parana_traps_new_site",
    "name": "Paraná Traps",
    "planet": "earth",
-   "pc1": 0.4315,
-   "pc2": -0.1869,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.4499,
+   "pc2": -0.1563,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "gale",
+     "distance": 0.212
+    },
+    {
+     "id": "jezero",
+     "distance": 0.256
+    },
+    {
+     "id": "gale_ez",
+     "distance": 0.264
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.487
   },
   {
    "id": "chilcotin_group_new_site",
    "name": "Chilcotin Group",
    "planet": "earth",
-   "pc1": 0.3023,
-   "pc2": 0.1378,
-   "cluster": 0,
-   "family": "Family 1: high slope"
+   "pc1": 0.2878,
+   "pc2": 0.1616,
+   "cluster": 1,
+   "family": "Family 2: high roughness",
+   "neighbours": [
+    {
+     "id": "gale_ez",
+     "distance": 0.32
+    },
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.374
+    },
+    {
+     "id": "utopia_ez",
+     "distance": 0.46
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.509
   },
   {
    "id": "qaidam_basin_bm",
    "name": "Qaidam Basin (Dalangtan Playa, site X0)",
    "planet": "earth",
-   "pc1": -0.3837,
-   "pc2": -0.003,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.3829,
+   "pc2": -0.0302,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "arcadia_ez",
+     "distance": 0.208
+    },
+    {
+     "id": "meridiani",
+     "distance": 0.258
+    },
+    {
+     "id": "green_valley_ez",
+     "distance": 0.32
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.432
   },
   {
    "id": "sambhar_salt_lake_new_site",
    "name": "Sambhar Salt Lake (AK103T sampling site)",
    "planet": "earth",
-   "pc1": -0.0178,
-   "pc2": -0.2705,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.0025,
+   "pc2": -0.2706,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "gusev",
+     "distance": 0.055
+    },
+    {
+     "id": "home_plate",
+     "distance": 0.105
+    },
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.249
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.432
   },
   {
    "id": "ladakh_new_site",
    "name": "Ladakh (Tso Kar, Pin 2 permafrost mound)",
    "planet": "earth",
-   "pc1": -0.3666,
-   "pc2": 0.1368,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.3671,
+   "pc2": 0.1071,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "olympus_mons",
+     "distance": 0.193
+    },
+    {
+     "id": "meridiani_planum_ez",
+     "distance": 0.35
+    },
+    {
+     "id": "meridiani",
+     "distance": 0.367
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.463
   },
   {
    "id": "wells_new_site",
    "name": "Wells Gray–Clearwater Volcanic Field (Second Canyon Creek)",
    "planet": "earth",
-   "pc1": 0.6342,
-   "pc2": 0.2179,
-   "cluster": 0,
-   "family": "Family 1: high slope"
+   "pc1": 0.616,
+   "pc2": 0.2649,
+   "cluster": 1,
+   "family": "Family 2: high roughness",
+   "neighbours": [
+    {
+     "id": "gale_ez",
+     "distance": 0.504
+    },
+    {
+     "id": "gale",
+     "distance": 0.626
+    },
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.633
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.588
   },
   {
    "id": "tuya_new_site",
    "name": "Tuya Volcanic Field (Mathews Tuya)",
    "planet": "earth",
-   "pc1": 0.4178,
-   "pc2": 0.2284,
-   "cluster": 0,
-   "family": "Family 1: high slope"
+   "pc1": 0.392,
+   "pc2": 0.2615,
+   "cluster": 1,
+   "family": "Family 2: high roughness",
+   "neighbours": [
+    {
+     "id": "gale_ez",
+     "distance": 0.444
+    },
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.548
+    },
+    {
+     "id": "utopia_ez",
+     "distance": 0.575
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.573
   },
   {
    "id": "karapinar_new_site",
    "name": "Karapınar Volcanic Field (Meke Gölü maar)",
    "planet": "earth",
-   "pc1": -0.2008,
-   "pc2": -0.0081,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.1988,
+   "pc2": -0.0222,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "arcadia_ez",
+     "distance": 0.184
+    },
+    {
+     "id": "meridiani_planum_ez",
+     "distance": 0.213
+    },
+    {
+     "id": "meridiani",
+     "distance": 0.242
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.423
   },
   {
    "id": "olympus_mons",
    "name": "Olympus Mons",
    "planet": "mars",
-   "pc1": -0.3346,
-   "pc2": 0.2152,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.338,
+   "pc2": 0.186,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "ladakh_new_site",
+     "distance": 0.193
+    },
+    {
+     "id": "el_tatio_bm",
+     "distance": 0.253
+    },
+    {
+     "id": "atacama_yungay_bm",
+     "distance": 0.268
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.528
   },
   {
    "id": "utopia_ez",
    "name": "Western Utopia Planitia (Ulrich et al. 2011 study area)",
    "planet": "mars",
-   "pc1": 0.3071,
-   "pc2": -0.2933,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.322,
+   "pc2": -0.2667,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "dallol_new_site",
+     "distance": 0.26
+    },
+    {
+     "id": "rio_tinto_bm",
+     "distance": 0.313
+    },
+    {
+     "id": "parana_traps_new_site",
+     "distance": 0.356
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.51
   },
   {
    "id": "rio_tinto_bm",
    "name": "Río Tinto (Peña de Hierro), Spain",
    "planet": "earth",
-   "pc1": 0.1694,
-   "pc2": -0.0903,
-   "cluster": 2,
-   "family": "Family 3: high thermal"
+   "pc1": 0.1745,
+   "pc2": -0.0764,
+   "cluster": 3,
+   "family": "Family 4: high thermal",
+   "neighbours": [
+    {
+     "id": "ne_syrtis_ez",
+     "distance": 0.177
+    },
+    {
+     "id": "jezero",
+     "distance": 0.265
+    },
+    {
+     "id": "gale_ez",
+     "distance": 0.276
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.453
   },
   {
    "id": "el_tatio_bm",
    "name": "El Tatio geyser field, Chile",
    "planet": "earth",
-   "pc1": -0.1839,
-   "pc2": 0.2033,
-   "cluster": 1,
-   "family": "Family 2: low thermal"
+   "pc1": -0.179,
+   "pc2": 0.1833,
+   "cluster": 2,
+   "family": "Family 3: low thermal",
+   "neighbours": [
+    {
+     "id": "olympus_mons",
+     "distance": 0.253
+    },
+    {
+     "id": "meridiani_planum_ez",
+     "distance": 0.34
+    },
+    {
+     "id": "meridiani",
+     "distance": 0.473
+    }
+   ],
+   "outlier": false,
+   "outlier_score": 0.492
   }
  ]
 }

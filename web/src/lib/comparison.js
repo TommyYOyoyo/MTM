@@ -235,6 +235,7 @@ export function rankComparisons(target, candidates = [], weights = WEIGHT_PRESET
   const available = candidates.filter((site) => site && site.id !== target.id && site.planet !== target.planet && ['earth', 'mars'].includes(site.planet))
     .filter((site) => !query || `${site.name || ''} ${site.id} ${(site.tags || []).join(' ')}`.toLowerCase().includes(query))
     .filter((site) => !options.benchmarkOnly || site.benchmark)
+    .filter((site) => !options.hideBenchmarks || !site.benchmark)
     .filter((site) => !selectedTags.length || selectedTags.every((tag) => (site.tags || []).includes(tag)))
     .filter((site) => maxElevation === null || site.planet !== 'mars' || (Number.isFinite(site.elevation_m) ? site.elevation_m <= maxElevation : options.includeMissingElevation === true))
     .map(sanitizeScoringSite)
@@ -287,4 +288,139 @@ export function resultsToCsv(results, target, weights = WEIGHT_PRESETS[0].weight
     ...FACTORS.map((key) => weights[key] || 0),
   ])
   return [headers, ...rows].map((row) => row.map(csvValue).join(',')).join('\r\n')
+}
+
+// chance a random ranking gets at least k hits out of n (binomial tail)
+export function binomialTail(k, n, p) {
+  if (!Number.isInteger(k) || !Number.isInteger(n) || n <= 0 || k <= 0) return 1
+  if (k > n) return 0
+  let total = 0
+  let coefficient = 1
+  for (let i = 0; i <= n; i += 1) {
+    if (i > 0) coefficient = coefficient * (n - i + 1) / i
+    if (i >= k) total += coefficient * p ** i * (1 - p) ** (n - i)
+  }
+  return Math.min(1, total)
+}
+
+// benchmark hits vs random, same top 5 rule as validate.py
+export function benchmarkStatistics(report, sites = [], topK = 5) {
+  const scored = (report?.rows || []).filter((row) => ['pass', 'fail'].includes(row.status))
+  const earthCount = sites.filter((site) => site.planet === 'earth' && !site.discovery).length
+  if (!scored.length || !earthCount) return null
+  const hits = scored.filter((row) => row.status === 'pass').length
+  const chance = Math.min(1, topK / earthCount)
+  return { hits, total: scored.length, earthCount, chance, pValue: binomialTail(hits, scored.length, chance), topK }
+}
+
+// seeded random so the numbers don't change every reload
+function seededRandom(seed) {
+  let state = seed >>> 0
+  return () => {
+    state = (state + 0x6D2B79F5) >>> 0
+    let t = state
+    t = Math.imul(t ^ (t >>> 15), t | 1)
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+// shake the weights 500 times (like robustness.py) --> % of runs in top 5 + rank range
+export function benchmarkStability(sites = [], { runs = 500, seed = 2026, topK = 5 } = {}) {
+  const earthSites = sites.filter((site) => site.planet === 'earth' && !site.discovery)
+  const marsSites = sites.filter((site) => site.planet === 'mars')
+  const pairs = earthSites.filter((site) => isTrue(site.benchmark)).flatMap((site) => benchmarkTargetsFor(site)
+    .map((targetId) => ({ site, target: marsSites.find((entry) => entry.id === targetId) }))
+    .filter((pair) => pair.target))
+  if (!pairs.length) return []
+  const factors = FACTORS.filter((key) => key !== 'subsurface')
+  const random = seededRandom(seed)
+  const weightings = Array.from({ length: runs }, () => {
+    const draws = factors.map(() => -Math.log(1 - random()))
+    const total = draws.reduce((sum, value) => sum + value, 0)
+    return Object.fromEntries(FACTORS.map((key) => [key, factors.includes(key) ? draws[factors.indexOf(key)] / total * 100 : 0]))
+  })
+  return pairs.map(({ site, target }) => {
+    const ranks = weightings.map((weights) => {
+      const index = rankComparisons(target, earthSites, weights).findIndex((entry) => entry.site.id === site.id)
+      return index < 0 ? null : index + 1
+    }).filter((rank) => rank !== null).sort((a, b) => a - b)
+    if (!ranks.length) return { site, target, share: null, low: null, high: null }
+    const at = (q) => ranks[Math.min(ranks.length - 1, Math.floor(q * ranks.length))]
+    return { site, target, share: ranks.filter((rank) => rank <= topK).length / ranks.length, low: at(0.1), high: at(0.9) }
+  })
+}
+
+// how much data + papers back a match --> strong / partial / limited
+export function evidenceLevel(result) {
+  if (!result) return null
+  if (result.site?.discovery) return { level: 'unreviewed', label: 'Unreviewed', detail: 'Global-scan candidate: terrain and surface data only; geology and ice not yet checked.' }
+  const papers = (result.site?.papers || []).length
+  if (result.coverage >= 80 && papers > 0) return { level: 'strong', label: 'Strong evidence', detail: `${Math.round(result.coverage)}% of the weighted factors have data, backed by ${papers === 1 ? 'a published paper' : `${papers} published papers`}.` }
+  if (result.coverage >= 60) return { level: 'partial', label: 'Partial evidence', detail: `${Math.round(result.coverage)}% of the weighted factors have data${papers ? '' : '; no paper attached'}.` }
+  return { level: 'limited', label: 'Limited evidence', detail: `Only ${Math.round(result.coverage)}% of the weighted factors have data.` }
+}
+
+// under these the best match isn't really an analog
+export const RELIABLE_MATCH = { minScore: 70, minCoverage: 60 }
+
+export function reliableMatch(result) {
+  return !!result && result.score !== null && result.score >= RELIABLE_MATCH.minScore && result.coverage >= RELIABLE_MATCH.minCoverage
+}
+
+// worldview link for earth sites (2023 = same year as our modis data)
+export function nasaViewerLink(site) {
+  if (!site || !Number.isFinite(site.lat) || !Number.isFinite(site.lon)) return null
+  if (site.planet === 'earth') {
+    const pad = 0.6
+    const box = [site.lon - pad, site.lat - pad, site.lon + pad, site.lat + pad].map((value) => value.toFixed(3)).join(',')
+    return { label: 'View in NASA Worldview', href: `https://worldview.earthdata.nasa.gov/?v=${box}&l=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines_15m&t=2023-07-15` }
+  }
+  return null
+}
+
+// escape text before putting it in the brief html
+const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char])
+
+// one page printable brief for the target + its top matches
+export function missionBriefHtml(target, results = [], weights = WEIGHT_PRESETS[0].weights, presetLabel = 'Equal', count = 5) {
+  if (!target) return ''
+  const top = results.slice(0, count)
+  const weightText = FACTORS.filter((key) => (weights[key] || 0) > 0).map((key) => `${FACTOR_INFO.find((factor) => factor.key === key)?.label || key} ${Math.round(weights[key])}%`).join(' · ')
+  const rows = top.map((result, index) => {
+    const evidence = evidenceLevel(result)
+    const matches = result.matches.map((part) => part.label).join(', ') || '—'
+    const breaks = result.breaks.map((part) => `${part.label} (${Math.round(part.sim * 100)}%)`).join(', ') || '—'
+    const papers = (result.site.papers || []).map((paper) => {
+      const url = paperUrl(paper)
+      return url ? `<a href="${escapeHtml(url)}">${escapeHtml(paper.title || paper.doi || url)}</a>` : escapeHtml(paper.title || paper.doi || '')
+    }).filter(Boolean).join('<br>') || '—'
+    const viewer = nasaViewerLink(result.site)
+    return `<tr><td>${index + 1}</td><td><strong>${escapeHtml(result.site.name)}</strong><br><small>${result.site.lat.toFixed(3)}, ${result.site.lon.toFixed(3)}${viewer ? ` · <a href="${escapeHtml(viewer.href)}">${escapeHtml(viewer.label)}</a>` : ''}</small></td><td>${result.score === null ? '—' : `${result.score.toFixed(1)}%`}<br><small>${Math.round(result.coverage)}% coverage</small></td><td>${escapeHtml(evidence?.label || '')}</td><td><small><b>Matches:</b> ${escapeHtml(matches)}<br><b>Differs:</b> ${escapeHtml(breaks)}</small></td><td><small>${papers}</small></td></tr>`
+  }).join('')
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Mission brief · ${escapeHtml(target.name)} · Space Out</title><style>
+body{font:13px/1.5 system-ui,-apple-system,sans-serif;color:#111;margin:2rem;max-width:60rem}h1{font-size:1.4rem;margin:0}h2{font-size:1rem;margin:1.5rem 0 .5rem}p{margin:.35rem 0}table{width:100%;border-collapse:collapse}td,th{border-top:1px solid #ddd;padding:.45rem;vertical-align:top;text-align:left}th{font-size:.75rem;color:#555}small{color:#444}a{color:#1a4f8b}footer{margin-top:1.5rem;color:#666;font-size:.75rem}@media print{body{margin:1cm}}
+</style></head><body>
+<h1>Mission brief · ${escapeHtml(target.name)}</h1>
+<p>Earth analogs for a Mars ${escapeHtml(target.type === 'exploration_zone' ? 'exploration zone' : 'site')} at ${target.lat.toFixed(3)}, ${target.lon.toFixed(3)}. Generated by Space Out.</p>
+<p><b>Weights (${escapeHtml(presetLabel)}):</b> ${escapeHtml(weightText)}</p>
+<h2>Top ${top.length} Earth analogs</h2>
+<table><thead><tr><th>#</th><th>Site</th><th>Resemblance</th><th>Evidence</th><th>What matches / differs</th><th>Papers</th></tr></thead><tbody>${rows || '<tr><td colspan="6">No matches with the current filters.</td></tr>'}</tbody></table>
+<h2>Limits of any Earth analog</h2>
+<p>Mars gravity is about 0.38 of Earth’s; surface pressure is under 1% of Earth’s; the thin atmosphere gives far less radiation shielding; liquid water cannot persist on the surface. Resemblance is a weighted Gower similarity of normalized measurements and documented categories, not proof of suitability.</p>
+<footer>Data: NASA MOLA, TES, SWIM, NASADEM, MODIS (via Google Earth Engine), ESA Copernicus DEM, and the papers listed. Gower (1971), doi:10.2307/2528823.</footer>
+</body></html>`
+}
+
+// remove one factor at a time --> how much the score moves (+ helps the match, - hurts it)
+export function factorDrivers(result) {
+  const usable = (result?.parts || []).filter((part) => part.sim !== null && part.weight > 0)
+  const totalWeight = usable.reduce((sum, part) => sum + part.weight, 0)
+  if (usable.length < 2 || !totalWeight) return []
+  const total = usable.reduce((sum, part) => sum + part.weight * part.sim, 0)
+  const score = total / totalWeight * 100
+  return usable.map((part) => {
+    const without = (total - part.weight * part.sim) / (totalWeight - part.weight) * 100
+    return { factor: part.factor, label: part.label || part.factor, effect: score - without }
+  }).sort((a, b) => b.effect - a.effect)
 }

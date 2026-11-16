@@ -529,7 +529,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": "McMurdo Dry Valleys",
-    "use_case": "Identifier des minéraux et creuser sous les glaces pour avoir des indices du passage de la vie",
+    "use_case": "Identify minerals and dig beneath the ice for clues of past life",
     "papers": [
       "Mars Exploration Program 2007 Phoenix landing site selection and characteristics | The high elevation Dry Valleys in Antarctica as analog sites for subsurface ice on Mars"
     ],
@@ -678,7 +678,7 @@
     "subsurface": null,
     "benchmark": false,
     "twin": "el_tatio_bm",
-    "use_case": "Identifier des roches qui peuvent contenir des traces d'une présence d'eau il y a plusieurs années",
+    "use_case": "Identify rocks that may hold traces of water from long ago",
     "papers": [
       "Silica deposits on Mars with features resembling hot spring biosignatures at El Tatio in Chile | 10.1038/ncomms13554",
       "Rocks of the Columbia Hills | 10.1029/2005JE002562"

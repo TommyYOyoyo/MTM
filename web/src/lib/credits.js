@@ -1,5 +1,5 @@
 export const TEAM = Object.freeze({
-  name: 'Da Bricks',
+  name: 'Space Out',
   url: 'https://www.spaceappschallenge.org/2026/find-a-team/da-bricks/?tab=members',
   members: Object.freeze(['Lauredant Erving', 'Perline Shen', 'Honglue Zheng', 'Yuecheng Ma', 'Christopher Ezael', 'Hila Geris']),
 })
@@ -9,6 +9,10 @@ const NASA_REFERENCES = [
   { name: 'Viking merged colour mosaic', url: 'https://www.mars.asu.edu/data/mdim_color/', agency: 'NASA Viking Orbiter · USGS Astrogeology · ASU Mars Space Flight Facility', detail: 'Mars imagery and detail tiles.' },
   { name: 'NASA Planetary Fact Sheet', url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/', agency: 'NASA', detail: 'Orbital periods and relative planet sizes.' },
   { name: 'Mars facts', url: 'https://science.nasa.gov/mars/facts/', agency: 'NASA Science', detail: 'Gravity, atmosphere and limits of Earth–Mars analogies.' },
+  { name: 'NASA Mars Trek', url: 'https://trek.nasa.gov/mars/', agency: 'NASA / JPL', detail: 'Viking colour mosaic (MDIM 2.1) tiles for Mars site pictures.' },
+  { name: 'NASA Worldview', url: 'https://worldview.earthdata.nasa.gov/', agency: 'NASA EOSDIS', detail: 'MODIS Terra true-colour snapshots for Earth site pictures and links.' },
+  { name: 'Phoenix MET station data', url: 'https://donnees-data.asc-csa.gc.ca/dataset/0e338f52-25e4-465c-8104-bb9d7c8d3df3', agency: 'Canadian Space Agency', detail: 'Daily air temperature and pressure measured at the Phoenix landing site, sols 0–150 (2008).' },
+  { name: 'Wikimedia Commons', url: 'https://commons.wikimedia.org/', agency: 'Wikimedia contributors', detail: 'Geotagged photos near Earth sites, each credited with its author and licence in the site panel.' },
 ]
 
 const OTHER_CREDITS = [

@@ -36,7 +36,11 @@ def categorySimilarity(marsSite, earthSite, factor):
     
     if marsValue is None or earthValue is None:
         return None
-    
+
+    # permafrost (earth) = ground_ice (mars), same thing
+    if marsValue == "permafrost": marsValue = "ground_ice"
+    if earthValue == "permafrost": earthValue = "ground_ice"
+
     return 1.0 if marsValue == earthValue else 0.0
 
 # avg of all usable factors (missing skipped) --> 0-100

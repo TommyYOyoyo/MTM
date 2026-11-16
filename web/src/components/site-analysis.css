@@ -13,3 +13,11 @@
 .site-analysis-caption > span:first-child { display: inline-flex; align-items: center; gap: .375rem; }
 .site-analysis-caption i { width: .375rem; height: .375rem; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px #ffffff26; }
 .comparison-details .site-analysis-note { margin: .5rem 0 0; }
+.comparison-details .site-analysis-flag { margin: .5rem 0 0; padding: .4rem .55rem; border: 1px solid #efbf9d40; border-radius: .5rem; color: #e9d3c3; background: #efbf9d0f; font-size: .6875rem; line-height: 1.5; }
+.site-analysis-neighbours { margin-top: .5rem; }
+.comparison-details .site-analysis-neighbours p { margin: 0 0 .25rem; color: #e5e5e1; font-size: .75rem; }
+.site-analysis-neighbours p span { color: var(--muted, #c2c2bf); font-size: .6875rem; }
+.site-analysis-neighbours ol { margin: 0; padding: 0; list-style: none; counter-reset: neighbour; }
+.site-analysis-neighbours li { display: flex; justify-content: space-between; gap: .75rem; padding: .3rem 0; border-bottom: 1px solid #ffffff10; font-size: .6875rem; color: #d8d8d5; counter-increment: neighbour; }
+.site-analysis-neighbours li > span:first-child::before { content: counter(neighbour) '. '; color: #8f8f8c; }
+.site-analysis-neighbours li > span:last-child { color: #9d9d9a; font-variant-numeric: tabular-nums; }
